@@ -1,0 +1,8 @@
+# Frozen protocol and evidence hashes apply to the exact checked-out bytes.
+*.py text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.lock text eol=lf
+results/**/reanalysis-metrics.json -text whitespace=cr-at-eol
+*.gz binary
+*.png binary

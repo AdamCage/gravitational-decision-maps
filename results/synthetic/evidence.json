@@ -1,0 +1,96 @@
+{
+  "episteme_commit": "7f5a1a0e43d7c35196cc8b3c9c74a618aa2559c3",
+  "frozen_manifest_sha256": "aac703791d5ed3b118b478d6164b37f2f0fe5eaad2bcae98ae072b03852d14d6",
+  "graph_revision": 16,
+  "graph_sha256": "64edf5a9546ff6e01936bc1bf2ca7904c2a27a6cd3b3d10dc2969be9094cbdc8",
+  "graph_snapshot": "dc03ed025a683013367eec42cf156d34756ddb937c481d362b0088a5f015eac2",
+  "primary": {
+    "dispatch": "execution_dispatch-7aa05ce6e39141d1",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-068c42ab4684444b",
+    "outputs": {
+      "environment_record": "1678c464beb0fbbf7754dac5a73b7023e98fc0084f13c5dde992941ffb592d97",
+      "execution_manifest": "5f9cf7fd8ef1a88be51015316cfe65a3d083bb3aea9ce73690f719da2c0fac9c",
+      "log": "5f9cf7fd8ef1a88be51015316cfe65a3d083bb3aea9ce73690f719da2c0fac9c",
+      "metrics": "b58c42116bd06c88cebbfef9853e1866aea85d3ee0341717f45f5c0f32e0e9c7",
+      "raw_data": "f0466385d2d08117fa3ce9e5e3370363ce0f3fc2ed54edf495e453075a47b9c8",
+      "summary": "9bf72acfce313e8147896e4a501337ee8b598ff139c0e7e2cae80d8ba0a62686"
+    },
+    "reason": "",
+    "result": "result-8545413b6d4b4a3b",
+    "run": "run-04c1b08ed8794b26",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis": {
+    "dispatch": "execution_dispatch-f9d9f4fe98fd4305",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-53e8ace70f7f426c",
+    "outputs": {
+      "environment_record": "2c781f3279f5608190f0f6a505679e164517973e61679f4ce659efb52ae6ba5b",
+      "execution_manifest": "f0e7ad5f970703617acf3b090870abbf822b35c58f65610c9588849f273806de",
+      "log": "f0e7ad5f970703617acf3b090870abbf822b35c58f65610c9588849f273806de",
+      "metrics": "a71687fbc31cd4ddf5ba440d36bb27a59119e5649f540ed546280f7c2f84d963",
+      "raw_data": "f0466385d2d08117fa3ce9e5e3370363ce0f3fc2ed54edf495e453075a47b9c8"
+    },
+    "reason": "",
+    "result": "result-5fb7ec008a6e4614",
+    "run": "run-2d1fece74fa244aa",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis_agreement": {
+    "agrees": true,
+    "identical_observations": true,
+    "metric": "primary_gain",
+    "metrics": {
+      "delta_vs_matched": {
+        "agrees": true,
+        "primary": -0.03750000000000002,
+        "reanalysis": -0.0375
+      },
+      "delta_vs_static": {
+        "agrees": true,
+        "primary": -0.0034895833333334013,
+        "reanalysis": -0.0034895833333333333
+      },
+      "gradient_external_balanced_accuracy": {
+        "agrees": true,
+        "primary": 0.6126041666666666,
+        "reanalysis": 0.6126041666666666
+      },
+      "median_latency_ratio": {
+        "agrees": true,
+        "primary": 2.6604835912208555,
+        "reanalysis": 2.6604835912208555
+      },
+      "primary_gain": {
+        "agrees": true,
+        "primary": -0.0034895833333334013,
+        "reanalysis": -0.0034895833333333333
+      },
+      "row_count": {
+        "agrees": true,
+        "primary": 35,
+        "reanalysis": 35
+      }
+    },
+    "primary": -0.0034895833333334013,
+    "reanalysis": -0.0034895833333333333,
+    "tolerance": 1e-12
+  },
+  "registration": {
+    "data": "76bae9f6ae4c0d5a29afea856d39712d2f223e64e93d74e9945e8007664d9563",
+    "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+    "execution_seed": 101,
+    "explanation_set": "explanation_set-c943e8e86e4e4d45",
+    "protocol": "protocol-8e01eb7e8bfa4813",
+    "question": "research_question-d4113f48b5fd461e",
+    "reanalysis": "567020d76b57da5d2ace97f6ca3d65031630b4ab89c75f798032836acaac11ca",
+    "worker": "ce4e91056d0be3540a6b6a2f977ed430aaae5475c264fbc0dd393ef4d74a1f30"
+  },
+  "scientific_validity": "not_assessed",
+  "stage": "synthetic"
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "question": "Do learned attraction dynamics improve external known-class balanced accuracy in the inductive core-only regime?",
+  "development_seeds": [17, 31],
+  "final_seeds": [101, 113, 137, 151, 181],
+  "stages": {
+    "synthetic": {
+      "tasks": ["rings_wedge", "curved_wedge", "anisotropic_wide", "anisotropic_narrow", "disconnected", "paired_a", "paired_b"],
+      "primary_groups": [["rings_wedge"], ["curved_wedge"], ["anisotropic_wide", "anisotropic_narrow"], ["disconnected"]],
+      "minimum_gain": 0.02,
+      "maximum_latency_ratio": 10.0
+    },
+    "real": {
+      "tasks": ["digits_narrow", "digits_wide", "wine_narrow", "wine_wide"],
+      "primary_groups": [["digits_narrow", "digits_wide"], ["wine_narrow", "wine_wide"]],
+      "minimum_gain": 0.02,
+      "maximum_latency_ratio": 10.0
+    }
+  },
+  "validation": {"fraction": 0.25, "seed_offset": 65536, "max_trials_per_family": 4},
+  "static_families": ["knn", "centroid", "prototypes", "mahalanobis", "rbf_svm", "gmm", "mlp", "mlp_wide", "boosted_trees"],
+  "primary_dynamic": "gradient",
+  "primary_control": "static_champion",
+  "primary_contrasts": [["gradient", "static_champion"], ["gradient", "matched_static"]],
+  "inertia_damping": 1.4,
+  "flow": {"mode": "gradient", "readout": "destination", "steps": 120, "step_size": 0.2, "dwell_time": 0.4, "constrained": true},
+  "flow_trials": [
+    {"n_prototypes": 2, "anisotropic": true, "learned": true, "bandwidth": 1.0},
+    {"n_prototypes": 2, "anisotropic": false, "learned": true, "bandwidth": 1.0},
+    {"n_prototypes": 1, "anisotropic": true, "learned": true, "bandwidth": 1.0},
+    {"n_prototypes": 2, "anisotropic": true, "learned": true, "bandwidth": 1.6}
+  ],
+  "perturbation": {"l2": 0.10, "seed_offset": 70212},
+  "strata": {"train_loo_distance_quantiles": [0.5, 0.9]},
+  "bootstrap": {"seed": 29731, "resamples": 10000},
+  "compute_control": "Choose the nearest log-scale affine multiply-accumulate count among the same four wide MLP architectures. Estimate flow work from validation-only chosen candidate NFE times a static dominant field MAC proxy. Report proxy and actual latency separately.",
+  "measurement": {"batch_latency_repeats": 2, "single_thread_blas": true, "validation_tie_break": "first trial and first declared family"},
+  "stopping": "Run the frozen synthetic and real falsification stages once. Do not retune using final outcomes. Pursue a method claim only if both primary contrasts and practical criteria pass both stages."
+}

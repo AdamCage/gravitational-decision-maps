@@ -1,191 +1,104 @@
-# Research Proposal: Gravitational Decision Maps
+# Gravitational Decision Maps
 
-**Status: proposal only. No implementation, experiments, or results exist in this repository yet.**
+## Bounded falsification study
 
-This document specifies a falsifiable research plan. Architectural choices, datasets, and numerical budgets remain provisional. It makes no claim of a novel classification principle, demonstrated improvement, or publication readiness.
+**Research question.** Can class-attraction dynamics learned from labeled cores improve balanced accuracy on external examples of the same classes, under shared features and core-only fitting?
 
-## 1. Motivation and scope
+**Result.** The tested gradient dynamics fell short of the criterion for a useful extrapolation gain. They trailed the core-selected static champion by **0.35 percentage points on synthetic tasks** and **5.47 points on Digits and Wine**. Integrating the same fitted geometry reduced synthetic BA by 3.75 points, largely on the withheld ring wedges. On the public tasks it changed BA by −0.14 points. Anisotropic geometry improved the paired ablation in both stages. Stability construction repaired a convergence failure in one synthetic trial.
 
-A classifier assigns labels beyond the regions represented by its training examples. This project asks whether learned attraction dynamics can provide a useful rule for extending known classes from observed class cores into unobserved regions.
+### Primary comparisons
 
-The motivating picture contains several broad attraction basins near stable centers and complicated boundaries farther away. An input initializes a trajectory; its destination determines its class. The scientific question is whether this construction improves prediction, rather than merely producing elaborate decision maps.
+| Frozen stage | Gradient BA | Core-selected static BA | Same-geometry static BA | Gradient − champion, pp (95% interval) | Gradient − same geometry, pp (95% interval) | Median latency ratio to champion |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Synthetic | 61.26% | 61.61% | 65.01% | −0.35 [−4.77, +4.07] | −3.75 [−4.15, −3.32] | 2.66× |
+| Digits and Wine | 75.94% | 81.41% | 76.08% | −5.47 [−6.39, −4.69] | −0.14 [−0.41, +0.12] | 5.05× |
 
-The target is **known-class extrapolation**: training labels are available only in restricted cores, while evaluation includes examples of the same classes outside those cores. Detecting unknown classes or refusing uncertain predictions is secondary and cannot substitute for successful classification of these external examples. Here, “outside” refers to a declared core-selection rule; it does not necessarily mean outside the convex hull or every notion of distributional support.
+Both stages failed the accuracy criteria and passed the median latency cap. The synthetic champion interval still includes meaningful positive effects on this roster. The real champion comparison was negative in all five paired seed blocks. Stage D closes this pilot with a result about extrapolation bias and the behavior of the tested model family. A method superiority claim would require additional evidence beyond this study. [Synthetic evidence](results/synthetic/evidence.json) · [Real-data evidence](results/real/evidence.json)
 
-Attractor-based classification already exists. In particular, [SA-nODE](https://arxiv.org/abs/2311.10387) constructs stable attractors and learns their basins. A possible contribution must therefore concern the extrapolation setting, a justified restriction on dynamics, or evidence about when dynamics outperform static alternatives.
+![External balanced accuracy for the fixed task roster and paired differences](results/figures/balanced_accuracy.png)
 
-## 2. Research question and hypotheses
+| Task | Gradient BA | Core-selected static BA | Same-geometry static BA |
+| --- | ---: | ---: | ---: |
+| Rings, held-out wedge | 45.08% | 41.17% | 60.04% |
+| Curved paths, held-out ends | 85.94% | 88.06% | 86.00% |
+| Anisotropic mixture, wide core | 73.54% | 73.71% | 73.42% |
+| Anisotropic mixture, narrow core | 76.17% | 75.29% | 76.17% |
+| Disconnected regions, unseen components | 39.17% | 42.71% | 39.21% |
+| Digits, narrow core | 62.39% | 70.75% | 61.75% |
+| Digits, wide core | 66.60% | 79.51% | 66.45% |
+| Wine, narrow core | 88.28% | 86.93% | 88.54% |
+| Wine, wide core | 86.49% | 88.45% | 87.57% |
 
-**Main question:** Under equal information and comparable computational budgets, can learned class-attraction dynamics improve classification outside observed class cores relative to static classifiers using the same representation?
+### What the ablations show
 
-| Hypothesis | Corresponding null or failure condition |
-| --- | --- |
-| H1: Dynamics improve balanced accuracy on external examples. | Strong static methods match or outperform them. |
-| H2: Integrating trajectories adds value beyond the learned metric, prototypes, and parameters. | Removing integration preserves the gain. |
-| H3: Local class geometry helps determine useful external basins. | Gains require external labels, generator-specific information, or arbitrary tuning. |
-| H4: Stability constraints improve the accuracy–cost–sensitivity tradeoff. | They merely suppress useful boundaries or increase cost. |
+**H1 — gain over static methods.** The rings gain over the selected champion coexists with a 14.96-point loss to the same fitted geometry read at initialization. On Digits the gradient lost to the champion at both coverages. Wine's small positive narrow-core comparison reversed at the wider coverage. The parameter-near and compute-proxy MLPs trailed the gradient by 4.81 and 6.42 points on the synthetic aggregate. They led it by 6.96 and 6.59 points on the real aggregate. Their batch inference latency was below gradient latency in this run. [Synthetic method scores](results/synthetic/summary.json) · [Real method scores](results/real/summary.json)
 
-These are empirical hypotheses, not expected findings. Any theoretical claim would need explicit assumptions on the target function, observed geometry, and admissible dynamics. [Xu et al.](https://arxiv.org/abs/2009.11848) provide relevant background on how architectural assumptions affect extrapolation.
+**H2 — incremental value of integration.** With a fixed source-score readout, one step changed BA by −0.40 points on synthetic and −0.08 on real data. The 120-step readout reproduced the destination method's stage scores and lost 3.75 and 0.14 points to zero steps. On rings, middle-ring recall dropped from 87.2% to 31.1%. Of the 800 external middle-ring points, 449 went from a correct static label to the inner-ring class. Without rings the other synthetic groups' matched differences nearly cancel, a descriptive check of concentration. Inertial dynamics improved over the gradient by 1.91 points on synthetic data, driven by rings, and remained below the matched static control on that aggregate. On real data its BA was essentially unchanged from gradient.
 
-## 3. Formal setting
+**H3 — local geometry.** Using anisotropic instead of isotropic sources raised gradient BA by 6.48 points [5.42, 7.55] on synthetic data and 3.48 [1.44, 5.14] on the public aggregate. The public effect was positive at both Digits coverages and negative at both Wine coverages. The contrast of the learned field with the fixed-shape, equal-weight field was +7.78 points [4.19, 11.19] on synthetic data and −0.74 points [−2.78, +1.41] on public data. This contrast changes local shapes, scales and source weights together. Two prototypes helped the disconnected synthetic task and hurt both anisotropic variants. The paired worlds demonstrate how the same observed geometry and model can agree with one external rule and conflict with another. [Paired-world diagnostic](results/figures/paired_worlds.png)
 
-Let inputs be mapped to features by
+**H4 — stability and sensitivity.** The stability patch raised synthetic strict BA by 0.74 points [0.00, 2.22], entirely in one rings split. There the relaxed field admitted five validated destinations versus six for the constrained one, and coverage rose from 72.92% to 100%. On the 11,070 synthetic primary examples resolved by both models, both assigned the same labels. The constrained and relaxed versions gave identical predictions on all 2,845 public external evaluations. Mean perturbation disagreement was 4.03% versus 4.07% on synthetic data and 0.55% for both on real data. Conditioning on two resolved predictions leaves 4.03% versus 3.97% on synthetic data. Median constrained-to-relaxed latency ratios were 1.34× and 1.92×. The measured tradeoff gives little evidence of a consistent improvement.
+
+**Numerical and endpoint checks.** At the registered constrained destinations the local force is zero by construction and the smallest audited curvature over primary fits was 0.417 on synthetic and 0.237 on public data. The largest measured force norm at accepted relaxed roots was below $6.1\times10^{-8}$. Halving the gradient step at fixed horizon changed 62 of 11,200 synthetic primary labels, including 54 on rings. BA moved −0.29 points. On the public roster it changed zero labels. Halving the position and force tolerances changed no synthetic labels and changed one already incorrect public prediction to unresolved, leaving BA unchanged. The gradient first-entry variant matched destination BA in both stages at mean field evaluations per row of 8.53 versus 26.48 on synthetic, and 8.26 versus 31.22 on real tasks. These comparisons apply to the reported discretizations.
+
+**Learned feature ablation.** The SA-nODE adaptation with a learned onset improved strict BA from 34.97% to 47.51% on synthetic tasks and from 59.60% to 70.06% on public tasks. Synthetic coverage rose from 71.89% to 96.77%, while nearest-anchor fallback BA stayed near 51%. On public data that fallback rose from 68.96% to 79.27%. The learned onset's zero-trajectory version gave 49.27% and 79.36% BA. This ablation changes encoder capacity and shows how finite-time resolution and learned features influence the comparison.
+
+### Secondary outcomes and cost
+
+| Stage | Gradient / champion external accuracy | Gradient / champion core-test BA | Gradient resolved coverage | Gradient / matched static median latency per row | Process peak RSS range |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Synthetic | 61.26% / 61.61% | 99.63% / 99.80% | 100.00% | 28.83 / 0.61 μs | 141–150 MiB |
+| Digits and Wine | 74.89% / 80.34% | 97.17% / 98.19% | 99.98% | 73.40 / 1.28 μs | 147–158 MiB |
+
+Score columns use the fixed group weights. Latency is the median across primary task-seed units. The gradient's median selected full fit took about 3 ms in each stage and its four validation trials about 46–47 ms. Six of 25 primary synthetic units and nine of 20 real units exceeded the 10× per-run ratio to the champion, despite both stage medians passing. Total primary workload time was 55 s for synthetic data and 72 s for real data, with environment setup separate. The latency plots and machine tables retain the capacity, MAC proxy, field evaluation, and coverage differences. The primary rosters contained synthetic distance strata of 1,634, 2,338 and 7,228 evaluations, and real strata of 415, 1,072 and 1,358. Accuracy, recall and class support for each stratum appear in the results. [Cost and accuracy](results/figures/cost_and_accuracy.png) · [Synthetic breakdown](results/synthetic/summary.json) · [Real breakdown](results/real/summary.json)
+
+## Data and evaluation
+
+The frozen protocol assigns five test seeds, 101, 113, 137, 151 and 181. Development uses 17 and 31 and separate simulated draws or real development entities. Benchmark cases cover withheld ring wedges, ends of curved paths, higher-dimensional anisotropic mixtures at two core radii, withheld whole components of disconnected classes, and two paired worlds with complementary external labels. All synthetic labels come from independent latent rules. The three imbalanced families change class frequency in training. Evaluation within those families samples balanced class counts.
+
+The two public sources are UCI Optical Recognition of Handwritten Digits and UCI Wine. Digits uses the original 30-writer training and 13-writer test collections. Five disjoint row folds of the latter share the writer cohort. Wine uses a fixed stratified holdout of unique rows. Producer, vintage and writer identifiers at row level are unavailable. For both datasets the curator samples a limited classwise candidate set from the training source and admits observations within a declared radius of an admitted exemplar. Narrow and wide variants retain approximately 27% and 50% of candidates. Candidate counts, cutoff coordinates, tie rules and source hashes are recorded. [Benchmark sources and access terms](benchmark_data/README.md)
+
+The study uses the identity representation on source columns with no pretraining. Candidate validation fits the scaler on the fitting portion of a stratified 75/25 split of admitted cores. Each selected model and its scaler are refitted on the admitted cores. Validation scores choose hyperparameters and the strongest core-validated static family for each run. The first declared trial or family wins ties. The curator uses labels to assign core and external membership. Model fitting receives only admitted training data. Core-test and external feature arrays are used after fitting, with per-row labels supplied for scoring. The code restricts information at the learner interface within a trusted local process. [Frozen protocol](protocol.json) · [Fit and prediction interface](gdm/experiment.py)
+
+Primary external balanced accuracy (BA) is the mean recall over all known classes. Unresolved predictions count as errors. The per-run artifacts also include ordinary accuracy, core-test recall and BA, per-class support, resolved coverage, conditional scores, fallback BA and three distance strata. The strata use the median and 90th percentile of leave-one-out nearest-neighbor distances among scaled training cores. A stratum or core-test subset averages over the classes it contains. Perturbation changes compare each prediction with its prediction after a fixed-seed random direction of length 0.10 in scaled feature space. We report resolution flips and disagreement where both predictions resolve.
+
+The synthetic aggregate gives equal weight to rings, curves, anisotropic mixtures and disconnected components, averaging the two anisotropic variants within their group. The complementary worlds are a separate identification check. The real aggregate gives equal weight to Digits and Wine, each averaged over its coverage variants. Differences are paired within task and seed. Intervals are 2.5% and 97.5% quantiles of 10,000 bootstraps of the five entire seed blocks. These are pilot intervals for the fixed task set. For real data they summarize seed sensitivity conditional on the source cohorts and split rules. Wine reuses a fixed holdout of 73 unique rows, and Digits reuses the test writer cohort across disjoint row folds. Results across the two coverage levels combine a change in permitted training rows and a change in external test membership. Reported ablation intervals are descriptive.
+
+The prospective method criterion requires at least +2 percentage points against both the core-selected static champion and the paired static control in each stage. Each interval must have its lower endpoint above zero. The median per-run batch inference ratio against the static champion must be at most 10. Both stages are part of the locked test. Stage C checks portability without enlarging or retuning the method after Stage B. [Pre-execution protocol](protocol.json) · [EpistemeOS freeze](results/frozen.json)
+
+## Field and readouts
+
+For scaled input $z$, source $a_i$, positive precision $P_i$, bandwidth $b$ and mass $w_i$, the base potential is
 
 $$
-z=h_\phi(x)\in\mathbb{R}^d,\qquad y\in\{1,\ldots,C\}.
+U_0(z)=-b^2\log\sum_i w_i
+ \exp\!\left[-\frac{(z-a_i)^\top P_i(z-a_i)}{2b^2}\right].
 $$
 
-The permitted labeled training set is $D_{\mathrm{core}}$. A documented construction defines observed core sets $K_c$ from permitted observations. External evaluation examples lie outside the corresponding core region while retaining labels in the same vocabulary.
+The class mass totals are uniform. Within a class, the fitted field mixes equal component weights and observed cluster proportions. One prototype uses a class mean. Multiple prototypes use within-core k-means and source points on observed support. Scales use core residuals with bounded relative variation. The anisotropic option uses shrunk local covariance shapes with bounded eigenvalues and a diagonal approximation above eight features. Candidate selection chooses prototype count, geometry and bandwidth by core validation. The fixed-shape control still places sources from core observations and uses a core-derived global scale. Its local precision is shared and isotropic and its within-class weights are equal. [Field implementation](gdm/dynamics.py)
 
-A continuous-time classifier uses
+For the constrained field, disjoint source neighborhoods use a quintic transition from $U_0$ to the quadratic $U_0(a_i)+\tfrac12(z-a_i)^\top P_i(z-a_i)$. The blend equals one within half the patch radius. Its first and second derivatives vanish at the join. This gives $F(a_i)=0$ and Hessian $P_i\succ0$ for positively separated sources. The gradient flow decreases the potential in exact time. The inertial flow starts with zero velocity and dissipates mechanical energy with damping 1.4. An energy strictly below the minimum patch-inner boundary energy certifies local trapping for that continuous inertial system. The relaxed version accepts associated shifted minima only after numerical residual, ownership and curvature checks. Additional equilibria and numerical ambiguity remain possible. [Field and equilibrium checks](gdm/dynamics.py)
 
-$$
-\dot z(t)=F_\theta(z(t)),\qquad z(0)=h_\phi(x).
-$$
+Gradient flow uses Euler with step 0.2 and horizon 24. The damped inertial update treats the linear drag implicitly and uses the new velocity for the position update. Destination classification checks distance, force and dwell of 0.4 time units at a named equilibrium. The inertial check also uses speed and the local trapping condition. Local position and force tolerances are respectively 0.06 and 0.08 times the training radial scale. Position tolerance also has a neighborhood cap. An unresolved endpoint is scored as an error, with the initial static label recorded separately as fallback. First-entry classification instead labels the first disjoint core ball hit along a numerical segment. Numerical sensitivity checks halve the step at fixed horizon and separately halve the position and force thresholds.
 
-Each class can have multiple attractors $A_c=\{a_{c1},\ldots,a_{cM_c}\}$. Multiple prototypes can help represent disconnected or multimodal class regions and avoid placing a single class-average prototype in an empty region.
+The matched static model sums the same source responsibilities by class at the initial position. The one-step and many-step controls use that same score after moving the input. They isolate the effect of the update count. The destination-to-static comparison also changes the readout and resolution rule. In the symmetric two-source case with equal isotropic precisions and masses, the perpendicular bisector is an invariant hyperplane for exact gradient flow by reflection symmetry and uniqueness. For resolved trajectories into the two symmetric wells, the initial side already determines the destination label. In the unpatched isotropic equal-precision case, the vector field is proportional to the weighted Gaussian mean-shift update direction. [Gaussian mean shift](https://comaniciu.net/Papers/MsRobustApproach.pdf)
 
-For point attractors, require $F_\theta(a_{cj})=0$ and establish local asymptotic stability through the chosen construction or stated sufficient conditions. For a continuously differentiable field, strictly negative real parts of all Jacobian eigenvalues at an equilibrium are one local sufficient condition. Such a condition does not establish global convergence.
+## Controls and related work
 
-The ideal class basin is
+The static search includes kNN, nearest class centroid, multiple prototypes, regularized pooled Mahalanobis classification, RBF SVM, class-conditional Gaussian mixtures, standard and wide tanh MLPs, and boosted trees on Wine. Each tuned family has four trials. The centroid has one. The static champion searches across families, so its total validation budget is 29 trials, or 33 on Wine. Gradient and SA-nODE each have four trials. The comparison with the same fitted field has exact geometry and parameter parity. An auxiliary capacity MLP approximates the field's nominal parameter count by integer width. A compute-aware MLP uses the nearest proxy workload of the four wide architectures, based on validation field evaluations and estimated matrix work. This proxy omits nonlinear and array overhead. On Digits the largest candidate reached only 0.21–0.61× the proxy target, so the comparison there is compute-aware with a lower-work static model. Actual batch latency includes scaling and is the median of two single-thread measurements per batch. Sampling measures process RSS for the full tuning and inference loop, including shared libraries and caches. [Static specifications](gdm/controls.py) · [Experiment measurement](gdm/experiment.py)
 
-$$
-\mathcal B_c=\left\{z_0:\lim_{t\to\infty}\operatorname{dist}(\Phi_t(z_0),A_c)=0\right\}.
-$$
+The feature-space SA-nODE reference preserves the cubic reaction, spectral coupling, planted sign equilibria, Euler training, and endpoint MSE. This implementation uses shorter training, an affine-tanh onset with padding, Hadamard-based anchors, bounded conditioning, and an explicit finite-time named-attractor guard. The paper uses an image setting with a different training schedule and an overlap criterion. The auxiliary jointly learned onset is fitted by the same endpoint objective on core labels, with the same selected schedule, and adds $d(d+1)$ encoder parameters. Its trained encoder and the frozen-onset reference each have a zero-trajectory nearest-anchor control. [SA-nODE paper](https://arxiv.org/html/2311.10387v2) · [Authors' implementation](https://github.com/RaffaeleMarino/SA-nODE/tree/d4c2f3260e30e1407e3fc93cd26f816f4c666053)
 
-Here $\Phi_t$ denotes the flow where it exists. A prediction is the destination class. Numerical implementations must define finite-time tolerances, convergence checks, and unresolved outcomes explicitly; finite-time proximity alone is not proof of asymptotic convergence.
+SODEF motivates local equilibrium stability for perturbation defense. Xu et al. show how inductive bias constrains extrapolation in specified architectures and training settings. DUQ and DDU address uncertainty via learned or post-fit feature geometry. Basin entropy measures uncertainty in the starting location at a stated scale. The present outcome is known-class prediction under declared core selection, with perturbation sensitivity reported alongside accuracy. [SODEF](https://proceedings.neurips.cc/paper_files/paper/2021/hash/7d5430cf85f78c4b7aa09813b14bce0d-Abstract.html) · [Xu et al.](https://arxiv.org/abs/2009.11848) · [DUQ](https://proceedings.mlr.press/v119/van-amersfoort20a.html) · [DDU](https://arxiv.org/abs/2102.11582) · [Basin entropy](https://doi.org/10.1038/srep31416)
 
-## 4. Distinct dynamical models
+## Identification limit
 
-### Gradient flow
+In the paired worlds, all core observations and external inputs are identical. The binary external labels are balanced and complementary. With the same fitted predictor in both worlds, each resolved prediction matches exactly one external label and each unresolved prediction matches neither. Therefore $\operatorname{BA}_A+\operatorname{BA}_B=\operatorname{coverage}$ on this roster. The mean of the two scores is at most 0.5. The gradient gave 92.38% and 7.62% BA at full coverage over five seeds. The per-row audit verified identical cross-world predictions and the coverage identity for every model. This quantifies the need for assumptions that link outside labels with inside observations. [Paired generator](gdm/data.py) · [Identity check](gdm/score.py)
 
-$$
-\dot z=-\nabla U_\theta(z).
-$$
+## Execution and evidence
 
-The potential decreases along nonstationary trajectories. Simple smooth multiwell potentials do not automatically reproduce the intricate boundaries motivating this project. Their simpler geometry is a useful baseline, not a defect to conceal.
+Stage A specified and checked the information boundary, alternatives, metrics, cost cap, stopping criteria and benchmark provenance. The development loop used three subagents for benchmark and evidence integration, attraction dynamics, and static and SA-nODE controls. Critique caught a spurious stability annulus, a too-large kNN neighborhood for narrow Wine validation, a measurement overhead asymmetry, and a dwell-rounding difference in the numerical comparison. The frozen implementation corrects each issue. Development and final seeds are disjoint.
 
-### Damped inertial dynamics
+EpistemeOS commit `7f5a1a0e43d7c35196cc8b3c9c74a618aa2559c3` registered both studies on 25 November 2026 at 20:10 Moscow time. Each stage registers competing explanations, a frozen task roster and a source/closure digest. One primary job fits and predicts across its task-seed roster. The synthetic and public stages contain 35 and 20 task-seed runs respectively. A second job uses a separate standard-library implementation to recompute the headline metrics from the same raw observations. Both stages agree on all six scalar metrics to absolute tolerance $10^{-12}$. The local execution profile has no OS sandbox. Agent critique is independent task review within a shared project, and EpistemeOS records scientific validity as unassessed. [EpistemeOS](https://github.com/AdamCage/EpistemeOS/tree/7f5a1a0e43d7c35196cc8b3c9c74a618aa2559c3) · [Frozen registrations](results/frozen.json)
 
-$$
-\dot z=v,\qquad \dot v=-\gamma v-\nabla U_\theta(z),\qquad \gamma>0.
-$$
-
-The full state is $(z,v)$. Fix and report the initialization, initially $v_0=0$. Changing initial velocity, damping, or integration horizon can change the predicted class. These choices are part of the model and its tuning budget.
-
-### Absorbing-core classification
-
-A separate variant assigns the class of the first core entered and terminates the trajectory. First arrival and eventual convergence are different rules: an inertial trajectory may cross one core before settling elsewhere. Results must label this variant separately.
-
-Centroids used as force sources are not automatically equilibria. Forces from other sources can displace a minimum or eliminate it. Either construct genuine stable equilibria, identify and validate the resulting equilibria, or explicitly use absorbing sets. Do not describe source coordinates as proven attractors.
-
-## 5. Initial model family
-
-Start with softened attraction fields parameterized by a small number of prototypes, positive source weights, local scales, and optional regularized anisotropic metrics. Compare gradient and inertial variants before adding a flexible neural residual field.
-
-Fit all parameters using permitted core observations. A candidate objective combines endpoint classification with penalties or structural constraints enforcing core preservation, local stability, and controlled sensitivity. Its exact form must be fixed during development and ablated. Penalizing a Jacobian is not, by itself, a global guarantee.
-
-Class priors and source masses must be explicit. Raw sample counts can make the largest class dominate remote regions; balancing classes is also an assumption, not a universally correct correction. Prototype counts, bandwidths, and metric capacity must be matched in static comparisons.
-
-The project studies an inductive bias. Core labels alone generally cannot identify a unique external field.
-
-## 6. Information regimes and leakage prevention
-
-### Primary regime: inductive, core-only
-
-The learner receives labeled core examples and no target features or labels. Preprocessing, representation training, prototype fitting, covariance estimates, and early stopping use only permitted development information.
-
-### Optional regime: unlabeled target access
-
-The learner additionally receives external features without labels. This is a different experiment because target geometry supplies new information. Report it separately and compare with suitable graph-based or semi-supervised methods under identical access. Do not combine its scores with core-only results.
-
-### Split and validation protocol
-
-1. Separate development and final evaluation entities before fitting statistics. Respect subject, source, duplicate, or temporal grouping where relevant.
-2. Construct cores using a declared rule. Keep excluded observations unavailable to the learner. A benchmark curator may use labels to construct controlled subsets, but must disclose that selection and release its definition.
-3. Estimate every prototype, scaler, feature transform, and density threshold from the allowed subset. Do not compute class centers from full classes and then claim core-only learning.
-4. Select hyperparameters using core validation or separate development tasks. External validation labels, if permitted, define an additional information regime and must be disclosed.
-5. Freeze the configuration and evaluation rules before accessing final external test labels.
-
-Core-only validation may be weak at selecting an extrapolation rule. Report that limitation rather than silently choosing the best external test configuration. Development across separate tasks is permissible, but the resulting cross-task knowledge must be documented.
-
-Use a common frozen encoder for the primary comparison. Record its training provenance, possible dataset overlap, and external supervision. A pretrained representation already contains knowledge beyond the supplied cores; successful downstream extrapolation cannot automatically be attributed to dynamics. Runs with known overlap between encoder pretraining data and final evaluation examples must be reported separately and excluded from claims about a clean inductive core-only setting. Unknown overlap remains an explicit limitation. Evaluate jointly trained encoders only as a separate ablation with equal data access.
-
-## 7. Data plan
-
-### Synthetic tasks
-
-Use rings, curved regions, anisotropic mixtures, disconnected class components, and competing local extensions. Vary retained core coverage, noise, class imbalance, dimensionality, and distance from observed cores. Include withheld wedges and whole components, not only random missing points.
-
-At least one suite must use target rules unrelated to the model's potential. A physical system with known dynamics can supply an illustrative positive control, but feeding its true force law to the classifier is an oracle comparison, not learned extrapolation.
-
-Include paired worlds with identical observed cores and different external labels or dynamics. For example, alter a potential only outside core neighborhoods. These expose nonidentifiability rather than expecting an impossible universal solution.
-
-### Public real-data candidates
-
-Candidates include image classification with frozen features and public tabular classification tasks. Fashion-MNIST or CIFAR-10 and suitable UCI/OpenML datasets are possible starting points; the final selection is not fixed. Check access terms, provenance, duplicates, class coverage, and whether a defensible core/periphery split can be specified before committing to a benchmark.
-
-No private organizational data are part of this proposal. Two-dimensional visualizations will be diagnostic only; decisions and distances will be evaluated in the actual feature space.
-
-## 8. Baselines and fair budgets
-
-Required static baselines are kNN, nearest centroid, multiple prototypes or medoids, regularized Mahalanobis classification, RBF/kernel classifiers, Gaussian mixtures, and an MLP. Include gradient-boosted trees for tabular tasks. Tune them seriously rather than treating default settings as competitive controls.
-
-Include SA-nODE as a directly relevant dynamical baseline, subject to a faithful implementation and compatible evaluation. [SODEF](https://proceedings.neurips.cc/paper_files/paper/2021/hash/7d5430cf85f78c4b7aa09813b14bce0d-Abstract.html) informs stability constraints and robustness comparisons; its adversarial-defense objective is not identical to extrapolation from class cores.
-
-[DUQ](https://proceedings.mlr.press/v119/van-amersfoort20a.html) and [DDU](https://arxiv.org/abs/2102.11582) provide relevant uncertainty and representation comparisons. Their uncertainty metrics may supplement the study, but cannot replace the main classification comparison.
-
-Match information, encoder, prototype budget, tuning trials, and relevant parameter capacity. Report both a parameter-matched comparison and a compute-aware comparison where exact matching is impossible. Count all solver evaluations, not just nominal integration steps. Include feature extraction consistently when reporting end-to-end latency.
-
-## 9. Essential ablations
-
-- Static scoring with the same learned prototypes, metric, and source weights; no trajectory integration.
-- Zero, one, and multiple integration steps, followed by the same readout.
-- Gradient versus inertial dynamics, and eventual-destination versus first-entry labeling.
-- One versus multiple prototypes per class; isotropic versus anisotropic geometry.
-- Fixed versus learned fields; with and without each stability or sensitivity constraint.
-- Frozen versus jointly learned features, with encoder parity maintained.
-- Matched-capacity and matched-compute feedforward controls.
-
-If the improvement survives removal of integration, attribute it to the remaining representation or geometry. If a larger ordinary classifier reproduces the gain at equal cost, avoid claiming that continuous dynamics were essential.
-
-## 10. Metrics and statistical reporting
-
-The primary metric is **balanced accuracy on the external known-class test set**. Report per-class results, ordinary accuracy, core-test accuracy, and performance stratified by a train-defined distance or support measure. Define the primary task aggregate before inspecting outcomes; retain dataset-level results rather than hiding heterogeneous effects.
-
-Count numerically unresolved predictions as errors in the primary all-example score. Additionally report resolved coverage, accuracy conditional on resolution, and the performance of any predetermined fallback. This prevents gains obtained by silently discarding difficult trajectories.
-
-Report training cost, tuning cost, inference latency, memory, function evaluations, integration tolerances, and convergence failures. Test sensitivity to modest changes in step size and solver tolerance. Numerical artifacts must not be mistaken for meaningful basin geometry.
-
-Use repeated independent splits and initialization seeds, initially at least five where feasible. Report paired differences and 95% confidence intervals with the resampling unit stated. Account for shared splits and grouped observations; thousands of points on one synthetic grid are not thousands of independent experiments. Do not choose the best seed.
-
-Measure perturbation sensitivity separately from correctness. A stable prediction can be consistently wrong. Basin complexity or [basin entropy](https://doi.org/10.1038/srep31416) can be diagnostic, but increased complexity is not an optimization target or evidence of generalization.
-
-## 11. Staged pilot and decisions
-
-**Stage A — specification:** finalize information access, core construction, model variants, solver rules, baseline budgets, and a locked evaluation plan. Complete a closer reading of the cited methods before claiming methodological differences.
-
-**Stage B — falsification pilot:** run small synthetic suites with mismatched target rules and static controls. Continue if dynamic effects are reproducible and not explained entirely by prototype count, metric learning, or additional compute. Stop enlarging the model if simple baselines consistently match it.
-
-**Stage C — external validity:** evaluate frozen-feature real tasks with locked settings and several coverage levels. Continue only if benefits persist beyond the motivating synthetic geometry, with tolerable cost and no hidden target access.
-
-**Stage D — contribution assessment:** determine whether evidence supports a method, an empirical study of extrapolation biases, or a useful negative result. A publication case requires reproducible insight beyond a physical analogy; no venue outcome is promised.
-
-Before each stage, specify the smallest practically meaningful gain and acceptable cost for its tasks. Do not invent a universal accuracy threshold after seeing results.
-
-## 12. Limits and expected failure cases
-
-Identical local cores can admit incompatible external class assignments. No method using only those cores can distinguish every such case. A known physical law supplies additional structure; an arbitrary gravitational metaphor does not.
-
-Representation collapse can place semantically different inputs at the same feature location. Local covariance can be unreliable in high dimensions. Minority classes can lose basin volume. Disconnected classes can require many prototypes. Highly interwoven boundaries can amplify measurement noise, and stable equilibria do not ensure that every trajectory reaches one.
-
-The desired outcome is a bounded, testable account of when attraction dynamics help classify unobserved regions. Negative and mixed findings must be retained. All sections above describe planned work; none report completed experiments.
-
-## References
-
-1. Marino et al. **Stable Attractors for Neural networks classification via Ordinary Differential Equations (SA-nODE).** [arXiv:2311.10387](https://arxiv.org/abs/2311.10387).
-2. Kang et al. **Stable Neural ODE with Lyapunov-Stable Equilibrium Points for Defending Against Adversarial Attacks.** [NeurIPS 2021](https://proceedings.neurips.cc/paper_files/paper/2021/hash/7d5430cf85f78c4b7aa09813b14bce0d-Abstract.html).
-3. Xu et al. **How Neural Networks Extrapolate: From Feedforward to Graph Neural Networks.** [arXiv:2009.11848](https://arxiv.org/abs/2009.11848).
-4. van Amersfoort et al. **Uncertainty Estimation Using a Single Deep Deterministic Neural Network.** [ICML 2020](https://proceedings.mlr.press/v119/van-amersfoort20a.html).
-5. **Deep Deterministic Uncertainty (DDU).** [arXiv:2102.11582](https://arxiv.org/abs/2102.11582).
-6. Daza et al. **Basin entropy: a new tool to analyze uncertainty in dynamical systems.** [Scientific Reports, 2016](https://doi.org/10.1038/srep31416).
+See the README for the locked rerun command. The portable bundles include per-row predictions, task and class metrics, graphs, and digest-checked reanalysis. The original proposal is preserved in the Git version of this document at commit `837f76b`. [Verification commands](README.md#verify-or-reproduce)

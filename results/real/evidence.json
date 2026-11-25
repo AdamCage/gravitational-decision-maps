@@ -1,0 +1,96 @@
+{
+  "episteme_commit": "7f5a1a0e43d7c35196cc8b3c9c74a618aa2559c3",
+  "frozen_manifest_sha256": "aac703791d5ed3b118b478d6164b37f2f0fe5eaad2bcae98ae072b03852d14d6",
+  "graph_revision": 16,
+  "graph_sha256": "27a96359b36e5ece3b2923e1dd7ca8345ced18d46d65b023710b457e4c063ab3",
+  "graph_snapshot": "60884e0162d3526f307dede11737fb4bde1aedbd8e5ce901f370376a413c81b9",
+  "primary": {
+    "dispatch": "execution_dispatch-5d2633bfbf4b4395",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-6d6c9ca3950d41f6",
+    "outputs": {
+      "environment_record": "6fc2bfca0b7bf44e4cb03ceb8d3898c748f6e4f13d99566ff59cc3f8362c0729",
+      "execution_manifest": "bd2d70cb6d10d4cb76538727a07a164ae488cf9ebbc236c3a5236f3865f20da1",
+      "log": "bd2d70cb6d10d4cb76538727a07a164ae488cf9ebbc236c3a5236f3865f20da1",
+      "metrics": "8f2937796d6b4b5e646823320da5faf605a94ca7e512dc66efccb5ef6d6d7707",
+      "raw_data": "4e125fecdbea5cd2b031a4262439f8710583f20601e45b4875fe402e54cae653",
+      "summary": "db4db2eab18b30d02f3349e99e7a4af10cd362209bc96bafcb357110ef6feb48"
+    },
+    "reason": "",
+    "result": "result-85e9dd136d8f4b62",
+    "run": "run-edd7757725c64ced",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis": {
+    "dispatch": "execution_dispatch-3e3ff7f588cd427f",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-1e63909c97d84731",
+    "outputs": {
+      "environment_record": "3fc454d54bc865f69c7f7129206a4345621d6ccb213053841626e4211b8f1233",
+      "execution_manifest": "aec135a58524bfbd14f60fd0c7c57238be20615eda76f904c10eb97b5f1d2723",
+      "log": "aec135a58524bfbd14f60fd0c7c57238be20615eda76f904c10eb97b5f1d2723",
+      "metrics": "fdce553ad658e8c005bcc88ca8217e2ef8359bcceff577888d4bcbf226068372",
+      "raw_data": "4e125fecdbea5cd2b031a4262439f8710583f20601e45b4875fe402e54cae653"
+    },
+    "reason": "",
+    "result": "result-f6388f9dd7934dd4",
+    "run": "run-7f95c284e03442df",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis_agreement": {
+    "agrees": true,
+    "identical_observations": true,
+    "metric": "primary_gain",
+    "metrics": {
+      "delta_vs_matched": {
+        "agrees": true,
+        "primary": -0.0013583629821896093,
+        "reanalysis": -0.0013583629821896405
+      },
+      "delta_vs_static": {
+        "agrees": true,
+        "primary": -0.05469192553791276,
+        "reanalysis": -0.05469192553791277
+      },
+      "gradient_external_balanced_accuracy": {
+        "agrees": true,
+        "primary": 0.7594159780973481,
+        "reanalysis": 0.759415978097348
+      },
+      "median_latency_ratio": {
+        "agrees": true,
+        "primary": 5.0492280460969585,
+        "reanalysis": 5.0492280460969585
+      },
+      "primary_gain": {
+        "agrees": true,
+        "primary": -0.05469192553791276,
+        "reanalysis": -0.05469192553791277
+      },
+      "row_count": {
+        "agrees": true,
+        "primary": 20,
+        "reanalysis": 20
+      }
+    },
+    "primary": -0.05469192553791276,
+    "reanalysis": -0.05469192553791277,
+    "tolerance": 1e-12
+  },
+  "registration": {
+    "data": "635a4e4f59097a59073f68123702806a9daa1acea4e8cec291fdf53f941b1224",
+    "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+    "execution_seed": 101,
+    "explanation_set": "explanation_set-c006cb346687471c",
+    "protocol": "protocol-04d4c6332b78494c",
+    "question": "research_question-20d142cdb5f342ff",
+    "reanalysis": "567020d76b57da5d2ace97f6ca3d65031630b4ab89c75f798032836acaac11ca",
+    "worker": "ce4e91056d0be3540a6b6a2f977ed430aaae5475c264fbc0dd393ef4d74a1f30"
+  },
+  "scientific_validity": "not_assessed",
+  "stage": "real"
+}

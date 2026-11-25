@@ -1,0 +1,44 @@
+{
+  "episteme_commit": "7f5a1a0e43d7c35196cc8b3c9c74a618aa2559c3",
+  "execution_profile": "uv_locked_python_v2",
+  "files": {
+    "benchmark_data/optdigits.tra.gz": "3273a01fdf5de3baade88e85bc0057491dd425404ac58f87879824e19fd06502",
+    "gdm/__init__.py": "b425b954edf345ddc6abe129260afab67752aeb182c5234cd5f51495ee2209a1",
+    "gdm/controls.py": "b2daec216a947c0d1c329691c3675b801ea5abbc1ca6e7b4b93e569f6b59bfd3",
+    "gdm/data.py": "d24f70030ef00a657eaa0c96302720cf688fce23d59cacc546833ce99ffe5aa8",
+    "gdm/dynamics.py": "7b5e5219df0b2f8718239795011e9ad89ef2032589a7ad9d4bf07ec4b2a17bcb",
+    "gdm/evidence.py": "bf8f1f87496d80cb0717767c0c7fa43e6de7bd212132e8144ad456bc19238aa5",
+    "gdm/experiment.py": "5f17dd34888cb72c4674de94548ecc2795649aa54a3ad96213fefd25247c4c2d",
+    "gdm/score.py": "c7d03a2eb0de049a99f1ae7fa57b641cf0537ad9eedc011173af2d05bfa7f657",
+    "protocol.json": "5124470e29ce31a827998bbabaa527a1e79b249d4319826e3683a3e2f05041d8",
+    "pyproject.toml": "a04aaf0189b29557ace3c4b7d3705914d690ceeac2c2bcc9b44c3f7b9d1d18de",
+    "study_reanalysis.py": "5ad503795138b955c00607fa5e6cd116106461acbecdde9b23ba6f31aa15f275",
+    "study_worker.py": "c2d910eff96324caa7a7650170c03e70e95ceabea4bf16c981e45e4768adfc82",
+    "uv.lock": "0b15cf7d9f7155aea759776da5e58c8da0f0f953e9957a15f88f5fcf16822254"
+  },
+  "frozen_utc": "2026-11-25T17:10:54.550241+00:00",
+  "schema_version": 1,
+  "stages": {
+    "real": {
+      "data": "635a4e4f59097a59073f68123702806a9daa1acea4e8cec291fdf53f941b1224",
+      "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+      "execution_seed": 101,
+      "explanation_set": "explanation_set-c006cb346687471c",
+      "protocol": "protocol-04d4c6332b78494c",
+      "question": "research_question-20d142cdb5f342ff",
+      "reanalysis": "567020d76b57da5d2ace97f6ca3d65031630b4ab89c75f798032836acaac11ca",
+      "worker": "ce4e91056d0be3540a6b6a2f977ed430aaae5475c264fbc0dd393ef4d74a1f30"
+    },
+    "synthetic": {
+      "data": "76bae9f6ae4c0d5a29afea856d39712d2f223e64e93d74e9945e8007664d9563",
+      "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+      "execution_seed": 101,
+      "explanation_set": "explanation_set-c943e8e86e4e4d45",
+      "protocol": "protocol-8e01eb7e8bfa4813",
+      "question": "research_question-d4113f48b5fd461e",
+      "reanalysis": "567020d76b57da5d2ace97f6ca3d65031630b4ab89c75f798032836acaac11ca",
+      "worker": "ce4e91056d0be3540a6b6a2f977ed430aaae5475c264fbc0dd393ef4d74a1f30"
+    }
+  },
+  "workers": 1
+}
