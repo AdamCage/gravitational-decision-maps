@@ -1,0 +1,131 @@
+{
+  "episteme_commit": "7f5a1a0e43d7c35196cc8b3c9c74a618aa2559c3",
+  "frozen_manifest_sha256": "c2f7f7cf5211f4355e75bb7e76d3906e0d93c863d21d18e9be2a7db8e030e68e",
+  "graph_revision": 16,
+  "graph_sha256": "62434a1fd6be2484541067f25ba23ddd3944803a81e4c62722862cef0afb84ad",
+  "graph_snapshot": "ddac79f8ca3a7eaa0cb2ec291fe0095081f6aa1a0ed4482bcbb1f82cec62eb21",
+  "primary": {
+    "dispatch": "execution_dispatch-235d6289646e4b66",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-bfcffe8792a14ea8",
+    "outputs": {
+      "environment_record": "200fb384f4f02c9617cf60f3ee71bf8821479c9d1ea371f96774735535b94f55",
+      "execution_manifest": "208e43ce9b358df0669e8f5b0cbe31af062b5ce41013bd96089cf4950b7cb10c",
+      "log": "208e43ce9b358df0669e8f5b0cbe31af062b5ce41013bd96089cf4950b7cb10c",
+      "metrics": "2cecdff025f893352dd6b6aed410efc1f2c6d5ba84c2077d6ef1c02c0c73d1bd",
+      "raw_data": "8953e281a5730a804e25fd8bcf142c65a6aaf660cacccc3e487d520e093b37de",
+      "summary": "9765b2d3c75d0eb86762fe428e7d75e22e92f7d89adde82f1c98931d2a41b596"
+    },
+    "reason": "",
+    "result": "result-fb957ce723324740",
+    "run": "run-7ea02f230d1547ca",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis": {
+    "dispatch": "execution_dispatch-cc97fc7888f34c95",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-b391f5bba1294cc5",
+    "outputs": {
+      "environment_record": "21d83e23b9de2bc7a7ca8d1d25c04b52335fae94e3517c02a03e519540ae6a79",
+      "execution_manifest": "52a2b9ea48add17388b49b3dc8a87e5a84d759d0731181133d317be9d99813af",
+      "log": "52a2b9ea48add17388b49b3dc8a87e5a84d759d0731181133d317be9d99813af",
+      "metrics": "3ad67b237634a03bf7d44deacf9d1eab414cbf2f8dabcdf6dc141d91c75c0a85",
+      "raw_data": "8953e281a5730a804e25fd8bcf142c65a6aaf660cacccc3e487d520e093b37de"
+    },
+    "reason": "",
+    "result": "result-80f136c7e14c49c1",
+    "run": "run-5a5bc7cf5d4d4584",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis_agreement": {
+    "agrees": true,
+    "identical_observations": true,
+    "metric": "primary_gain",
+    "metrics": {
+      "ap_drag_gain": {
+        "agrees": true,
+        "primary": 0.5120122675427531,
+        "reanalysis": 0.5120122675427531
+      },
+      "ap_mixed_units": {
+        "agrees": true,
+        "primary": 108,
+        "reanalysis": 108
+      },
+      "certified_crossings": {
+        "agrees": true,
+        "primary": 19,
+        "reanalysis": 19
+      },
+      "contradictions": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "endpoint_coverage": {
+        "agrees": true,
+        "primary": 0.3207561728395062,
+        "reanalysis": 0.3207561728395062
+      },
+      "endpoint_flips": {
+        "agrees": true,
+        "primary": 6383,
+        "reanalysis": 6383
+      },
+      "interval_vs_taylor": {
+        "agrees": true,
+        "primary": 0.00040509259259259247,
+        "reanalysis": 0.0004050925925925926
+      },
+      "max_oracle_relative_error": {
+        "agrees": true,
+        "primary": 0.0026080955269353057,
+        "reanalysis": 0.0026080955269353057
+      },
+      "median_latency_ratio": {
+        "agrees": true,
+        "primary": 1.3179083264714087,
+        "reanalysis": 1.3179083264714087
+      },
+      "nfe_reduction": {
+        "agrees": true,
+        "primary": 0.2442515432098765,
+        "reanalysis": 0.24425154320987655
+      },
+      "primary_gain": {
+        "agrees": true,
+        "primary": 0.05827546296296296,
+        "reanalysis": 0.058275462962962966
+      },
+      "triage_mismatch": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "units": {
+        "agrees": true,
+        "primary": 144,
+        "reanalysis": 144
+      }
+    },
+    "primary": 0.05827546296296296,
+    "reanalysis": 0.058275462962962966,
+    "tolerance": 1e-12
+  },
+  "registration": {
+    "data": "3d9d02e0a853c66346a8e495ae7205015354f8d19696974b322390f183e38723",
+    "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+    "execution_seed": 211,
+    "explanation_set": "explanation_set-1a14b99d29fa4ec2",
+    "protocol": "protocol-e2a18cf73ada4f25",
+    "question": "research_question-04edc097b7f5492f",
+    "reanalysis": "0c2dcbc0b73799d14efbc9bddaa2d95ca029df341ac28a0e61dfe8cd720a8295",
+    "worker": "abffe35050b7d2459231e8adcb58102e1de26c1e4ea63829737d8871ec830d8c"
+  },
+  "scientific_validity": "not_assessed",
+  "stage": "crossing_synthetic"
+}

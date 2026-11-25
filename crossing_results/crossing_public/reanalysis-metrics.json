@@ -1,0 +1,1 @@
+{"primary_gain": 0.3418780101071768, "endpoint_coverage": 0.41618137263970595, "interval_vs_taylor": 0.0023443223443223443, "nfe_reduction": 0.22722296222296223, "median_latency_ratio": 1.418417075991261, "certified_crossings": 0, "endpoint_flips": 140, "contradictions": 0, "ap_drag_gain": 0.4616563206522279, "ap_mixed_units": 20, "triage_mismatch": 1, "units": 24}

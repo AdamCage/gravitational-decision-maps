@@ -1,5 +1,7 @@
 # Gravitational Decision Maps
 
+The completed follow-up tests when the fitted flow crosses the static class boundaries. Its projected margin reached AP 0.9966 on new synthetic cases and 0.9867 on PenDigits and Seeds. A single exponential Euler step reached 0.9954 and 0.9904. Analytic certificates and measured latency have separate outcomes, and the shell-gap harm hypothesis did not generalize across generators. See the [manuscript](output/pdf/manuscript.pdf), [theory](crossing/THEORY.md), and [frozen follow-up evidence](crossing_results/frozen.json). The report below describes the original pilot.
+
 ## Bounded falsification study
 
 **Research question.** Can class-attraction dynamics learned from labeled cores improve balanced accuracy on external examples of the same classes, under shared features and core-only fitting?

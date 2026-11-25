@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -18,7 +19,7 @@ class MetricComparisonTests(unittest.TestCase):
 class FreezeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        checkout = PROJECT_ROOT.parent / "EpistemeOS"
+        checkout = Path(os.environ.get("GDM_EPISTEME", PROJECT_ROOT.parent / "EpistemeOS"))
         if not (checkout / ".git").exists():
             raise unittest.SkipTest("Pinned EpistemeOS sibling checkout is absent")
         _episteme(checkout)

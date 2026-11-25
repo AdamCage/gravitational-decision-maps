@@ -1,0 +1,126 @@
+{
+  "episteme_commit": "7f5a1a0e43d7c35196cc8b3c9c74a618aa2559c3",
+  "frozen_manifest_sha256": "c2f7f7cf5211f4355e75bb7e76d3906e0d93c863d21d18e9be2a7db8e030e68e",
+  "graph_revision": 16,
+  "graph_sha256": "83f1f92299f6d96c2f28efe49d8f39fb77e521c60013a1108c4858e3f5574b61",
+  "graph_snapshot": "9fc69cc6ae5df7fda275d23606df0dbc7b9bc402d32fb4dd4d2dfcfdaeef90b2",
+  "primary": {
+    "dispatch": "execution_dispatch-49902d59d9a94e15",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-b721af8281984657",
+    "outputs": {
+      "environment_record": "1c89ba12a45eef5dc9f7cfaa4f93712a451cd41e9a9d2fb04bff352eacd94471",
+      "execution_manifest": "f53871671c17975a22c74d72e0b56cdbfeb4f657aff4c316b27b8a6520480443",
+      "log": "f53871671c17975a22c74d72e0b56cdbfeb4f657aff4c316b27b8a6520480443",
+      "metrics": "fe0db518f1530d406585e533765536d1daa415f9a12e3303891389fe1b405784",
+      "raw_data": "4fbf43e30c850125daf809ae1390a893b69ae0c0d2bc89d81f8788033667736b",
+      "summary": "ad46fa17bea6b89d020fada3fd60317876eed6063655a2ed93266d90eb82c1c7"
+    },
+    "reason": "",
+    "result": "result-38e23c8550874527",
+    "run": "run-e294bed4522341c8",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis": {
+    "dispatch": "execution_dispatch-b15a371c33624572",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-86b6fae3bd044999",
+    "outputs": {
+      "environment_record": "0f6f14e2a4fcefb58b6707a239f724200dae8e7b3acdc925ac9e9434e3400fd3",
+      "execution_manifest": "ed00a4a8b76cc19f6f3c821266d4910caa470841efc61548d0e4d7b9af360aa7",
+      "log": "ed00a4a8b76cc19f6f3c821266d4910caa470841efc61548d0e4d7b9af360aa7",
+      "metrics": "1d7afc7a844f05c9a43c9bc432d88f3e74380e80a49fa549f371e7f4b140d28c",
+      "raw_data": "4fbf43e30c850125daf809ae1390a893b69ae0c0d2bc89d81f8788033667736b"
+    },
+    "reason": "",
+    "result": "result-93868421eaca44c2",
+    "run": "run-83dce305959d46bc",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis_agreement": {
+    "agrees": true,
+    "identical_observations": true,
+    "metric": "primary_gain",
+    "metrics": {
+      "ap_drag_gain": {
+        "agrees": true,
+        "primary": 0.4616563206522279,
+        "reanalysis": 0.4616563206522279
+      },
+      "ap_mixed_units": {
+        "agrees": true,
+        "primary": 20,
+        "reanalysis": 20
+      },
+      "certified_crossings": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "contradictions": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "endpoint_coverage": {
+        "agrees": true,
+        "primary": 0.41618137263970595,
+        "reanalysis": 0.41618137263970595
+      },
+      "endpoint_flips": {
+        "agrees": true,
+        "primary": 140,
+        "reanalysis": 140
+      },
+      "interval_vs_taylor": {
+        "agrees": true,
+        "primary": 0.0023443223443223443,
+        "reanalysis": 0.0023443223443223443
+      },
+      "median_latency_ratio": {
+        "agrees": true,
+        "primary": 1.418417075991261,
+        "reanalysis": 1.418417075991261
+      },
+      "nfe_reduction": {
+        "agrees": true,
+        "primary": 0.22722296222296223,
+        "reanalysis": 0.22722296222296223
+      },
+      "primary_gain": {
+        "agrees": true,
+        "primary": 0.3418780101071768,
+        "reanalysis": 0.3418780101071768
+      },
+      "triage_mismatch": {
+        "agrees": true,
+        "primary": 1,
+        "reanalysis": 1
+      },
+      "units": {
+        "agrees": true,
+        "primary": 24,
+        "reanalysis": 24
+      }
+    },
+    "primary": 0.3418780101071768,
+    "reanalysis": 0.3418780101071768,
+    "tolerance": 1e-12
+  },
+  "registration": {
+    "data": "0e2374974f9325ef61808c0f8698d95e4d2c667c4b9008959059db0839af802a",
+    "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+    "execution_seed": 211,
+    "explanation_set": "explanation_set-7e2cdb81b9d04157",
+    "protocol": "protocol-c3a09ab77a494722",
+    "question": "research_question-a8047595983341d5",
+    "reanalysis": "0c2dcbc0b73799d14efbc9bddaa2d95ca029df341ac28a0e61dfe8cd720a8295",
+    "worker": "abffe35050b7d2459231e8adcb58102e1de26c1e4ea63829737d8871ec830d8c"
+  },
+  "scientific_validity": "not_assessed",
+  "stage": "crossing_public"
+}

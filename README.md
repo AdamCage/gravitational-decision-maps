@@ -4,6 +4,8 @@
 
 This project investigates whether a dynamical classifier can generalize from densely sampled class regions to previously unobserved regions of the same classes. An input is treated as an initial state; its predicted class is determined by the attractor reached by the resulting trajectory.
 
+The follow-up isolates a different decision: evaluate the same class scores before and after a finite Gaussian prototype flow. It derives a crossing rule, analytical certificates for label preservation and terminal labels, and a calibrated distinction between crossing frequency and Bayes regret. Its locked evaluation uses four synthetic families and the public PenDigits and Seeds datasets. [Manuscript PDF](output/pdf/manuscript.pdf) · [LaTeX source](paper/manuscript.tex) · [Follow-up protocol](crossing/study.json)
+
 The repository contains the completed falsification pilot, its frozen protocol, both benchmark suites and the recorded results. The report gives the aggregate outcome and the evidence for each hypothesis. [Research report](RESEARCH.md)
 
 ## Research question
@@ -63,6 +65,15 @@ uv run tools/plot_results.py --results .research/replay-bundle --output .researc
 | [protocol.json](protocol.json) | Locked tasks, configuration, contrasts, and decision criteria |
 | [Benchmark sources](benchmark_data/README.md) | Data snapshots, licenses, core assignments, and grouping |
 | [Frozen manifest](results/frozen.json) | EpistemeOS registrations and exact scientific input hashes |
+
+The follow-up evidence has a separate source lock. Verify the archived run and regenerate the manuscript figures with:
+
+```powershell
+python -m crossing.evidence verify
+python tools/plot_crossing.py
+```
+
+Use `python -m crossing.evidence freeze --help` and `run --help` for a fresh run against the pinned EpistemeOS checkout. To typeset the source with Tectonic, run `tectonic --outdir ../output/pdf manuscript.tex` from `paper/`.
 
 ## Starting points in the literature
 
