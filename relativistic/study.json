@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "question": "Does smooth relativistic momentum improve external balanced accuracy over matched hard velocity clipping under the frozen crossing protocol?",
+  "methods": ["static", "inertial", "clipped_inertial", "relativistic"],
+  "damping": 1.4,
+  "primary_speed_limit_ratio": 0.15,
+  "sensitivity_speed_limit_ratios": [0.075, 0.3],
+  "max_step": 0.05,
+  "refined_max_step": 0.025,
+  "timing_repeats": 4,
+  "minimum_mean_gain": 0.02,
+  "maximum_median_latency_ratio_to_clipped": 1.25,
+  "maximum_refinement_disagreement": 0.001
+}

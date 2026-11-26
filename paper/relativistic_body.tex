@@ -1,0 +1,149 @@
+\section{Velocity-limited inertia with fixed prototype scores}
+\label{sec:inertia}
+
+The preceding experiment transported each query by the first-order field $F$.
+We now give the query momentum while holding $F$, the fitted prototypes, and
+the class scores fixed. This yields a matched test of whether the law relating
+momentum to velocity matters for class assignments outside the observed cores.
+Fran\c{c}a et al. used relativistic kinetic energy to design an optimization
+algorithm with bounded updates \cite{franca}. Here the trajectory serves as
+an inference rule and is assessed against a hard velocity cap and classical
+inertia as well as the static readout. Competing fitted potentials also appear
+in Galactic Margin Machines, which compare the fields at the query itself
+\cite{behnood}.
+
+\subsection{Matched dynamics and a shared preservation bound}
+
+Write $U(x)=-\beta\log\sum_j S_j(x)$, so $F=-\nabla U$. From $x(0)=x$ and
+$p(0)=0$, evolve
+\begin{equation}
+  \dot x=V(p),\qquad \dot p=F(x)-\gamma p,\qquad \gamma=1.4 .
+  \label{eq:inertial-state}
+\end{equation}
+For $r=\norm{p}$ and speed cap $c>0$, the three velocity laws are
+\begin{equation}
+  V_{\rm classical}(p)=p,\qquad
+  V_{\rm hard}(p)=\frac{c}{\max(c,r)}p,\qquad
+  V_{\rm rel}(p)=\frac{p}{\sqrt{1+r^2/c^2}} .
+  \label{eq:inertial-velocities}
+\end{equation}
+The momenta are evolved under the same equation in all cases. The hard cap
+applies to the velocity in $\dot x$. The relativistic law has unit mass and is
+the momentum gradient of $K_{\rm rel}(p)=c^2(\sqrt{1+r^2/c^2}-1)$. The other
+velocity laws are also gradients of radial kinetic functions. Classical
+inertia uses $r^2/2$, and hard clipping uses $r^2/2$ for $r\le c$ and
+$cr-c^2/2$ for $r>c$. For all three, the chain rule gives
+$\dd(U+K)/\dd t=-\gamma p^\top V(p)\le 0$. At horizon $t$ the label is
+$C(x(t))$, compared to $C(x)$ at initialization. The parameter $c$ is a
+speed in standardized feature coordinates per unit of solver time.
+
+Both capped laws obey $\norm{V(p)}\le c$. Because
+$\nabla m_{ab}=\mu_a-\mu_b$ for the shared isotropic variance, its norm
+is bounded by the largest distance $D_{ab}$ between prototypes in classes
+$a$ and $b$. Thus throughout $[0,t]$ every margin for the initial winner
+$a$ satisfies
+\begin{equation}
+  m_{ab}(x(s))\ge m_{ab}(x)-D_{ab}ct,\qquad 0\le s\le t .
+  \label{eq:capped-preservation}
+\end{equation}
+If these lower bounds are strictly positive for every $b\ne a$, the initial
+class is preserved throughout the interval in exact arithmetic. The same
+test applies to both capped dynamics. At each fixed nonzero momentum the
+relativistic law gives a lower speed than the hard cap. A common maximum
+speed therefore permits different distances traveled by the two methods.
+
+For smooth $F$ and a fixed query, all three position paths start as
+$x(t)=x+\frac12t^2F(x)+O(t^3)$. The hard-capped and classical paths coincide
+while the classical momentum stays within the cap. Expanding
+$V_{\rm rel}(p)=p-r^2p/(2c^2)+O(r^5)$ and using $p(t)=tF(x)+O(t^2)$ gives
+\begin{equation}
+  x_{\rm rel}(t)-x_{\rm classical}(t)
+    =-\frac{t^4}{8c^2}\norm{F(x)}^2F(x)+O(t^5).
+  \label{eq:relativistic-short-time}
+\end{equation}
+Indeed, the cubic velocity correction first changes displacement at order
+$t^4$. The two momentum trajectories then differ by order $t^5$, since
+their forcing differs only through the position. The leading displacement
+that drives the short-time boundary flux is shared by all three laws.
+
+\subsection{Evaluation on the fixed benchmark roster}
+
+The inertia study uses the synthetic families, gaps, PenDigits and Seeds
+cohorts, and core-only feature scaling and prototype fits described above.
+The primary bandwidth ratio, horizon and cap ratio are $0.30$, $0.5$ and
+$0.15$, respectively. Both capped methods use $c$ equal to the cap ratio
+times the fitted prototype diameter. Sensitivity settings cross bandwidth
+ratios $0.30$ and $0.45$ with horizons $0.15$, $0.5$ and $1.25$ at the
+primary cap, and use cap ratios $0.075$ and $0.30$ at the primary bandwidth
+and horizon. Fourth-order Runge--Kutta uses maximum step $0.05$, with a
+separate run at $0.025$ to check numerical label sensitivity. Each matched
+batch has four single-thread timing repeats with rotated method order.
+Timing includes integration where applicable and the final score readout.
+
+The primary comparison is the balanced-accuracy difference between smooth
+relativistic and hard-capped inertia. Stage accuracy is the mean of
+task-unit balanced accuracies. We also count label changes and their
+correct-to-wrong and wrong-to-correct components relative to the static
+readout. Normalized endpoint displacement averages the Euclidean query
+displacement divided by prototype diameter within each unit and then
+across units. Percentile intervals use 10,000 paired seed-block resamples,
+preserving comparisons on shared queries and the dependence induced by
+repeated gaps. The experimental decision criteria specify a gain of at
+least two percentage points over hard clipping with a positive interval
+lower endpoint, a positive lower endpoint against static classification,
+a maximum median latency ratio of $1.25$ to hard clipping, and at most
+$0.1\%$ disagreement under step refinement in every setting. Public
+summaries are conditional on the available cohorts. The inertia comparison
+reuses the previous benchmark roster and provides a within-protocol
+comparison on the same evaluation problems.
+
+\subsection{Inertial transport results}
+
+On the synthetic stage, the primary relativistic-minus-hard difference was
+$-0.033$ percentage points (95\% seed-block interval $[-0.141,0.068]$).
+The relativistic-minus-static difference was $+0.390$ points
+($[-0.158,0.930]$). The capped methods differed on 201 of 51,840 query
+evaluations. Mean displacement relative to prototype diameter was $0.0267$
+with relativistic inertia and $0.0316$ with hard clipping. The relativistic
+law changed 1,171 static labels, including 426 correct-to-wrong and 628
+wrong-to-correct transitions. Hard clipping changed 1,371, with 504 and
+723 transitions, respectively. The soft cap reduced both categories of
+change on these inputs.
+
+On PenDigits and Seeds, the relativistic-minus-hard difference was
+$+0.056$ points ($[0,0.167]$) and the relativistic-minus-static difference
+was $+0.005$ points ($[-0.222,0.273]$). The capped methods differed on two
+of 1,889 query evaluations. The soft and hard mean normalized displacements
+were $0.0258$ and $0.0295$. Both stages fell short of the accuracy criteria.
+Across all eight settings the largest relativistic gain over hard clipping
+was $0.20$ points on the synthetic stage and $0.50$ points on the public
+stage. At the longest horizon, relativistic accuracy on the public stage
+fell below the static readout by $1.39$ and $1.65$ points at the two bandwidths.
+Tables~\ref{tab:inertial-accuracy} and~\ref{tab:inertial-timing} give the
+primary accuracy and inference profiles.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Unit-macro balanced accuracy (\%) at the primary setting with
+fixed Gaussian scores. The static readout evaluates the original query.}
+\label{tab:inertial-accuracy}
+\InertiaAccuracyTable
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Single-thread timing and label counts at the primary setting.
+Each unit's median batch latency is normalized by query count or divided
+by the paired static batch latency before taking the stage median.
+Halving the maximum step changed zero labels across all eight settings.
+Flips count disagreements with the static readout.}
+\label{tab:inertial-timing}
+\InertiaTimingTable
+\end{table}
+
+The median paired latency ratios for relativistic to hard-capped inference
+were $1.019$ and $0.999$, within the threshold on both stages. At the primary
+setting each transported readout took 40 field evaluations per query. Median
+relativistic-to-static batch ratios were $56.8$ and $55.1$ on this machine.

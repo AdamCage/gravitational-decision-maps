@@ -1,0 +1,399 @@
+\section{When every decision is preserved}
+\label{sec:flat}
+
+The normal derivative in \eqref{eq:direction} concerns a single point.
+Here a finite condition on the prototypes characterizes preservation of
+all strict decisions at all finite times. The classifier in this section
+is an arbitrary finite affine-score readout with distinct affine functions
+and full-dimensional strict decision cells, ignoring functions with empty
+strict cells. The driving field is the Gaussian mixture field above.
+With one distinct prototype per class this includes the power diagram
+of the class scores \cite{aurenhammer}, with equal masses giving ordinary
+Voronoi cells. The distinction matters because the later benchmark uses
+multiple prototypes per class and in general has curved faces.
+
+For a cell facet, let $H$ be its supporting hyperplane, let $n$ be a
+unit normal, and write the driving prototypes as $a_i=o+u_i+r_i n$
+with $o\in H$ and $u_i\perp n$. For each distinct tangential projection
+$u$, define
+\begin{equation}
+ A_u=\sum_{i:u_i=u}w_i e^{-r_i^2/(2\beta)},\qquad
+ B_u=\sum_{i:u_i=u}w_i r_i e^{-r_i^2/(2\beta)}.
+ \label{eq:fiber}
+\end{equation}
+
+\begin{theorem}[Criterion for affine decision cells]
+\label{thm:flat}
+The following conditions are equivalent.
+\begin{enumerate}
+\item At some fixed $T>0$, the map $\Phi_T$ sends every strict decision
+cell into itself.
+\item Every strict decision cell is invariant for all $t\ge0$.
+\item For every projection group on every facet hyperplane, $B_u=0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Under the first condition, continuity maps the relative interior of each
+facet into the closures of both incident cells, hence into $H$.
+The finite-time flow of an analytic field depends analytically on its
+initial point \cite{carrillo}, so the normal coordinate of $\Phi_T$
+vanishes on the entire plane in coordinates based at $o\in H$.
+We first show that this implies $F\cdot n=0$ on $H$.
+
+Start an orbit at any point of $H$. All samples at times $kT$ stay
+in $H$ and in a compact superlevel set of the Gaussian log-density
+potential $U=\beta\log\sum_c S_c$. The potential increases along the
+orbit and is bounded above. Thus the potential increments between
+successive samples tend to zero. At a subsequential limit $p\in H$,
+continuity gives $U(\Phi_T p)=U(p)$. Since the difference equals
+$\int_0^T\lVert F(\Phi_s p)\rVert^2\,\dd s$, we have $F(p)=0$.
+
+Write $x=p+y+rn$ with $y$ tangent to $H$. At $p$ the tangent space to
+$H$ is invariant under the derivative $D\Phi_T(p)=e^{TDF(p)}$.
+Since $DF(p)$ is real symmetric, it has the same eigenspaces as its
+exponential and is block diagonal in the tangent and normal spaces.
+Let $A$ be its tangential block and $b$ its normal entry. If $F\cdot n$
+on $H$ is not identically zero, its Taylor expansion at $p$ has a
+first nonzero homogeneous part $Q_k(y)$ of degree $k\ge2$. For initial
+conditions $(y,0)$ the tangential component of the flow has linear
+part $e^{tA}y$. Its normal component has all Taylor terms of degree
+less than $k$ equal to zero, since their ODEs have zero initial data
+and only the linear normal term can contribute at the first nonzero
+degree below $k$. The degree-$k$ term at time $T$ is therefore
+\[
+ \int_0^T e^{b(T-s)}Q_k(e^{sA}y)\,\dd s.
+\]
+In a real eigenbasis of $A$ with eigenvalues $\lambda_j$, each monomial
+$y^m$ in $Q_k$ is multiplied by
+$\int_0^T e^{b(T-s)+s\sum_jm_j\lambda_j}\,\dd s>0$.
+The integral cannot be the zero polynomial. This contradicts
+$\Phi_T(H)\subseteq H$, proving tangency by analyticity of $F$ on $H$.
+The argument allows zero eigenvalues. The integrated homogeneous
+operator is the one used in the embedding of maps in autonomous
+flows \cite[Eq.~(2.13)]{zhang}. The real spectrum rules out the weak
+resonances in the corresponding formal embedding result \cite{ribon}.
+
+For $z=o+y\in H$, the Gaussian normal velocity is
+\begin{equation}
+ n^\top F(z)=
+ \frac{\sum_u B_u e^{-\lVert y-u\rVert^2/(2\beta)}}
+      {\sum_u A_u e^{-\lVert y-u\rVert^2/(2\beta)}} .
+ \label{eq:facetvelocity}
+\end{equation}
+After division by the positive common factor $e^{-\lVert y\rVert^2/(2\beta)}$,
+the numerator is a finite sum of exponentials with distinct directions.
+Restrict to a line segment in the relative interior whose direction
+has distinct inner products with the $u$'s. Consecutive derivatives
+at an interior point give an invertible Vandermonde system, so each
+$B_u$ vanishes. In dimension one there is a single group and the same
+conclusion is immediate. Conversely, vanishing coefficients make the
+entire supporting plane invariant by ODE uniqueness. A trajectory on
+either strict side cannot reach the plane at finite time, by backward
+uniqueness from a hypothetical contact. Each open cell is the
+intersection of its open facet halfspaces. This gives the second
+condition, which implies the first.
+\end{proof}
+
+Classical tangency criteria characterize invariant sets in terms of the
+vector field \cite{nagumo}. Theorem~\ref{thm:flat} starts with decision
+preservation at a single sampling time, then replaces the resulting
+continuum of tangency conditions by finite equalities in the Gaussian
+driving measure. The forward and backward invariance also preserves
+closed cells and the set of maximizers on their boundaries when all
+affine functions have full-dimensional cells.
+
+\paragraph{A single relaxed mean-shift step.}
+For $0<\alpha<1$, preservation of every strict cell by
+$x\mapsto (1-\alpha)x+\alpha\mu(x)$ is equivalent to the same balances.
+Preservation implies that the step maps each relative open facet into
+its support plane, which makes the normal numerator in
+\eqref{eq:facetvelocity} vanish there. Conversely, for a balanced plane
+$n^\top(\mu(z)-o)=0$ on $H$ and $\partial_n(n^\top\mu)\ge0$ everywhere.
+The normal coordinate of the step is a convex combination of the
+input's signed distance and a quantity of the same weak sign.
+This preserves each open halfspace. For $\alpha=1$ the result holds
+if the driving prototypes have nonzero spread in the normal direction
+of every facet, as they do with one site per class in the power diagram.
+Then the derivative is strictly positive by the posterior variance
+identity. Thus one ordinary Gaussian mean-shift step, one exponential
+Euler step of positive finite length, and the exact flow have the same
+condition for global preservation, although they can transport
+individual queries differently.
+
+\begin{corollary}[Reflection rigidity]
+\label{cor:reflection}
+For distinct equal-mass sites with one site per class, the following are
+equivalent.
+\begin{enumerate}
+\item All strict Voronoi decisions are invariant for every bandwidth.
+\item Reflection in every Voronoi facet hyperplane permutes the sites.
+\item In their affine span, the sites are a single orbit of a finite
+orthogonal reflection group after translating its fixed point to the
+origin.
+\end{enumerate}
+These also follow from preservation at one positive horizon at a
+single bandwidth $\beta\ge D^2/4$, where $D$ is the site diameter.
+\end{corollary}
+
+\begin{proof}
+The equal-mass cells are independent of $\beta$. If they are invariant
+on any open interval of $\beta$, each $B_u$ in \eqref{eq:fiber} vanishes
+on that interval. Grouping equal values of $r_i^2$ and using independence
+of exponentials in $1/(2\beta)$ forces equal masses at $r$ and $-r$
+for every $r>0$ in each group. This is precisely the stated reflection
+symmetry, which also makes every $B_u$ zero.
+
+At $\beta\ge D^2/4$, the covariance identity gives $DF\preceq 0$.
+The Gaussian log-density potential is coercive from above and strictly
+concave. Indeed, an affine segment on any line would extend by real
+analyticity to an affine restriction on the whole line, contradicting
+quadratic decay. There is a unique maximum $p$. A forward trajectory
+stays in a compact superlevel set, and the potential derivative is
+$\lVert F\rVert^2$. Bounded derivatives on that compact set give uniform
+continuity of $\lVert F\rVert^2$ in time. Its finite integral implies
+$F(\Phi_t x)\to0$, and hence $\Phi_t x\to p$. Invariance would put $p$
+in the closure of every cell, so all sites lie on a common sphere
+centered at $p$ and every facet plane contains $p$. In each tangential
+projection group, a line normal to the plane intersects that sphere
+at most at two points with opposite offsets. Since $B_u=0$, every
+nonzero offset has its reflected partner.
+
+If the facets are mirrors of the site set, their reflections restrict
+to the affine span and fix the centroid. They generate a finite group
+because an isometry of the span is determined by its action on the
+sites. An adjacency path through Voronoi cells crosses facets, each of
+whose reflections swaps the two incident sites. The adjacency graph is
+connected, as a generic path avoids intersections of codimension at
+least two. The group therefore acts transitively. Conversely, for an
+orbit of a finite real reflection group, the sites have a common norm
+around the fixed point. Their Voronoi cells are the normal cones of
+the orbit polytope. Each such cone is a union of closed reflection
+chambers \cite{ardila}. To see this, in the interior of a chamber a
+maximizer of the inner product over the orbit lies in that closed
+chamber: reflecting any orbit site across a chamber wall it violates
+strictly increases the inner product. There is a unique orbit
+representative in a closed chamber, including on its walls.
+Thus every Voronoi facet is supported on a reflecting hyperplane.
+\end{proof}
+
+Reflection symmetry can also preserve some multicenter classifiers.
+Take directions $a_c$ on a common sphere forming a reflection-group orbit.
+For each class use prototypes $\lambda_j a_c$ with $\lambda_j>0$ and
+weights $w_j>0$ common across classes. The class scores depend on $c$
+through the same strictly increasing function of $a_c^\top x$ after
+removing the common Gaussian factor. Thus each decision cell is still
+a Voronoi cell of the $a_c$'s. Its facet reflections preserve the
+driving measure at every radius, making the balances zero at every
+bandwidth.
+
+\paragraph{Generic crossings and an exceptional cancellation.}
+In dimension $d\ge2$, for at least three sites with equal masses, almost
+every configuration has a permeable patch on each Voronoi facet at every
+$\beta>0$. Outside finitely many proper algebraic sets, no third site
+lies on a pair bisector and no other pair difference is parallel to
+that pair's difference. Each third site then has a singleton projection
+group with a nonzero offset. By Theorem~\ref{thm:flat}, $F\cdot n$ is
+nonzero on an open patch of that facet. Continuous dependence gives
+an open set of nearby initial decisions that switch across the facet
+at sufficiently small horizons. At any fixed positive horizon,
+the time map fails to take some point in the relative interior of
+each such facet into its supporting plane. Otherwise the proof of
+Theorem~\ref{thm:flat} would force the plane to be tangent. Nearby
+initial points on at least one side reach the opposite side of the
+supporting plane. The image of that open set is open, so some
+points have a different strict label. Invariance without
+reflection is possible at a fixed bandwidth and unequal weights.
+For sites $(-1,0,1)$ take weights $(1,\sqrt{2/5},1)$ and
+$\beta=(2\log(5/2))^{-1}$. The active ties are at $\pm1/4$. At $1/4$,
+in units of the common leading score, the normal numerator is
+$1/2-(5/4)(2/5)=0$. Symmetry about zero makes the other tie stationary.
+Neither tie is a mirror of the sites.
+
+\paragraph{A finite-time departure bound.}
+For queries on the positive side of $H$, define
+$\epsilon_H^+=\max(0,-\min_u B_u/A_u)$. On the negative side use
+$\epsilon_H^-=\max(0,\max_u B_u/A_u)$. Equation~\eqref{eq:facetvelocity}
+makes the plane's normal velocity a convex average of the group means.
+At distance $s>0$ from the plane on the query's side, the inward
+velocity toward that side is at least $-\epsilon_H^\pm-s$ because
+$\partial_n(n^\top F)=\operatorname{Var}(n^\top a_i)/\beta-1\ge-1$.
+Up to first contact, comparison gives
+$s(t)\ge s(0)e^{-t}-\epsilon_H^\pm(1-e^{-t})$. Thus leaving a strict
+cell by $T$ requires initial distance at most
+$\epsilon_H^\pm(e^T-1)$ from at least one bounding plane.
+The resulting union of slabs gives a probability bound under any
+feature distribution and a query-level preservation test with no ODE
+integration. It is an exact-arithmetic bound. Using additional
+pairwise planes in the test keeps it valid and can reduce coverage.
+The switch probability also bounds the absolute change in expected
+zero-one loss under any joint feature and label law.
+
+\paragraph{A bound on the reachable projection.}
+The extrema over the entire plane can be conservative when the query's
+trajectory only visits a bounded part of it. Orient $n$ toward the
+initial query and let $(y_0,s_0)$ be its tangential and normal
+coordinates relative to $o$, with $s_0>0$. The tangential trajectory
+obeys an equation of the form $\dot y=\sum_i\pi_i u_i-y$. Thus throughout
+$[0,T]$ its projection lies in
+\begin{equation}
+ K_T=y_0+(1-e^{-T})\operatorname{conv}
+       \big(\{0\}\cup\{u_i-y_0\}_i\big).
+ \label{eq:projected-tube}
+\end{equation}
+At a projected point $y\in K_T$, let $L_i(y)$ be the log of each
+weighted plane contribution relative to a reference site's.
+The shared quadratic term cancels, making $L_i$ affine in
+$y$. Its lower and upper extrema $\underline L_i,\overline L_i$
+come from evaluating it at the generators of the projected tube.
+In an equal-mass Voronoi classifier the two tied sites have relative
+likelihood one if either is the reference. Their opposite normal
+offsets cancel, so their combined relative mass is two with offset
+zero.
+
+Set $d_0=s_0/(e^T-1)$ and $k_i=r_i+d_0$, using the combined offset
+where appropriate. A sufficient test for preservation on this side is
+\begin{equation}
+ \sum_{i:k_i\ge0} k_i e^{\underline L_i}
+ +\sum_{i:k_i<0} k_i e^{\overline L_i}>0 .
+ \label{eq:local-plane}
+\end{equation}
+The combined tied mass multiplies its term by two.
+The left side lower-bounds the numerator of the normal velocity shifted
+by $d_0$, throughout the reachable projection of the trajectory.
+Monotonicity of the normal posterior mean away from the plane gives
+$\dot s>-s-d_0$ up to first contact, which keeps $s(t)>0$ through $T$.
+Applying this test to each bounding plane certifies the initial cell.
+The global and local tests can be combined. The global test bounds a
+convex average over all projected positions, while the local test
+uses the reachable tube at the cost of separating the logit extrema.
+Both are sufficient conditions in exact arithmetic.
+
+\subsection{Shared anisotropy and the choice of gradient}
+\label{sec:anisotropy}
+Consider a shared precision matrix $P/\beta$, with $P$ symmetric
+positive definite, in place of the spherical kernel. The Euclidean
+gradient of the same scaled log marginal density is now
+$F_P=P(\mu-x)$, where responsibilities use this precision. It is
+complete and analytic, with the symmetric bounded derivative
+$P\Cov(a)P/\beta-P$ and compact superlevel sets for its potential.
+Consequently the sampled-time argument in Theorem~\ref{thm:flat}
+still forces tangency on every facet plane.
+
+\begin{corollary}[Aligned normals under Euclidean anisotropic ascent]
+\label{cor:anisotropy}
+For $F_P$, global preservation of the strict affine decisions at
+one positive time is equivalent to both of the following conditions on
+each facet plane: $Pn=\lambda_n n$ and
+$\sum_{i:u_i=u}w_i r_i e^{-\lambda_n r_i^2/(2\beta)}=0$ for each
+tangential projection group.
+\end{corollary}
+
+\begin{proof}
+On an invariant plane, $n^\top P x=n^\top P\mu(x)$, which is bounded
+because $\mu(x)$ lies in the prototype hull. The linear function
+$n^\top P x$ is bounded over the whole plane only if $Pn$ is parallel
+to $n$. When $Pn=\lambda_n n$, the Gaussian exponent separates
+into a tangential quadratic form and the normal term
+$\lambda_n r_i^2$. The same exponential-independence argument
+applies on the tangential space because the restriction of $P$ is
+invertible there. This yields the stated balances. Conversely these
+balances make the field tangent, and uniqueness preserves the cells.
+\end{proof}
+
+For one site per class the face normals are proportional to
+$P(a_b-a_a)$. If $P$ is not a multiple of the identity, almost every
+site pair has a difference that is not an eigenvector, so even a
+generic binary readout admits switches at every positive time.
+For instance take $P=\operatorname{diag}(2,1)$ and equal sites
+$\pm(1,1)$. On their tie plane $2x_1+x_2=0$ the posterior mean is zero.
+At $(1,-2)$, the Euclidean field is $(-2,2)$, which has nonzero
+normal component. The preconditioned field $\mu-x$, obtained by
+applying $P^{-1}$ to the Euclidean gradient, preserves the labels.
+Under whitening $x\mapsto P^{1/2}x$ the preconditioned field is
+the spherical model with transformed sites. This distinguishes
+the choice of ascent metric from the use of a full bandwidth matrix
+in mean shift \cite{chaconduong}.
+
+\subsection{Extension to regular connected curved interfaces}
+\label{sec:curved}
+Single-horizon rigidity uses analyticity and the gradient structure.
+The reduction to the finite balances \eqref{eq:fiber} requires planes.
+For a curved example, call a pair active if it shares a strict
+two-class face. Suppose each active pair's full equality set
+$H_{ab}=\{m_{ba}=0\}$ is a connected regular analytic hypersurface
+and each boundary of a strict class cell is covered by the equality
+sets of active pairs involving that class. Under these assumptions
+preservation of every strict cell at one positive horizon is
+equivalent to $F\cdot\nabla m_{ba}=0$ on each such equality set and to
+preservation for all horizons.
+
+Indeed, preservation maps a relatively open part of $H_{ab}$
+into $H_{ab}$. The restriction of $m_{ba}\circ\Phi_T$ to that
+connected analytic hypersurface is therefore zero. The same
+compact-superlevel argument supplies an equilibrium there. Flatten
+the hypersurface in a local analytic graph chart at the equilibrium
+with orthonormal derivative. The linearization in those coordinates
+is still symmetric, because the field vanishes at the equilibrium
+and its derivative transforms by orthogonal conjugacy. The normal
+Taylor calculation from Theorem~\ref{thm:flat} now gives tangency
+near that point, and analyticity extends $F\cdot\nabla m_{ba}=0$
+along the whole hypersurface. Conversely, a first contact with the
+boundary of the initial cell would lie on one of the invariant
+hypersurfaces involving that class. A strict initial query does
+not lie on that hypersurface, so backward uniqueness excludes
+contact at finite time.
+
+For example, if the prototypes of $b$ have strictly larger
+projections onto some unit direction than all the prototypes of
+$a$, then $H_{ab}$ is a connected graph over the orthogonal plane.
+The directional derivative of $m_{ba}$ is the difference of the
+two projected posterior means and is bounded below by the positive
+projection gap. Hence there is one root on each parallel line,
+and the implicit function theorem gives an analytic graph.
+Interleaved classes in the core-only benchmark need not satisfy
+the connectedness or regularity assumptions.
+
+\subsection{Sensitivity to changes in the driving mixture}
+\label{sec:sensitivity}
+Fix the affine readout and let $F_\varepsilon$ be a smooth
+one-parameter family of driving fields with $F_0$ preserving the
+partition. Consider a compact patch $K$ in a strict two-class
+facet with normal $n$. For $z\in K$, write $z_s=\Phi_s^0 z$ and
+define the normal coefficients
+\[
+ \ell_z(s)=n^\top DF_0(z_s)n,\qquad
+ b_z(s)=n^\top \partial_\varepsilon F_\varepsilon(z_s)\big|_0.
+\]
+At fixed time $T$, the initial points transported into the facet
+have normal coordinate $r_\varepsilon(z)$ relative to $z$, where
+\begin{equation}
+ r_\varepsilon(z)=-\varepsilon I_T(z)+o(\varepsilon),
+ \qquad
+ I_T(z)=\int_0^T
+       e^{-\int_0^s \ell_z(v)\,\dd v}\,b_z(s)\,\dd s .
+ \label{eq:sensitivity}
+\end{equation}
+To derive this, the tangential derivatives of the base normal
+velocity vanish identically on the plane. The first normal
+variation of a perturbed trajectory initialized at $z$ therefore
+obeys $\dot\eta=\ell_z\eta+b_z$ with $\eta(0)=0$.
+The derivative of the terminal normal position with respect to
+its initial normal coordinate is $\exp(\int_0^T\ell_z)$.
+It is positive, so solving for the initial normal coordinate at
+which the terminal coordinate vanishes gives \eqref{eq:sensitivity}
+by the implicit function theorem. The formula holds uniformly on
+$K$ by compactness. The unperturbed trajectory stays in the
+relative interior of the facet because the base flow preserves
+the closures of both adjacent cells and their intersection in
+both time directions.
+
+For a continuous feature density $\rho$, the probability of a
+label switch with initial condition in a sufficiently thin
+normal strip over $K$ is consequently
+$|\varepsilon|\int_K\rho(z)|I_T(z)|\,\dd S+o(|\varepsilon|)$.
+This is obtained by integrating across the interval between the
+original and pulled-back interfaces. It describes a fixed finite
+horizon under a fixed readout, whereas the earlier boundary flux
+expands in time. Summing such formulas globally requires control
+near junctions and at infinity.

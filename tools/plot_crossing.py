@@ -24,7 +24,7 @@ FAMILY_LABELS = {
     "affine_shells": "Affine shells",
     "wavy_shells": "Wavy shells",
     "open_chains": "Open chains",
-    "local_lobes": "Local lobes",
+    "local_lobes": "Separated lobes",
     "pendigits": "PenDigits",
     "seeds": "Seeds",
 }

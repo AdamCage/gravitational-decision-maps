@@ -1,0 +1,391 @@
+{
+  "study": "Exploratory fixed-horizon perturbation of the driving field with frozen labels",
+  "design": {
+    "sites": [
+      [
+        -1.0,
+        -0.75
+      ],
+      [
+        -1.0,
+        0.75
+      ],
+      [
+        1.0,
+        -0.75
+      ],
+      [
+        1.0,
+        0.75
+      ]
+    ],
+    "beta": 2.0,
+    "static_labels": "Nearest site with equal masses",
+    "field_perturbation": "Multiply the upper-right site's driving mass by exp(epsilon)",
+    "feature_law": "Standard bivariate Gaussian, without class labels",
+    "initial_x_range": [
+      -0.3,
+      0.3
+    ],
+    "initial_y_range": [
+      0.3,
+      1.2
+    ],
+    "horizons": [
+      0.25,
+      0.75,
+      1.5
+    ],
+    "epsilons": [
+      0.0,
+      -0.08,
+      0.08,
+      -0.04,
+      0.04,
+      -0.02,
+      0.02,
+      -0.01,
+      0.01,
+      -0.005,
+      0.005
+    ],
+    "gauss_legendre_nodes": 16,
+    "trajectory_solver": "DOP853",
+    "trajectory_rtol": 2e-11,
+    "trajectory_atol": 2e-13,
+    "brent_xtol": 1e-13
+  },
+  "positive_strip_clearance_lower_bounds": {
+    "vertical_side_abscissa": 0.02472837226381011,
+    "lower_side_ordinate": 0.03940094152240229
+  },
+  "results": [
+    {
+      "horizon": 0.25,
+      "predicted_switch_mass_coefficient": 0.008749301150052671,
+      "predicted_displacement_coefficient_range_at_nodes": [
+        0.07349918068923379,
+        0.09235224117367485
+      ],
+      "measurements": [
+        {
+          "epsilon": 0.0,
+          "unconditional_switch_mass_inside_strip": 0.0,
+          "max_abs_initial_boundary_abscissa": 5.551115123125783e-17
+        },
+        {
+          "epsilon": -0.08,
+          "unconditional_switch_mass_inside_strip": 0.0006887760006027404,
+          "max_abs_initial_boundary_abscissa": 0.0072926414489798575,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008609700007534254,
+          "relative_error_in_switch_mass_coefficient": 0.015955690645941066,
+          "max_relative_error_in_displacement_coefficient": 0.018682344988279167
+        },
+        {
+          "epsilon": 0.08,
+          "unconditional_switch_mass_inside_strip": 0.0007107368454241311,
+          "max_abs_initial_boundary_abscissa": 0.007478697498799321,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008884210567801639,
+          "relative_error_in_switch_mass_coefficient": 0.015419450700717504,
+          "max_relative_error_in_displacement_coefficient": 0.018328965763725478
+        },
+        {
+          "epsilon": -0.04,
+          "unconditional_switch_mass_inside_strip": 0.0003472019110387786,
+          "max_abs_initial_boundary_abscissa": 0.003670504879491864,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008680047775969466,
+          "relative_error_in_switch_mass_coefficient": 0.007915303507730844,
+          "max_relative_error_in_displacement_coefficient": 0.009301701042965179
+        },
+        {
+          "epsilon": 0.04,
+          "unconditional_switch_mass_inside_strip": 0.0003526952626947482,
+          "max_abs_initial_boundary_abscissa": 0.0037170468289432733,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008817381567368705,
+          "relative_error_in_switch_mass_coefficient": 0.007781240598356155,
+          "max_relative_error_in_displacement_coefficient": 0.00921338589126132
+        },
+        {
+          "epsilon": -0.02,
+          "unconditional_switch_mass_inside_strip": 0.00017429632344489836,
+          "max_abs_initial_boundary_abscissa": 0.0018411869801229013,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008714816172244918,
+          "relative_error_in_switch_mass_coefficient": 0.003941455119252025,
+          "max_relative_error_in_displacement_coefficient": 0.004640399930054367
+        },
+        {
+          "epsilon": 0.02,
+          "unconditional_switch_mass_inside_strip": 0.00017566985774166284,
+          "max_abs_initial_boundary_abscissa": 0.0018528242145645203,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008783492887083142,
+          "relative_error_in_switch_mass_coefficient": 0.003907939210695123,
+          "max_relative_error_in_displacement_coefficient": 0.0046183229982706886
+        },
+        {
+          "epsilon": -0.01,
+          "unconditional_switch_mass_inside_strip": 8.732094702418962e-05,
+          "max_abs_initial_boundary_abscissa": 0.0009220627994974896,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.00873209470241896,
+          "relative_error_in_switch_mass_coefficient": 0.0019666082283162174,
+          "max_relative_error_in_displacement_coefficient": 0.0023175140148185354
+        },
+        {
+          "epsilon": 0.01,
+          "unconditional_switch_mass_inside_strip": 8.766434287393574e-05,
+          "max_abs_initial_boundary_abscissa": 0.000924972217316225,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008766434287393574,
+          "relative_error_in_switch_mass_coefficient": 0.001958229239920513,
+          "max_relative_error_in_displacement_coefficient": 0.002311994897813998
+        },
+        {
+          "epsilon": -0.005,
+          "unconditional_switch_mass_inside_strip": 4.3703535066468425e-05,
+          "max_abs_initial_boundary_abscissa": 0.0004613969123098846,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008740707013293684,
+          "relative_error_in_switch_mass_coefficient": 0.0009822655103070717,
+          "max_relative_error_in_displacement_coefficient": 0.0011580763296260334
+        },
+        {
+          "epsilon": 0.005,
+          "unconditional_switch_mass_inside_strip": 4.378938479615864e-05,
+          "max_abs_initial_boundary_abscissa": 0.0004621242735903032,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.008757876959231728,
+          "relative_error_in_switch_mass_coefficient": 0.0009801707624392053,
+          "max_relative_error_in_displacement_coefficient": 0.0011566965583659505
+        }
+      ]
+    },
+    {
+      "horizon": 0.75,
+      "predicted_switch_mass_coefficient": 0.028972602509154677,
+      "predicted_displacement_coefficient_range_at_nodes": [
+        0.24719973271675671,
+        0.30162245775629654
+      ],
+      "measurements": [
+        {
+          "epsilon": 0.0,
+          "unconditional_switch_mass_inside_strip": 5.88781137948541e-18,
+          "max_abs_initial_boundary_abscissa": 2.220446049250313e-16
+        },
+        {
+          "epsilon": -0.08,
+          "unconditional_switch_mass_inside_strip": 0.0022768396565222174,
+          "max_abs_initial_boundary_abscissa": 0.02377255147502645,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.028460495706527717,
+          "relative_error_in_switch_mass_coefficient": 0.017675554084764934,
+          "max_relative_error_in_displacement_coefficient": 0.020066877699953
+        },
+        {
+          "epsilon": 0.08,
+          "unconditional_switch_mass_inside_strip": 0.002357548917636988,
+          "max_abs_initial_boundary_abscissa": 0.024474897959563136,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.029469361470462353,
+          "relative_error_in_switch_mass_coefficient": 0.017145817713500586,
+          "max_relative_error_in_displacement_coefficient": 0.019838486026105235
+        },
+        {
+          "epsilon": -0.04,
+          "unconditional_switch_mass_inside_strip": 0.0011487323225080814,
+          "max_abs_initial_boundary_abscissa": 0.01197630495612476,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.028718308062702036,
+          "relative_error_in_switch_mass_coefficient": 0.008777066070343169,
+          "max_relative_error_in_displacement_coefficient": 0.01000922613602897
+        },
+        {
+          "epsilon": 0.04,
+          "unconditional_switch_mass_inside_strip": 0.0011689224148693526,
+          "max_abs_initial_boundary_abscissa": 0.012151973453196005,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.029223060371733816,
+          "relative_error_in_switch_mass_coefficient": 0.008644644971054988,
+          "max_relative_error_in_displacement_coefficient": 0.009952159902206366
+        },
+        {
+          "epsilon": -0.02,
+          "unconditional_switch_mass_inside_strip": 0.0005769182978934428,
+          "max_abs_initial_boundary_abscissa": 0.0060103931412890145,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.02884591489467214,
+          "relative_error_in_switch_mass_coefficient": 0.004372669470839139,
+          "max_relative_error_in_displacement_coefficient": 0.004998023040409858
+        },
+        {
+          "epsilon": 0.02,
+          "unconditional_switch_mass_inside_strip": 0.0005819666200239705,
+          "max_abs_initial_boundary_abscissa": 0.006054315385185017,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.029098331001198522,
+          "relative_error_in_switch_mass_coefficient": 0.004339565008152716,
+          "max_relative_error_in_displacement_coefficient": 0.004983758461552321
+        },
+        {
+          "epsilon": -0.01,
+          "unconditional_switch_mass_inside_strip": 0.0002890937609558765,
+          "max_abs_initial_boundary_abscissa": 0.003010722275467979,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.028909376095587653,
+          "relative_error_in_switch_mass_coefficient": 0.0021822828497041593,
+          "max_relative_error_in_displacement_coefficient": 0.002497296423211924
+        },
+        {
+          "epsilon": 0.01,
+          "unconditional_switch_mass_inside_strip": 0.00029035589143591945,
+          "max_abs_initial_boundary_abscissa": 0.003021703156456158,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.029035589143591944,
+          "relative_error_in_switch_mass_coefficient": 0.002174006785112427,
+          "max_relative_error_in_displacement_coefficient": 0.0024937304026636507
+        },
+        {
+          "epsilon": -0.005,
+          "unconditional_switch_mass_inside_strip": 0.00014470509481314786,
+          "max_abs_initial_boundary_abscissa": 0.0015067381859536848,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.028941018962629572,
+          "relative_error_in_switch_mass_coefficient": 0.0010901176901565873,
+          "max_relative_error_in_displacement_coefficient": 0.0012482109598302852
+        },
+        {
+          "epsilon": 0.005,
+          "unconditional_switch_mass_inside_strip": 0.0001450206305549739,
+          "max_abs_initial_boundary_abscissa": 0.00150948342620174,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.029004126110994777,
+          "relative_error_in_switch_mass_coefficient": 0.001088048677371662,
+          "max_relative_error_in_displacement_coefficient": 0.0012473194628283208
+        }
+      ]
+    },
+    {
+      "horizon": 1.5,
+      "predicted_switch_mass_coefficient": 0.06829611612993576,
+      "predicted_displacement_coefficient_range_at_nodes": [
+        0.5949505570810688,
+        0.6968793709503186
+      ],
+      "measurements": [
+        {
+          "epsilon": 0.0,
+          "unconditional_switch_mass_inside_strip": 1.8224238057339337e-17,
+          "max_abs_initial_boundary_abscissa": 3.3306690738754696e-16
+        },
+        {
+          "epsilon": -0.08,
+          "unconditional_switch_mass_inside_strip": 0.005353140940131691,
+          "max_abs_initial_boundary_abscissa": 0.05477863766677598,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06691426175164614,
+          "relative_error_in_switch_mass_coefficient": 0.020233279088090413,
+          "max_relative_error_in_displacement_coefficient": 0.021857848890402425
+        },
+        {
+          "epsilon": 0.08,
+          "unconditional_switch_mass_inside_strip": 0.00556797898269117,
+          "max_abs_initial_boundary_abscissa": 0.05670135048452043,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06959973728363962,
+          "relative_error_in_switch_mass_coefficient": 0.019087778743137822,
+          "max_relative_error_in_displacement_coefficient": 0.021709173777541068
+        },
+        {
+          "epsilon": -0.04,
+          "unconditional_switch_mass_inside_strip": 0.0027045613819100815,
+          "max_abs_initial_boundary_abscissa": 0.027633446796528807,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06761403454775204,
+          "relative_error_in_switch_mass_coefficient": 0.009987121096110866,
+          "max_relative_error_in_displacement_coefficient": 0.01091477501070271
+        },
+        {
+          "epsilon": 0.04,
+          "unconditional_switch_mass_inside_strip": 0.0027583457335391974,
+          "max_abs_initial_boundary_abscissa": 0.028114313398485673,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06895864333847994,
+          "relative_error_in_switch_mass_coefficient": 0.009700803590114798,
+          "max_relative_error_in_displacement_coefficient": 0.01087762963137944
+        },
+        {
+          "epsilon": -0.02,
+          "unconditional_switch_mass_inside_strip": 0.0013591480539575029,
+          "max_abs_initial_boundary_abscissa": 0.013877311351807711,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06795740269787515,
+          "relative_error_in_switch_mass_coefficient": 0.004959483075380153,
+          "max_relative_error_in_displacement_coefficient": 0.00545329974026258
+        },
+        {
+          "epsilon": 0.02,
+          "unconditional_switch_mass_inside_strip": 0.0013725988243236276,
+          "max_abs_initial_boundary_abscissa": 0.013997539782929525,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06862994121618138,
+          "relative_error_in_switch_mass_coefficient": 0.004887907324195475,
+          "max_relative_error_in_displacement_coefficient": 0.005444014855352494
+        },
+        {
+          "epsilon": -0.01,
+          "unconditional_switch_mass_inside_strip": 0.0006812735582830231,
+          "max_abs_initial_boundary_abscissa": 0.006953744555677903,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06812735582830232,
+          "relative_error_in_switch_mass_coefficient": 0.002471008765891928,
+          "max_relative_error_in_displacement_coefficient": 0.002725558740499714
+        },
+        {
+          "epsilon": 0.01,
+          "unconditional_switch_mass_inside_strip": 0.0006846365436047757,
+          "max_abs_initial_boundary_abscissa": 0.006983802399837746,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06846365436047758,
+          "relative_error_in_switch_mass_coefficient": 0.002453115053029798,
+          "max_relative_error_in_displacement_coefficient": 0.0027232376107173863
+        },
+        {
+          "epsilon": -0.005,
+          "unconditional_switch_mass_inside_strip": 0.0003410594345440418,
+          "max_abs_initial_boundary_abscissa": 0.003480637072242756,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06821188690880836,
+          "relative_error_in_switch_mass_coefficient": 0.001233294452164018,
+          "max_relative_error_in_displacement_coefficient": 0.0013624979172609495
+        },
+        {
+          "epsilon": 0.005,
+          "unconditional_switch_mass_inside_strip": 0.00034190019917131027,
+          "max_abs_initial_boundary_abscissa": 0.0034881515793077312,
+          "nodes_with_displacement_opposite_to_prediction": 0,
+          "switch_mass_divided_by_abs_epsilon": 0.06838003983426205,
+          "relative_error_in_switch_mass_coefficient": 0.0012288210381776845,
+          "max_relative_error_in_displacement_coefficient": 0.0013619176403403524
+        }
+      ]
+    }
+  ],
+  "numerical_refinement": {
+    "horizon": 1.5,
+    "epsilons": [
+      -0.005,
+      0.005
+    ],
+    "gauss_legendre_nodes": 32,
+    "trajectory_rtol": 2.5e-12,
+    "trajectory_atol": 2.5e-14,
+    "brent_xtol": 1.25e-14,
+    "max_absolute_change_in_observed_mass_coefficient": 1.762479051592436e-14
+  }
+}

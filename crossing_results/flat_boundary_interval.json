@@ -1,0 +1,1378 @@
+{
+  "study": "Exploratory exact-input, outward-rounded affine fixture comparison",
+  "precision_decimal_digits": 38,
+  "rounding": "Decimal ROUND_FLOOR and ROUND_CEILING for arithmetic; correctly rounded exp widened by next_minus and next_plus",
+  "step": "0.015625",
+  "tube_refinements": 2,
+  "horizons": [
+    "0.5",
+    "1.25",
+    "2.25"
+  ],
+  "fixtures": {
+    "centered_cospherical": {
+      "beta": "1.2",
+      "sites": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          ".6",
+          ".8"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "0"
+        ],
+        [
+          "-.6",
+          "-.8"
+        ],
+        [
+          "0",
+          "-1"
+        ]
+      ],
+      "queries": [
+        [
+          "1.34",
+          ".56"
+        ],
+        [
+          "1.34",
+          ".669"
+        ],
+        [
+          "1.34",
+          ".671"
+        ],
+        [
+          ".60",
+          ".2999"
+        ],
+        [
+          ".60",
+          ".3001"
+        ],
+        [
+          ".60",
+          ".24"
+        ],
+        [
+          ".05",
+          ".95"
+        ],
+        [
+          ".02",
+          "-.01"
+        ]
+      ]
+    },
+    "reflective_rectangle": {
+      "beta": "2",
+      "sites": [
+        [
+          "-1",
+          "-.75"
+        ],
+        [
+          "-1",
+          ".75"
+        ],
+        [
+          "1",
+          "-.75"
+        ],
+        [
+          "1",
+          ".75"
+        ]
+      ],
+      "queries": [
+        [
+          ".2",
+          ".8"
+        ],
+        [
+          "-.2",
+          ".8"
+        ],
+        [
+          ".02",
+          ".3"
+        ],
+        [
+          "-.02",
+          ".3"
+        ],
+        [
+          ".002",
+          ".3"
+        ],
+        [
+          "-.002",
+          ".3"
+        ],
+        [
+          ".00002",
+          ".3"
+        ],
+        [
+          "-.00002",
+          ".3"
+        ],
+        [
+          ".003",
+          ".004"
+        ]
+      ]
+    }
+  },
+  "post_hoc_comparisons": {
+    "active_facet_slab_whole_path": "Same outward-rounded slab, limited to genuine Voronoi facets",
+    "active_facet_site_indices": {
+      "centered_cospherical": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "reflective_rectangle": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "floating_local_plane_whole_path": "All-rival query-local guard from the affine transfer study; floating-point diagnostic",
+    "floating_covariance": "Combined query-local Taylor, drag and state guards from MixtureFlow; floating-point diagnostics"
+  },
+  "summary": {
+    "centered_cospherical": {
+      "0.5": {
+        "interval_endpoint": {
+          "same": 6,
+          "changed": 2
+        },
+        "interval_whole_path": {
+          "stable": 4,
+          "departure": 2,
+          "abstain": 2
+        },
+        "slab_whole_path": {
+          "abstain": 8
+        },
+        "active_facet_slab_whole_path": {
+          "abstain": 8
+        },
+        "floating_local_plane_whole_path": {
+          "abstain": 7,
+          "stable": 1
+        },
+        "floating_covariance_whole_path": {
+          "abstain": 6,
+          "stable": 2
+        },
+        "floating_covariance_endpoint": {
+          "abstain": 6,
+          "same": 2
+        }
+      },
+      "1.25": {
+        "interval_endpoint": {
+          "changed": 4,
+          "same": 4
+        },
+        "interval_whole_path": {
+          "departure": 4,
+          "abstain": 2,
+          "stable": 2
+        },
+        "slab_whole_path": {
+          "abstain": 8
+        },
+        "active_facet_slab_whole_path": {
+          "abstain": 8
+        },
+        "floating_local_plane_whole_path": {
+          "abstain": 8
+        },
+        "floating_covariance_whole_path": {
+          "abstain": 8
+        },
+        "floating_covariance_endpoint": {
+          "abstain": 8
+        }
+      },
+      "2.25": {
+        "interval_endpoint": {
+          "changed": 4,
+          "same": 4
+        },
+        "interval_whole_path": {
+          "departure": 4,
+          "abstain": 2,
+          "stable": 2
+        },
+        "slab_whole_path": {
+          "abstain": 8
+        },
+        "active_facet_slab_whole_path": {
+          "abstain": 8
+        },
+        "floating_local_plane_whole_path": {
+          "abstain": 8
+        },
+        "floating_covariance_whole_path": {
+          "abstain": 8
+        },
+        "floating_covariance_endpoint": {
+          "abstain": 8
+        }
+      }
+    },
+    "reflective_rectangle": {
+      "0.5": {
+        "interval_endpoint": {
+          "same": 9
+        },
+        "interval_whole_path": {
+          "stable": 7,
+          "abstain": 2
+        },
+        "slab_whole_path": {
+          "stable": 2,
+          "abstain": 7
+        },
+        "active_facet_slab_whole_path": {
+          "stable": 9
+        },
+        "floating_local_plane_whole_path": {
+          "stable": 2,
+          "abstain": 7
+        },
+        "floating_covariance_whole_path": {
+          "stable": 3,
+          "abstain": 6
+        },
+        "floating_covariance_endpoint": {
+          "same": 3,
+          "abstain": 6
+        }
+      },
+      "1.25": {
+        "interval_endpoint": {
+          "same": 9
+        },
+        "interval_whole_path": {
+          "stable": 7,
+          "abstain": 2
+        },
+        "slab_whole_path": {
+          "abstain": 9
+        },
+        "active_facet_slab_whole_path": {
+          "stable": 9
+        },
+        "floating_local_plane_whole_path": {
+          "abstain": 9
+        },
+        "floating_covariance_whole_path": {
+          "abstain": 8,
+          "stable": 1
+        },
+        "floating_covariance_endpoint": {
+          "abstain": 8,
+          "same": 1
+        }
+      },
+      "2.25": {
+        "interval_endpoint": {
+          "same": 9
+        },
+        "interval_whole_path": {
+          "stable": 7,
+          "abstain": 2
+        },
+        "slab_whole_path": {
+          "abstain": 9
+        },
+        "active_facet_slab_whole_path": {
+          "stable": 9
+        },
+        "floating_local_plane_whole_path": {
+          "abstain": 9
+        },
+        "floating_covariance_whole_path": {
+          "abstain": 9
+        },
+        "floating_covariance_endpoint": {
+          "abstain": 9
+        }
+      }
+    }
+  },
+  "observations": {
+    "centered_cospherical": [
+      {
+        "query": [
+          "1.34",
+          ".56"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 0,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00003552290704808170915290474045659362",
+          "0.00003498584639064944153503207249347914"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".56"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00007450739404063918206947128949351913",
+          "0.00007573798093912802469294441152906550"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".56"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00012052671921738921340283986596631244",
+          "0.00012365626151612034448412870143386477"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".669"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00003612179244800812820785169859758370",
+          "0.00003609614816642461579129609485362179"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".669"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00007574816975240288300774785050958341",
+          "0.00007741638768997857652489533936606063"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".669"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00012235322488575729400329097311763102",
+          "0.00012553807577562852815662836158329984"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".671"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00003613148054242198323109273287858106",
+          "0.00003611475274203411791359022543425094"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".671"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00007576832112849517965940677502233861",
+          "0.00007744408939078498422393983038963387"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "1.34",
+          ".671"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00012238282830101278808766144607147092",
+          "0.00012556847522971004842212806320554576"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".2999"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00001913570237609043264041663124173380",
+          "0.00001899835181086212105184178434959260"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".2999"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00004341839753175311726623544504080857",
+          "0.00004399346942826626547531420234235122"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".2999"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00007491076103123967515159177725266840",
+          "0.00007613377440689755739846854274743095"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".3001"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00001913852068866795217004859972019559",
+          "0.00001900234088522421816786342160190840"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".3001"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00004342511962951570045152706335367557",
+          "0.00004400148676764280475816270885734449"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".3001"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00007492247768889651888307539403275535",
+          "0.00007614620654928642973980199601708844"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".24"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 0,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00001827255413545773521784326188554203",
+          "0.00001778319858063109954262145037882057"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".24"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00004135310875989898106239003693135897",
+          "0.00004153324188329584663998642181732979"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".60",
+          ".24"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "changed",
+        "interval_whole_path": "departure",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00007130131827729722457592268757683847",
+          "0.00007230050796433088791619813909999599"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".05",
+          ".95"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 2,
+        "interval_endpoint_site_index": 2,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000023641965855906933940804606706335078",
+          "0.00002839194655487745012927955404183533"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "stable",
+        "floating_covariance_whole_path": "stable",
+        "floating_covariance_endpoint": "same"
+      },
+      {
+        "query": [
+          ".05",
+          ".95"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 2,
+        "interval_endpoint_site_index": 2,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000053576790787832288176309480239210082",
+          "0.00005845953448830465293960297090945159"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".05",
+          ".95"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 2,
+        "interval_endpoint_site_index": 2,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000091342380281638655165752873580395035",
+          "0.00009348917701879278241162094238121371"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".02",
+          "-.01"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 0,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000001052690249628975429591335851464438",
+          "0.0000011066766220738493013249112513435202"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "stable",
+        "floating_covariance_endpoint": "same"
+      },
+      {
+        "query": [
+          ".02",
+          "-.01"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 0,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000024955640381090391836420861347075734",
+          "0.0000025723222603069299852602060805046386"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".02",
+          "-.01"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 0,
+        "interval_endpoint_site_index": 0,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000044668671317063002044077274581733570",
+          "0.0000045370176659790290557717802907467200"
+        ],
+        "active_facet_slab_whole_path": "abstain",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      }
+    ],
+    "reflective_rectangle": [
+      {
+        "query": [
+          ".2",
+          ".8"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "stable",
+        "interval_endpoint_width": [
+          "0.00001773261300377752343826071453613354",
+          "0.00001541442853297962399384845844341671"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "stable",
+        "floating_covariance_whole_path": "stable",
+        "floating_covariance_endpoint": "same"
+      },
+      {
+        "query": [
+          ".2",
+          ".8"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00003215177654246494412050937188354239",
+          "0.00002620088388116527987343284893748486"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".2",
+          ".8"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000038318502127256277593747994180728531",
+          "0.00002978781674432746669883897199863856"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.2",
+          ".8"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "stable",
+        "interval_endpoint_width": [
+          "0.00001773261300377752343826071453613354",
+          "0.00001541442853297962399384845844341671"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "stable",
+        "floating_covariance_whole_path": "stable",
+        "floating_covariance_endpoint": "same"
+      },
+      {
+        "query": [
+          "-.2",
+          ".8"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00003215177654246494412050937188354239",
+          "0.00002620088388116527987343284893748486"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.2",
+          ".8"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000038318502127256277593747994180728537",
+          "0.00002978781674432746669883897199863856"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".02",
+          ".3"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000005321795342443727515658692603437597",
+          "0.00000494984232119472240550425077373304"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".02",
+          ".3"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000009727742726795458852493638582777222",
+          "0.00000844429332322226924467672763565534"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".02",
+          ".3"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000116785316195195212161852437360688126",
+          "0.000009551805527060925496474134604567864"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.02",
+          ".3"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000005321795342443727515658692603437606",
+          "0.00000494984232119472240550425077373304"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.02",
+          ".3"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000009727742726795458852493638582777243",
+          "0.00000844429332322226924467672763565534"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.02",
+          ".3"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000116785316195195212161852437360688320",
+          "0.000009551805527060925496474134604567868"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".002",
+          ".3"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000049629098419973720432297013267597245",
+          "0.00000476268632664376596541514860706096"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".002",
+          ".3"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000090768523755384417068821578547265605",
+          "0.00000807275798343187911102340340591395"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".002",
+          ".3"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00001090139791969966308342404238907708391",
+          "0.000009067193756341140296737913137112065"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.002",
+          ".3"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000049629098419973720432297013267597319",
+          "0.00000476268632664376596541514860706096"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.002",
+          ".3"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000090768523755384417068821578547265757",
+          "0.00000807275798343187911102340340591395"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.002",
+          ".3"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.00001090139791969966308342404238907710288",
+          "0.000009067193756341140296737913137112068"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".00002",
+          ".3"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000004964381154499459831699466622138844054",
+          "0.00000476337835291015627676834735707017"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".00002",
+          ".3"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000090797225377594553290378959150390492521",
+          "0.00000807401233190042007878392145932883"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".00002",
+          ".3"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000010904886161706867349776028235593907474",
+          "0.000009068828894071107628455924424081086"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.00002",
+          ".3"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000004964381154499459831699466622138849011",
+          "0.00000476337835291015627676834735707017"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.00002",
+          ".3"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.0000090797225377594553290378959150390605364",
+          "0.00000807401233190042007878392145932883"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          "-.00002",
+          ".3"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 1,
+        "interval_endpoint_site_index": 1,
+        "interval_endpoint": "same",
+        "interval_whole_path": "abstain",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "0.000010904886161706867349776028235593925596",
+          "0.000009068828894071107628455924424081089"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      },
+      {
+        "query": [
+          ".003",
+          ".004"
+        ],
+        "horizon": "0.5",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "1.716840729450913845879994462974636E-7",
+          "1.214549023588664712090312633271041E-7"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "stable",
+        "floating_covariance_endpoint": "same"
+      },
+      {
+        "query": [
+          ".003",
+          ".004"
+        ],
+        "horizon": "1.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "3.402112635414692734170054512277584E-7",
+          "2.408842148731441026627579244367427E-7"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "stable",
+        "floating_covariance_endpoint": "same"
+      },
+      {
+        "query": [
+          ".003",
+          ".004"
+        ],
+        "horizon": "2.25",
+        "initial_site_index": 3,
+        "interval_endpoint_site_index": 3,
+        "interval_endpoint": "same",
+        "interval_whole_path": "stable",
+        "slab_whole_path": "abstain",
+        "interval_endpoint_width": [
+          "4.7416952176501647886029565688530807E-7",
+          "3.3443329417130415136682243265280933E-7"
+        ],
+        "active_facet_slab_whole_path": "stable",
+        "floating_local_plane_whole_path": "abstain",
+        "floating_covariance_whole_path": "abstain",
+        "floating_covariance_endpoint": "abstain"
+      }
+    ]
+  }
+}

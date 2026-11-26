@@ -1,0 +1,186 @@
+{
+  "episteme_commit": "98bfdde732a2122796313b62c6d8ecbeb532a92d",
+  "frozen_manifest_sha256": "4c2175bb9cc89e96c6d2074b6b4ebfcc9191fc20d002d31972c0cb557c4fab00",
+  "graph_revision": 16,
+  "graph_sha256": "2f5fe6a4d06664a88871430e02ea53a0b6d90e9dcba99b4231aa0f5cfc8ed265",
+  "graph_snapshot": "3e432b610493ec9a8c4398ca53febb17311125a5e301141b045351911b2d2973",
+  "primary": {
+    "dispatch": "execution_dispatch-72ab5d181d134f16",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-da378cb92aaf474e",
+    "outputs": {
+      "environment_record": "a53d4c447e30259e6846fe4d224ce0fbd8f9d43ba734cc812f9ce6846d93c0b4",
+      "execution_manifest": "b6256898130ca254ab26d915fd429015c991e235678854c4187a83f396207fb1",
+      "log": "b6256898130ca254ab26d915fd429015c991e235678854c4187a83f396207fb1",
+      "metrics": "dc2476f155398803683f230aca3a6592fa0db8ee2d2385251d458bca15ed5206",
+      "raw_data": "d058558d83593a94c27afcb5414be7c0672d4259685fba0da47814967aed3397",
+      "summary": "e9a817ee74bec7c6119c453b040246148eb742d322bf8e9a0391515692d8d0f9"
+    },
+    "reason": "",
+    "result": "result-111009b67b134914",
+    "run": "run-2c825e23abe3400f",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis": {
+    "dispatch": "execution_dispatch-7735f7220daf4d45",
+    "isolation": "uv_locked_python_v2",
+    "job": "execution_job-9faf68260c944c45",
+    "outputs": {
+      "environment_record": "ae2a0faaff97c903ab7f1244b7b0b63b5d4faf03e69b8afade042124bc84c53d",
+      "execution_manifest": "181287f27b6323116b33b50e2e8d63df508574c254ece050072ae633687e07c5",
+      "log": "181287f27b6323116b33b50e2e8d63df508574c254ece050072ae633687e07c5",
+      "metrics": "d43227c2cb302618f4a0794917e583a4f4a4319b9096fa384c86aabd27fa7c99",
+      "raw_data": "d058558d83593a94c27afcb5414be7c0672d4259685fba0da47814967aed3397"
+    },
+    "reason": "",
+    "result": "result-be0ea986efaa4c7e",
+    "run": "run-efa911f8fb1547d8",
+    "scientific_validity": "not_assessed",
+    "status": "completed",
+    "unknown_meaning": "dispatch exists; no verified terminal evidence; never auto-relaunch"
+  },
+  "reanalysis_agreement": {
+    "agrees": true,
+    "identical_observations": true,
+    "metric": "primary_gain",
+    "metrics": {
+      "clipped_inertial_balanced_accuracy": {
+        "agrees": true,
+        "primary": 0.7303829465287799,
+        "reanalysis": 0.7303829465287799
+      },
+      "clipped_inertial_median_latency_ratio": {
+        "agrees": true,
+        "primary": 55.35422572246803,
+        "reanalysis": 55.35422572246803
+      },
+      "clipped_inertial_median_us_per_query": {
+        "agrees": true,
+        "primary": 18.8137504405209,
+        "reanalysis": 18.8137504405209
+      },
+      "clipped_inertial_refinement_disagreements": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "clipped_inertial_static_flips": {
+        "agrees": true,
+        "primary": 25,
+        "reanalysis": 25
+      },
+      "inertial_balanced_accuracy": {
+        "agrees": true,
+        "primary": 0.7303829465287799,
+        "reanalysis": 0.7303829465287799
+      },
+      "inertial_median_latency_ratio": {
+        "agrees": true,
+        "primary": 40.190013340171,
+        "reanalysis": 40.190013340171
+      },
+      "inertial_median_us_per_query": {
+        "agrees": true,
+        "primary": 13.459673481430489,
+        "reanalysis": 13.459673481430489
+      },
+      "inertial_refinement_disagreements": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "inertial_static_flips": {
+        "agrees": true,
+        "primary": 25,
+        "reanalysis": 25
+      },
+      "primary_gain": {
+        "agrees": true,
+        "primary": 0.0005555555555555545,
+        "reanalysis": 0.0005555555555555556
+      },
+      "queries": {
+        "agrees": true,
+        "primary": 1889,
+        "reanalysis": 1889
+      },
+      "relativistic_balanced_accuracy": {
+        "agrees": true,
+        "primary": 0.7309385020843354,
+        "reanalysis": 0.7309385020843354
+      },
+      "relativistic_clipped_disagreements": {
+        "agrees": true,
+        "primary": 2,
+        "reanalysis": 2
+      },
+      "relativistic_median_latency_ratio": {
+        "agrees": true,
+        "primary": 55.093054349732526,
+        "reanalysis": 55.093054349732526
+      },
+      "relativistic_median_us_per_query": {
+        "agrees": true,
+        "primary": 18.300832643245275,
+        "reanalysis": 18.300832643245275
+      },
+      "relativistic_refinement_disagreements": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "relativistic_static_flips": {
+        "agrees": true,
+        "primary": 23,
+        "reanalysis": 23
+      },
+      "static_balanced_accuracy": {
+        "agrees": true,
+        "primary": 0.7308850832809166,
+        "reanalysis": 0.7308850832809166
+      },
+      "static_median_latency_ratio": {
+        "agrees": true,
+        "primary": 1.0,
+        "reanalysis": 1.0
+      },
+      "static_median_us_per_query": {
+        "agrees": true,
+        "primary": 0.35301468054217006,
+        "reanalysis": 0.35301468054217006
+      },
+      "static_refinement_disagreements": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "static_static_flips": {
+        "agrees": true,
+        "primary": 0,
+        "reanalysis": 0
+      },
+      "units": {
+        "agrees": true,
+        "primary": 24,
+        "reanalysis": 24
+      }
+    },
+    "primary": 0.0005555555555555545,
+    "reanalysis": 0.0005555555555555556,
+    "tolerance": 1e-12
+  },
+  "registration": {
+    "data": "0e2374974f9325ef61808c0f8698d95e4d2c667c4b9008959059db0839af802a",
+    "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+    "execution_seed": 211,
+    "explanation_set": "explanation_set-94f5994d4f8549a4",
+    "protocol": "protocol-811c52a81342401e",
+    "question": "research_question-8367e4b6aeab486e",
+    "reanalysis": "13f6302bc4fc247c10bdca74e75d3e55e7595334c284cae927617be887c98c7c",
+    "worker": "c7ba0f3452b34d5643d020fb112ab7294823a4a741db149e3ecacba2b79f6fab"
+  },
+  "scientific_validity": "not_assessed",
+  "stage": "relativistic_public"
+}

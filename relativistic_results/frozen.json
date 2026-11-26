@@ -1,0 +1,50 @@
+{
+  "episteme_commit": "98bfdde732a2122796313b62c6d8ecbeb532a92d",
+  "execution_profile": "uv_locked_python_v2",
+  "files": {
+    "crossing/__init__.py": "096d07c31d9c594eca7661326340a80e0663de77b6b8469552a4ef41f1efe29a",
+    "crossing/data.py": "f8048e3f13da31141dea47a8d20f4aaabcc3262800696c530f6a60b4a4e7a564",
+    "crossing/flow.py": "774926d7536f5f79f5b0a296180d7479b98a4b62fa44864d3c8abca636c3c399",
+    "crossing/public.py": "f62a1f17d31aada7e1241a88427423a7e05953e0cd36325f6f7f6aa487321882",
+    "crossing/study.json": "0b04ae66fb75c04344c140d7daa6bd77a9f6894e65664688875f05c447208e17",
+    "crossing_benchmark_data/pendigits.tes.gz": "e5aa6f2f5df18f025347cff68b78de35eb4200341940c30179dcfb6ffd57b7d5",
+    "crossing_benchmark_data/pendigits.tra.gz": "230c80ca782bd524fb6afde46ecb43165f9392aef26e53b7b07377d1ab010055",
+    "crossing_benchmark_data/seeds_dataset.txt.gz": "bde43ab15e96a2b39cc6bbde3706478d06a45d1cc894c31d79e3c52a87cb40d5",
+    "gdm/evidence.py": "bf8f1f87496d80cb0717767c0c7fa43e6de7bd212132e8144ad456bc19238aa5",
+    "pyproject.toml": "a04aaf0189b29557ace3c4b7d3705914d690ceeac2c2bcc9b44c3f7b9d1d18de",
+    "relativistic/__init__.py": "78534ba3bc21629aeabd8b49ab8a512215b994cb65c951c24bf7c9c32fb8e515",
+    "relativistic/evidence.py": "088e3b7c57627980c623e5835e85a0833b8f10cf9718137ca263f0ee1cbd7a21",
+    "relativistic/experiment.py": "d665fb2436bed2e7ae2261775c136d5f4b17a26da999f7eea97a107d12603cca",
+    "relativistic/flow.py": "71274262fa1183a79bd970cf2c3340bc45e58da5a34cc8b84d34404464289a50",
+    "relativistic/report.py": "8f28d6a5536d98cfd1325261ac984e3c19d953ffe316dd376b8c6d935f3472f7",
+    "relativistic/study.json": "bdd06b1b8116d44b2389b55a0d336dcc54eda98c58b37eb580710a68624ef358",
+    "relativistic_reanalysis.py": "6c6420eab58089b17e3f25c819fc000247de27942b208968e561d904399c6255",
+    "relativistic_worker.py": "f44af01537f8fa7bc7e3c92b8576df44cb1a5e6024035337f844cba9990685ea",
+    "uv.lock": "0b15cf7d9f7155aea759776da5e58c8da0f0f953e9957a15f88f5fcf16822254"
+  },
+  "frozen_utc": "2026-11-25T20:53:04.347828+00:00",
+  "schema_version": 1,
+  "stages": {
+    "relativistic_public": {
+      "data": "0e2374974f9325ef61808c0f8698d95e4d2c667c4b9008959059db0839af802a",
+      "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+      "execution_seed": 211,
+      "explanation_set": "explanation_set-94f5994d4f8549a4",
+      "protocol": "protocol-811c52a81342401e",
+      "question": "research_question-8367e4b6aeab486e",
+      "reanalysis": "13f6302bc4fc247c10bdca74e75d3e55e7595334c284cae927617be887c98c7c",
+      "worker": "c7ba0f3452b34d5643d020fb112ab7294823a4a741db149e3ecacba2b79f6fab"
+    },
+    "relativistic_synthetic": {
+      "data": "3d9d02e0a853c66346a8e495ae7205015354f8d19696974b322390f183e38723",
+      "environment": "5dcd80b2a855ee89984270f415a3e607fe8f2dfa944d3885699f5d79936828e7",
+      "execution_seed": 211,
+      "explanation_set": "explanation_set-28468c09e77e4efe",
+      "protocol": "protocol-e4f782f835a8475e",
+      "question": "research_question-c1d0f4ad50af4d28",
+      "reanalysis": "13f6302bc4fc247c10bdca74e75d3e55e7595334c284cae927617be887c98c7c",
+      "worker": "c7ba0f3452b34d5643d020fb112ab7294823a4a741db149e3ecacba2b79f6fab"
+    }
+  },
+  "workers": 1
+}
