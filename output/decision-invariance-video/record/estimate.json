@@ -1,0 +1,23 @@
+{
+  "episode_sha256": "b74954cecc731da6a6a2df78e61de2f2147a026009612c776a61faded5f6d42e",
+  "evidence_sha256": "d65caea4df4adb939354a5d7a9bff5771e3ecd77193db8ecf6d7b46ec9cfe73d",
+  "stage": "tts",
+  "scene": null,
+  "audition": null,
+  "model": "elevenlabs/eleven-v4",
+  "rate_rub_per_unit": 0.008560552,
+  "pricing_unit": "character",
+  "units": 6942,
+  "estimate_rub_all_scenes": 59.427351984000005,
+  "accounting_currency": "RUB",
+  "estimate_in_ledger_currency": 59.427351984000005,
+  "production_spend": 0.0,
+  "remaining_production": 77.0,
+  "project_spend": 0.0,
+  "remaining_project": 77.0,
+  "estimated_at_unix": 1795721538.3458478,
+  "audio_sha256": {},
+  "pricing_source": "https://routerai.ru/models/elevenlabs/eleven-v4",
+  "rate_rub_per_character": 0.008560552,
+  "characters": 6942
+}

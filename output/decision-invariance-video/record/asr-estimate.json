@@ -1,0 +1,33 @@
+{
+  "episode_sha256": "b74954cecc731da6a6a2df78e61de2f2147a026009612c776a61faded5f6d42e",
+  "evidence_sha256": "d65caea4df4adb939354a5d7a9bff5771e3ecd77193db8ecf6d7b46ec9cfe73d",
+  "stage": "asr",
+  "scene": null,
+  "audition": null,
+  "model": "assemblyai/universal-3-6-pro",
+  "rate_rub_per_unit": 0.00891723809977,
+  "pricing_unit": "rounded_up_audio_second",
+  "units": 507,
+  "estimate_rub_all_scenes": 4.52103971658339,
+  "accounting_currency": "RUB",
+  "estimate_in_ledger_currency": 4.52103971658339,
+  "production_spend": 59.86429665088873,
+  "remaining_production": 17.135703349111267,
+  "project_spend": 59.86429665088873,
+  "remaining_project": 17.135703349111267,
+  "estimated_at_unix": 1795721808.6821904,
+  "audio_sha256": {
+    "01": "7643fb8dcbbe2689e3c055c80bd89ce9351edefad3fae1679be478505fc5144b",
+    "02": "1433923c2c7f3d66799aab63130593ad743950eed7560c7352402827c3c91460",
+    "03": "acabdc561b306e38d55f9a3c11003ce7a59934dd78f756596a4acac9dd2a7b7a",
+    "04": "0b5f49429ad167cbb80dca95f1b992df547946788a4726f0452acd1cb3eaa1e8",
+    "05": "a4bd14d91025f9de6a752b8a99110241cda36bd8998d354eb079ece25175a3c0",
+    "06": "1f82755c7640cdc84a7f4b726a36e69c1a16c527d657211de07bbf3bd0c43b88",
+    "07": "4c4198c0671a8cdbe46eb7bc99120db51d643be7fffa9d37c0d5aa55b1e688f4",
+    "08": "36fc2910e876b86da7a98385a25ad0d0041bb8a2acea8e4a7c5483fbefcd11c5",
+    "09": "a5e416d5df5702376c28925464fd1b738ae75fee56aaaf5d122ad9024e7e0a69",
+    "10": "5b7680b8b9f92de1a881945955a488a2bf9d9b7b88639ae9fe90a346da7896a0",
+    "11": "e7c59850b22528e81b2d520755501d16651bde785b3abc17316160ac67eec40f"
+  },
+  "pricing_source": "https://routerai.ru/models/assemblyai/universal-3-6-pro"
+}

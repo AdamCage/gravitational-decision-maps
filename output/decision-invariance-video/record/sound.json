@@ -1,0 +1,14 @@
+{
+  "score": "Original procedural synth-pop, composed in sound.py",
+  "tempo_bpm": 112,
+  "seed": 261126,
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration": 513.0,
+  "narration_cues": 11,
+  "editorial_beats": 44,
+  "narration_mode": "continuous_routerai_mp3",
+  "timeline_sha256": "afbe48d9db45404a16e122c4cda60bbebef6964fe9b48a2bbfeb0ec423a792cc",
+  "mix_sha256": "be9d7d0628762893ef234dfd459ba53bbaa0c5a9c0a4d9df9f554bddf8f3c4d6",
+  "sample_peak": 0.741633
+}

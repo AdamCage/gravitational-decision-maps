@@ -1,0 +1,49 @@
+{
+  "master_sha256": "1f7a4399dbe9a031083f4c57e688ba5c5e7f66a00f6525398a864ec36d20c04c",
+  "full_encoded_audio_decode": true,
+  "codec": "aac",
+  "sample_rate": "48000",
+  "channels": 2,
+  "selectable_russian_caption_count": 146,
+  "caption_payload_matches_authored_srt": true,
+  "encoded_loudness": {
+    "input_i": "-16.05",
+    "input_tp": "-1.33",
+    "input_lra": "3.00",
+    "input_thresh": "-26.38",
+    "output_i": "-15.96",
+    "output_tp": "-1.50",
+    "output_lra": "2.90",
+    "output_thresh": "-26.28",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.04"
+  },
+  "waveform_sync_checks": [
+    {
+      "location": "opening",
+      "seek_seconds": 1.64,
+      "offset_ms": 0.0,
+      "normalized_waveform_correlation": 0.99957
+    },
+    {
+      "location": "data",
+      "seek_seconds": 353.1,
+      "offset_ms": 0.0,
+      "normalized_waveform_correlation": 0.99886
+    },
+    {
+      "location": "closing",
+      "seek_seconds": 507.8,
+      "offset_ms": 0.0,
+      "normalized_waveform_correlation": 0.99968
+    }
+  ],
+  "listening": "Agent audio input unavailable. Complete decode, waveform matching and ASR/caption checks performed.",
+  "visual_revision_check": {
+    "prior_video_sha256": "a20812a2c3aba53177c748bbb7e1eff98a6fc842017c9d1e57279fd7c575ec0e",
+    "unchanged_stream_packets": {
+      "aac": "SHA256=1cdc79148db6fcd8ac33ca45849e96d453c68fc5cf35ea9e79f65e43825ad390",
+      "embedded_russian_subtitles": "SHA256=7331dbd9ee2f8617815a12efd54303d773cdcf01b6107a1290eb9c77a81794ed"
+    }
+  }
+}

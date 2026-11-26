@@ -1,0 +1,30 @@
+{
+  "scene_id": "01",
+  "attempt_id": "71cb8413947741638906bb9dfa98c0b0",
+  "request": {
+    "model": "assemblyai/universal-3-6-pro",
+    "language": "ru",
+    "response_format": "verbose_json",
+    "timestamp_granularities": [
+      "word"
+    ],
+    "input_audio": {
+      "format": "mp3",
+      "sha256": "7643fb8dcbbe2689e3c055c80bd89ce9351edefad3fae1679be478505fc5144b"
+    }
+  },
+  "request_sha256": "5bd2b8db7be07b24d4c5746b7985f8824f64621237b2f17a8b2c553c4a768d93",
+  "response_sha256": "a9b24848a2245252a42f8d32a8db554aec5362b02cb0c4dd4e4db4bfed1c97b0",
+  "headers": {
+    "content-type": "application/json",
+    "x-generation-id": "rai-stt-1795721812-Dfmh8RkPihnMOTOG8QfY"
+  },
+  "catalog_estimate_rub": 0.34777228589103004,
+  "billing_status": "catalog_estimate_not_provider_invoice",
+  "provider_usage": {
+    "seconds": 38.56,
+    "cost": 0.3438487011271312
+  },
+  "source_sha256": "7643fb8dcbbe2689e3c055c80bd89ce9351edefad3fae1679be478505fc5144b",
+  "model": "assemblyai/universal-3-6-pro"
+}

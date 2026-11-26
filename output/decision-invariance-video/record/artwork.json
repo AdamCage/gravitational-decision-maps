@@ -1,0 +1,38 @@
+{
+  "assets": [
+    {
+      "file": "media/visuals/delivery-city.png",
+      "origin": "OpenAI ImageGen built-in",
+      "purpose": "illustration of an analogy",
+      "prompt": "Use case: illustration-story. Asset type: widescreen cinematic insert for a Russian science film. A beautifully crafted overhead isometric miniature city at blue hour, with a dense but legible network of fine streets and buildings. Two separate neighborhood parcel pickup depots are the obvious visual anchors, one amber and one teal, each with an illuminated parcel-shaped beacon. Architecture and light tell the story. Controlled deep midnight navy shadows, amber and turquoise light pools, restrained volumetric light, captivating scale and tactile miniature detail. Wide landscape composition with both depots around center-left and center-right, good clean margin for later crop to 16:9. No readable text, symbols that look like data, maps legends, charts, interface, labels or logos. Cinematic editorial illustration, not a scientific figure.",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "d85f6d5a1629c331759b9bfd1cef70c613c0a9a73894490b0bb4e841e98f236c",
+      "scene": "02",
+      "seconds_from_chapter_start": [
+        0.48,
+        7.7
+      ]
+    },
+    {
+      "file": "media/visuals/carousel.png",
+      "origin": "OpenAI ImageGen built-in",
+      "purpose": "illustration of an analogy",
+      "prompt": "Use case: illustration-story. Asset type: widescreen cinematic insert for a Russian science film. Dramatic strict overhead view of a small park carousel at twilight, a circular platform with several elegant seats and one particular warm amber seat, standing in a cool midnight-blue circular plaza. A single straight line of turquoise light across the plaza clearly bisects the circular platform as a theatrical metaphor. Soft cyan and amber illumination, beautifully crafted tactile scale model, crisp rich shadows and a little visible circular motion blur outside the center. Wide landscape composition with carousel fully visible near image center and spacious negative edges for a 16:9 crop. No words, lettering, labels, logos, directions, diagrams or data graphic. Cinematic editorial illustration rather than a scientific figure.",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "fd168adc5bcb58e7d0f6982b48e927bb62d647d16bb7292eb69f972fd2f17051",
+      "scene": "05",
+      "seconds_from_chapter_start": [
+        2.3,
+        9.8
+      ]
+    }
+  ],
+  "provider_accounting": "Built-in image tool. Charge not reported by this tool.",
+  "data_figure_origin": "Scientific figures and diagrams generated in code from source evidence or explicitly labeled scenarios."
+}

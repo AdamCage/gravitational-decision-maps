@@ -1,0 +1,16 @@
+{
+  "mechanical_validation": "pass",
+  "scientific_judgment": "not_performed",
+  "source_hashes": {
+    "model": "3d22ecaf2e82d8cc6c4afee3cacdf4bdcc849f53681820f96d35c36a95e80357",
+    "theorem": "cd6ff2b5ec084f69140a9b90ed8d7c1872ec2cbc961356b0f29136955266bd0e",
+    "fixture": "57186f81aef75a2f26207d36d8658b00df12329f7948b44424758b11630c146b",
+    "study": "e3feacac89cc005378c226fdc41297d622c45419c3e47bc118a63bf02bd32f3e",
+    "transfer": "61792a2f67983b4c805cc36a55174d4407dbacae88ccb9e47dd52145f36357e8",
+    "interval": "9a7dd40328ecf3d1ba583e9651f3e8ba243bb4b9c3ff94ff020d520f802f17f9",
+    "latency": "e8bca9c36031545c299866f15cf684dd53ddac2f08ed1d9ddd2b7ac431f2ca28",
+    "scale": "2779fab8dfc9810c4659e250e5a2f3d9aeeb47c2b0778c28a4db45021e753c2e"
+  },
+  "claims": 13,
+  "scenes": 11
+}

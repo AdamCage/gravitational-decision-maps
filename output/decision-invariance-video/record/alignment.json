@@ -1,0 +1,523 @@
+{
+  "method": "archived RouterAI word-anchor matching with interpolation for unanchored authored words",
+  "beat_review_anchor_fraction": 0.8,
+  "scenes": [
+    {
+      "path": "media/voice/01.mp3",
+      "sha256": "7643fb8dcbbe2689e3c055c80bd89ce9351edefad3fae1679be478505fc5144b",
+      "decoded_samples_48000": 1850880,
+      "duration": 38.56,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "f8f3e352611bf4f3d90edd052d8e18456d09162b5567227b2a2771159871159d",
+      "tts_receipt_sha256": "0622af1bd6467633693adcd5320b38f9f7f5a54cfb0d3b2b6280034ae353261c",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "a9b24848a2245252a42f8d32a8db554aec5362b02cb0c4dd4e4db4bfed1c97b0",
+      "asr_receipt_sha256": "b44dbc0e3369c73cc1798f3634cd6a7aa7a577cdfa908415063eb3f5165582ff",
+      "scene": "01",
+      "anchor_fraction": 0.97619,
+      "caption_count": 13,
+      "max_caption_characters_per_second": 16.9,
+      "beat_boundaries": [
+        {
+          "opening": "Маяки стоят на месте,",
+          "offset_seconds": 10.02,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 10.12,
+          "preceding_word_end_seconds": 9.71
+        },
+        {
+          "opening": "Хитрость в том, что",
+          "offset_seconds": 20.58,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 20.68,
+          "preceding_word_end_seconds": 20.19
+        },
+        {
+          "opening": "Так можно ли подобрать",
+          "offset_seconds": 29.54,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 29.64,
+          "preceding_word_end_seconds": 29.23
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/02.mp3",
+      "sha256": "1433923c2c7f3d66799aab63130593ad743950eed7560c7352402827c3c91460",
+      "decoded_samples_48000": 2476800,
+      "duration": 51.6,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "1b3d7356c8ddc8d8a3f5ca36dfcab91027220c24d8139555bc1106c4e2a79d30",
+      "tts_receipt_sha256": "3f43deb97a9bc73891da58fa6a488e81c76f734dd740b50b3d3a3a6a4f25118a",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "7388a8f5d38a751e6f304d76317ebe3cf1ac3c2595d6056b5a7648e4ad7ad2cc",
+      "asr_receipt_sha256": "f3c3e3fd2c63ae0b01451f2cdfd023a8d460623aff6b253a375b0fbd16588dc3",
+      "scene": "02",
+      "anchor_fraction": 1.0,
+      "caption_count": 14,
+      "max_caption_characters_per_second": 15.19,
+      "beat_boundaries": [
+        {
+          "opening": "Теперь вместо адреса представьте",
+          "offset_seconds": 12.5,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 12.6,
+          "preceding_word_end_seconds": 12.03
+        },
+        {
+          "opening": "Есть два способа прочитать",
+          "offset_seconds": 25.64,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 25.74,
+          "preceding_word_end_seconds": 25.39
+        },
+        {
+          "opening": "Карта отвечает на вопрос",
+          "offset_seconds": 38.76,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 38.86,
+          "preceding_word_end_seconds": 38.45
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/03.mp3",
+      "sha256": "acabdc561b306e38d55f9a3c11003ce7a59934dd78f756596a4acac9dd2a7b7a",
+      "decoded_samples_48000": 2219520,
+      "duration": 46.24,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "5d29c9024d7673c7142e84a614eb32438d34e964dd2c2cd56d3f1fa5d31e3c6d",
+      "tts_receipt_sha256": "5ea597f4d685e3d2cbbd10cd4233a816c801f0bb27beb652a7c8a125c3d45821",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "64bd6a7c37e78237b537ba635bc62b8a2329f1a006d63fd7fb58ac1e9ca23c87",
+      "asr_receipt_sha256": "7322c515ea97409dd2f0772837a3b6ac03c74b66e6cc054a187e53ef618f1b98",
+      "scene": "03",
+      "anchor_fraction": 1.0,
+      "caption_count": 13,
+      "max_caption_characters_per_second": 16.22,
+      "beat_boundaries": [
+        {
+          "opening": "По самой линии течь",
+          "offset_seconds": 11.14,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 11.24,
+          "preceding_word_end_seconds": 10.91
+        },
+        {
+          "opening": "Теперь шесть маяков на",
+          "offset_seconds": 22.98,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 23.08,
+          "preceding_word_end_seconds": 22.67
+        },
+        {
+          "opening": "В расчёте точка пересекает",
+          "offset_seconds": 35.03,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 35.13,
+          "preceding_word_end_seconds": 34.72
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/04.mp3",
+      "sha256": "0b5f49429ad167cbb80dca95f1b992df547946788a4726f0452acd1cb3eaa1e8",
+      "decoded_samples_48000": 2288640,
+      "duration": 47.68,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "3a40b963f680b0c61eae44797964c905b01a0667ba432b188e03a2f99b9c2e2b",
+      "tts_receipt_sha256": "97ec0bc2635e1560058aebe87afe4a6caf6d717b69ca49abaf2aa00e685661b3",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "3292bccdb8d5f047c842b58b03a79e0125ad15f1d76b6600ea4952c4d74cb1a0",
+      "asr_receipt_sha256": "48b0ecf9bca61a33b5085e9455d0d528c6b28ba9d1f2037ef3ac507492884b44",
+      "scene": "04",
+      "anchor_fraction": 1.0,
+      "caption_count": 14,
+      "max_caption_characters_per_second": 16.36,
+      "beat_boundaries": [
+        {
+          "opening": "Представьте верёвку с двумя",
+          "offset_seconds": 10.82,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 10.92,
+          "preceding_word_end_seconds": 10.43
+        },
+        {
+          "opening": "В общем случае проверяют",
+          "offset_seconds": 23.38,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 23.48,
+          "preceding_word_end_seconds": 23.07
+        },
+        {
+          "opening": "Когда баланс выполнен на",
+          "offset_seconds": 35.64,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 35.74,
+          "preceding_word_end_seconds": 35.17
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/05.mp3",
+      "sha256": "a4bd14d91025f9de6a752b8a99110241cda36bd8998d354eb079ece25175a3c0",
+      "decoded_samples_48000": 2373120,
+      "duration": 49.44,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "0f9dbe6b5b4336a287ecfc78a73789a7b455e151ec0d991de6af4ccfc7d73eb7",
+      "tts_receipt_sha256": "c49768ec6066644277dee42fa31445df0410da05585f2b21f6e942fcf6acb402",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "2b972437bdb676b08c98b84f838c1c873d104a400fc60e8ce7e3cf4bb5d878c3",
+      "asr_receipt_sha256": "1dca84eb15c505b3d529c97e246d77969f32f39f90b3de49653b4507f99404b8",
+      "scene": "05",
+      "anchor_fraction": 0.988889,
+      "caption_count": 14,
+      "max_caption_characters_per_second": 15.75,
+      "beat_boundaries": [
+        {
+          "opening": "Вот точное условие теоремы.",
+          "offset_seconds": 12.58,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 12.68,
+          "preceding_word_end_seconds": 12.11
+        },
+        {
+          "opening": "Если это выполнено, доказательство",
+          "offset_seconds": 25.63,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 25.73,
+          "preceding_word_end_seconds": 25.15
+        },
+        {
+          "opening": "Если баланс нарушен, на",
+          "offset_seconds": 36.91,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 37.01,
+          "preceding_word_end_seconds": 36.44
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/06.mp3",
+      "sha256": "1f82755c7640cdc84a7f4b726a36e69c1a16c527d657211de07bbf3bd0c43b88",
+      "decoded_samples_48000": 2085120,
+      "duration": 43.44,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "8ce8a5abe4a66de96362894e3c3308203751383b178c9bd3913471a19b856918",
+      "tts_receipt_sha256": "3964a9dfb370d0157ce597f1f896c7ca4f5f45697da2e1bb1c0981bee434d36e",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "5cad5af357ffdc955f7c81b52c2c914399aa056e1f2937afe9f32d3a63b2de78",
+      "asr_receipt_sha256": "7d3328b81f42722d09bacbe7e2f88ec2800a58208283f6ad7bf499c2c13b3361",
+      "scene": "06",
+      "anchor_fraction": 0.964706,
+      "caption_count": 13,
+      "max_caption_characters_per_second": 15.67,
+      "beat_boundaries": [
+        {
+          "opening": "Зафиксируем эту карту. При",
+          "offset_seconds": 10.18,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 10.28,
+          "preceding_word_end_seconds": 9.87
+        },
+        {
+          "opening": "Если изменить масштаб самого",
+          "offset_seconds": 22.58,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 22.68,
+          "preceding_word_end_seconds": 22.27
+        },
+        {
+          "opening": "Точки покоя и положение",
+          "offset_seconds": 32.22,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 32.32,
+          "preceding_word_end_seconds": 31.79
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/07.mp3",
+      "sha256": "4c4198c0671a8cdbe46eb7bc99120db51d643be7fffa9d37c0d5aa55b1e688f4",
+      "decoded_samples_48000": 2161920,
+      "duration": 45.04,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "372f1cee40c42e690f5b997da7f64d9f835fba64aaf89ed1d3a477c920499b2e",
+      "tts_receipt_sha256": "bc73d27bd87ba8678f8a7c24bee15bdcd1b2e9960f8d6b0bd8573414de13823a",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "a27b2c0d5a6dc0cda8c8b825aeb8236a6d3d8c08a3ffd984fd0f53efe8536250",
+      "asr_receipt_sha256": "fe95f24a2c21055f51ac40e2214367e41d811e59047849e540d2666ac80cdb12",
+      "scene": "07",
+      "anchor_fraction": 1.0,
+      "caption_count": 14,
+      "max_caption_characters_per_second": 16.79,
+      "beat_boundaries": [
+        {
+          "opening": "Нас интересует, может ли",
+          "offset_seconds": 10.42,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 10.52,
+          "preceding_word_end_seconds": 10.11
+        },
+        {
+          "opening": "Сравним стартовое расстояние с",
+          "offset_seconds": 21.62,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 21.72,
+          "preceding_word_end_seconds": 21.39
+        },
+        {
+          "opening": "Если не хватает, проверка",
+          "offset_seconds": 33.44,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 33.54,
+          "preceding_word_end_seconds": 33.21
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/08.mp3",
+      "sha256": "36fc2910e876b86da7a98385a25ad0d0041bb8a2acea8e4a7c5483fbefcd11c5",
+      "decoded_samples_48000": 2315520,
+      "duration": 48.24,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "5bc0aa52d702c3d007379c9b93113ae7895d69c879c8e2e07ea187f2ab3fad25",
+      "tts_receipt_sha256": "2c41677ea1eca8755e63095658b7d0c8c0be0d47060554870c1542b913222436",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "bd4f808f3592b857a5eb377c147cabed44709b4bc09a4c17b83944284ca2ef19",
+      "asr_receipt_sha256": "acdc9e230ad0631175e0cab60654d390c58bc3c5e189aa0a7f038d01f12b5906",
+      "scene": "08",
+      "anchor_fraction": 0.904255,
+      "caption_count": 13,
+      "max_caption_characters_per_second": 16.05,
+      "beat_boundaries": [
+        {
+          "opening": "У ирисов обе оценки",
+          "offset_seconds": 10.86,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 10.96,
+          "preceding_word_end_seconds": 10.35
+        },
+        {
+          "opening": "На признаках активности со",
+          "offset_seconds": 21.88,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 3,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 21.88,
+          "preceding_word_end_seconds": 21.88
+        },
+        {
+          "opening": "Результат описывает эти наборы",
+          "offset_seconds": 35.68,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 35.78,
+          "preceding_word_end_seconds": 35.37
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/09.mp3",
+      "sha256": "a5e416d5df5702376c28925464fd1b738ae75fee56aaaf5d122ad9024e7e0a69",
+      "decoded_samples_48000": 2058240,
+      "duration": 42.88,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "42c0c48c86105c29307f6dac691882ae66c4a2e39b09f59b64acb7823623cdca",
+      "tts_receipt_sha256": "79843ca0af301c4fa7b368e216fcbd13242ae2cb102a9d0755ff8d816bbf8289",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "bd7cfb4e233c727aa3a04d22f060c6983cb1486c467c159819f6a9687cb0bf4b",
+      "asr_receipt_sha256": "32d08a8c023b78154b4921e47f9ebe5106b595323d3c9c2c1122c210b293b50d",
+      "scene": "09",
+      "anchor_fraction": 0.944444,
+      "caption_count": 13,
+      "max_caption_characters_per_second": 16.58,
+      "beat_boundaries": [
+        {
+          "opening": "На двух точных двумерных",
+          "offset_seconds": 10.02,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 10.12,
+          "preceding_word_end_seconds": 9.71
+        },
+        {
+          "opening": "По всему пути он",
+          "offset_seconds": 22.66,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 22.76,
+          "preceding_word_end_seconds": 22.51
+        },
+        {
+          "opening": "Это как увидеть оба",
+          "offset_seconds": 33.36,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 33.46,
+          "preceding_word_end_seconds": 33.05
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/10.mp3",
+      "sha256": "5b7680b8b9f92de1a881945955a488a2bf9d9b7b88639ae9fe90a346da7896a0",
+      "decoded_samples_48000": 2131200,
+      "duration": 44.4,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "5d817a765e85ed351a6c60c3251de0e32e050f91d6da0f826aba4c90575cc496",
+      "tts_receipt_sha256": "85d0b96d7eb800a7103eaadb1f2c6d85023e2d1f8a39388f1000b40074d51d2c",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "f11abb62f6a308c328ca74c790c2a56f6b33fa9d2d581a637b0918efd794e17f",
+      "asr_receipt_sha256": "7f6c23f5bb5218fada12b64746e924f26b7de1bb32856d95743d0a44dfd38b81",
+      "scene": "10",
+      "anchor_fraction": 1.0,
+      "caption_count": 13,
+      "max_caption_characters_per_second": 16.12,
+      "beat_boundaries": [
+        {
+          "opening": "На ирисах время почти",
+          "offset_seconds": 10.82,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 10.92,
+          "preceding_word_end_seconds": 10.59
+        },
+        {
+          "opening": "Отдельно меняли число классов",
+          "offset_seconds": 22.9,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 23,
+          "preceding_word_end_seconds": 22.75
+        },
+        {
+          "opening": "Так что полезно измерять",
+          "offset_seconds": 34.35,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 34.45,
+          "preceding_word_end_seconds": 34.04
+        }
+      ],
+      "status": "timing_anchors_available"
+    },
+    {
+      "path": "media/voice/11.mp3",
+      "sha256": "e7c59850b22528e81b2d520755501d16651bde785b3abc17316160ac67eec40f",
+      "decoded_samples_48000": 2065920,
+      "duration": 43.04,
+      "tts_model": "elevenlabs/eleven-v4",
+      "tts_voice": "daniel",
+      "tts_request_sha256": "34c28b5cf6ae43c388265151fff6ea990169b45ac2168e9fd23065519fb1144c",
+      "tts_receipt_sha256": "2c1a658518ae2c8e6bc12590d2406cef9633dd953e64d26a3c172ae828da24fa",
+      "asr_model": "assemblyai/universal-3-6-pro",
+      "asr_response_sha256": "7ed5737980cc94744f0d00c9f5e66b2dddc95dc9b38d6ee2ce7e0f36616a6451",
+      "asr_receipt_sha256": "e0c6cc89d38275409d274b3d7af47fe09e98cb33b4a1a405e44d88d4e1019708",
+      "scene": "11",
+      "anchor_fraction": 1.0,
+      "caption_count": 12,
+      "max_caption_characters_per_second": 17.74,
+      "beat_boundaries": [
+        {
+          "opening": "Граница может направлять поток",
+          "offset_seconds": 10.98,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 11.08,
+          "preceding_word_end_seconds": 10.67
+        },
+        {
+          "opening": "Для отдельных входов положение",
+          "offset_seconds": 22.82,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 22.92,
+          "preceding_word_end_seconds": 22.51
+        },
+        {
+          "opening": "Так что в следующий",
+          "offset_seconds": 33.96,
+          "direct_first_word_anchor": true,
+          "preceding_anchor_distance_words": 0,
+          "following_anchor_distance_words": 0,
+          "opening_time_seconds": 34.06,
+          "preceding_word_end_seconds": 33.45
+        }
+      ],
+      "status": "timing_anchors_available"
+    }
+  ]
+}

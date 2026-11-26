@@ -1,0 +1,189 @@
+{
+  "sources": [
+    {
+      "id": "model",
+      "path": "paper/manuscript.tex",
+      "locator": "Field, ties and transition rates; covariance identity; When a crossing increases risk",
+      "status": "verified",
+      "run_ids": []
+    },
+    {
+      "id": "theorem",
+      "path": "paper/flat_boundary.tex",
+      "locator": "Criterion for affine decision cells; Reflection rigidity; Generic crossings; Shared anisotropy; A bound on the reachable projection",
+      "status": "verified",
+      "run_ids": []
+    },
+    {
+      "id": "fixture",
+      "path": "tools/plot_flat_boundary.py",
+      "locator": "Cospherical example, sampled trajectory, event and terminal state; numerical illustration",
+      "status": "verified",
+      "run_ids": []
+    },
+    {
+      "id": "study",
+      "path": "paper/flat_boundary_evidence.tex",
+      "locator": "Controlled geometry, external one-prototype cohorts, interval reachability and computational cost",
+      "status": "verified",
+      "run_ids": []
+    },
+    {
+      "id": "transfer",
+      "path": "crossing_results/flat_boundary_transfer.json",
+      "locator": "results.iris/letter/har.overall at ratio=0.35 and horizon=0.5; counts and coverage",
+      "status": "verified",
+      "run_ids": []
+    },
+    {
+      "id": "interval",
+      "path": "crossing_results/flat_boundary_interval.json",
+      "locator": "summary and observations for centered_cospherical and reflective_rectangle, all horizons",
+      "status": "verified",
+      "run_ids": []
+    },
+    {
+      "id": "latency",
+      "path": "crossing_results/flat_boundary_timings.json",
+      "locator": "conditions and timings.*.hybrid_to_rk4_ratio, first test fold",
+      "status": "verified",
+      "run_ids": []
+    },
+    {
+      "id": "scale",
+      "path": "crossing_results/flat_boundary_scaling.json",
+      "locator": "overall; synthetic implementation diagnostic, class counts 3 and 40",
+      "status": "verified",
+      "run_ids": []
+    }
+  ],
+  "claims": [
+    {
+      "id": "cross",
+      "kind": "explanation",
+      "statement": "A numerical trajectory in the six-site cospherical example crosses the active facet at about model time 0.748, despite a common unique attracting equilibrium.",
+      "sources": [
+        "theorem",
+        "fixture",
+        "study"
+      ],
+      "limitations": "Constructed example at beta=1.2; time is in model units."
+    },
+    {
+      "id": "map",
+      "kind": "explanation",
+      "statement": "A fixed equal-mass one-prototype readout is equivalent to choosing the nearest prototype; transport and score evaluation are distinct operations.",
+      "sources": [
+        "model",
+        "theorem"
+      ],
+      "limitations": "Nearest-site depiction uses one prototype per class and equal masses."
+    },
+    {
+      "id": "metaphor",
+      "kind": "explanation",
+      "statement": "Delivery territories, currents and carousel are visual analogies; a full rotation illustrates one possible return with intervening crossings.",
+      "sources": [
+        "theorem"
+      ],
+      "limitations": "Analogy. The rotor does not satisfy the Gaussian gradient-flow hypotheses."
+    },
+    {
+      "id": "reflection",
+      "kind": "explanation",
+      "statement": "Equal-mass rectangle vertices have invariant affine decision cells because each exposed facet plane reflects the prototype set.",
+      "sources": [
+        "theorem",
+        "study"
+      ],
+      "limitations": "Exact geometric example; unique common attractor in the depicted rectangle at beta=2."
+    },
+    {
+      "id": "balance",
+      "kind": "explanation",
+      "statement": "Normal velocity is a weighted average of projection-group normal means; every group must balance on each facet for global invariance.",
+      "sources": [
+        "theorem"
+      ],
+      "limitations": "Shared spherical Gaussian model and affine strict decision cells. Pairs are a sufficient example of balance."
+    },
+    {
+      "id": "one_time",
+      "kind": "explanation",
+      "statement": "Preserving all strict decisions at one fixed positive horizon is equivalent to preservation at all horizons. If balances fail, an open set switches at each horizon.",
+      "sources": [
+        "theorem"
+      ],
+      "limitations": "No claim about how many switch under a particular feature law, or which points recur."
+    },
+    {
+      "id": "anisotropy",
+      "kind": "explanation",
+      "statement": "With precision diag(2,1) and equal sites ±(1,1), the Euclidean gradient has normal drift on 2x+y=0, while the preconditioned field preserves the plane.",
+      "sources": [
+        "theorem"
+      ],
+      "limitations": "Two explicitly different fields with the same fixed readout."
+    },
+    {
+      "id": "certificate",
+      "kind": "explanation",
+      "statement": "A reachable tangential projection and a worst-case normal velocity certify sufficient distance for whole-interval preservation; unsupported queries are unresolved by the guard.",
+      "sources": [
+        "theorem"
+      ],
+      "limitations": "Exact-arithmetic conditions for the spherical model, evaluated numerically in the learned data study."
+    },
+    {
+      "id": "coverage",
+      "kind": "empirical",
+      "statement": "At T=0.50 and standard deviation/diameter=0.35, covariance versus local guard coverage was 93.29% versus 96.64% (Iris), 14.75% versus 65.06% (Letter), 30.32% versus 86.23% (HAR).",
+      "sources": [
+        "transfer",
+        "study"
+      ],
+      "limitations": "Fixed descriptive cohorts of 149, 3620 and 864 rows/windows; HAR uses nine held-out subjects; coverage is not ground-truth accuracy."
+    },
+    {
+      "id": "interval",
+      "kind": "empirical",
+      "statement": "Across 51 exact fixture query/horizon combinations the terminal label was always resolved; 41 same, 10 changed. Whole-path status resolved 29 preserve, 10 depart, 12 unresolved.",
+      "sources": [
+        "interval",
+        "study"
+      ],
+      "limitations": "Two fixed two-dimensional fixtures, 17 points at three horizons. Counts are combinations, not 51 independent trajectories."
+    },
+    {
+      "id": "timing",
+      "kind": "empirical",
+      "statement": "First test fold median hybrid relative to full RK4: Iris 1.04×, Letter 2.03×, HAR 0.34×.",
+      "sources": [
+        "latency",
+        "study"
+      ],
+      "limitations": "One machine and thread, setup excluded, batch cap 64, matched RK4 maximum step 0.1, ratio of medians."
+    },
+    {
+      "id": "scale",
+      "kind": "empirical",
+      "statement": "Synthetic K=3 ratio 0.145–0.697, K=40 ratio 1.33–2.46 with 77–100% local coverage.",
+      "sources": [
+        "scale",
+        "study"
+      ],
+      "limitations": "One measured host and workload; two dimensions, two overlap settings, three seeds; no general speed guarantee."
+    },
+    {
+      "id": "takeaway",
+      "kind": "interpretation",
+      "statement": "The predicted decision and its correctness under the external label law are distinct. A structural certificate is about the former.",
+      "sources": [
+        "theorem",
+        "model",
+        "transfer"
+      ],
+      "limitations": "Class accuracy requires true labels; no universal accuracy or acceleration gain."
+    }
+  ]
+}

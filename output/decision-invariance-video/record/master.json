@@ -1,0 +1,32 @@
+{
+  "video_sha256": "1f7a4399dbe9a031083f4c57e688ba5c5e7f66a00f6525398a864ec36d20c04c",
+  "timeline_sha256": "afbe48d9db45404a16e122c4cda60bbebef6964fe9b48a2bbfeb0ec423a792cc",
+  "episode_sha256": "b74954cecc731da6a6a2df78e61de2f2147a026009612c776a61faded5f6d42e",
+  "evidence_sha256": "d65caea4df4adb939354a5d7a9bff5771e3ecd77193db8ecf6d7b46ec9cfe73d",
+  "duration_seconds": 513.0,
+  "frames": 12825,
+  "decoded_entire_video_and_audio": true,
+  "video_codec": "h264",
+  "video_size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "audio_codec": "aac",
+  "audio_hz": 48000,
+  "chapters": 11,
+  "subtitles": "rus",
+  "loudness": {
+    "input_i": "-16.05",
+    "input_tp": "-1.33",
+    "input_lra": "3.00",
+    "input_thresh": "-26.38",
+    "output_i": "-15.96",
+    "output_tp": "-1.50",
+    "output_lra": "2.90",
+    "output_thresh": "-26.28",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.04"
+  },
+  "ffmpeg": "ffmpeg version 8.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+}

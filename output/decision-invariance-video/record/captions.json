@@ -1,0 +1,1024 @@
+[
+  {
+    "text": "Посмотрите на оранжевую точку.",
+    "startMs": 440,
+    "endMs": 2320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "У неё есть ближайший маяк.",
+    "startMs": 2420,
+    "endMs": 4480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Дадим течению немного времени — и тот же\nклассификатор присвоит ей метку",
+    "startMs": 4860,
+    "endMs": 9120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "другого маяка.",
+    "startMs": 9120,
+    "endMs": 10320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Маяки стоят на месте, правило выбора тоже\nпрежнее.",
+    "startMs": 10500,
+    "endMs": 14180,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Изменилась только позиция точки: гладкое\nтечение протащило её через",
+    "startMs": 14180,
+    "endMs": 18894,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "линию между двумя зонами.",
+    "startMs": 18894,
+    "endMs": 20800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Хитрость в том, что у всех таких\nтраекторий может быть даже общий центр",
+    "startMs": 21060,
+    "endMs": 25633,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "притяжения.",
+    "startMs": 25633,
+    "endMs": 26800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Мы рассчитали эту кривую для конкретной\nмодели.",
+    "startMs": 26900,
+    "endMs": 29840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Так можно ли подобрать хитрый момент\nостановки, когда все ответы",
+    "startMs": 30020,
+    "endMs": 34137,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "окажутся прежними?",
+    "startMs": 34137,
+    "endMs": 35520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Для этой модели у вопроса есть точный\nответ.",
+    "startMs": 35860,
+    "endMs": 39000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Представьте город, разделённый между\nпунктами доставки.",
+    "startMs": 40060,
+    "endMs": 43680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На карте каждый адрес обслуживает\nближайший пункт.",
+    "startMs": 43940,
+    "endMs": 47760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Граница проходит там, где два пункта\nодинаково близки.",
+    "startMs": 47940,
+    "endMs": 52240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Теперь вместо адреса представьте\nкоординаты объекта: например, признаки",
+    "startMs": 52580,
+    "endMs": 57896,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "изображения.",
+    "startMs": 57896,
+    "endMs": 58960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Каждый маяк — характерный образец класса.",
+    "startMs": 59140,
+    "endMs": 62560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Цвет показывает ответ классификатора.",
+    "startMs": 62660,
+    "endMs": 65600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Есть два способа прочитать одну карту.",
+    "startMs": 65720,
+    "endMs": 68740,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Можно поставить штамп сразу.",
+    "startMs": 68840,
+    "endMs": 70740,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "А можно сначала пустить точку по течению,\nсозданному всеми маяками, и",
+    "startMs": 70840,
+    "endMs": 75776,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "поставить штамп там, где она окажется.",
+    "startMs": 75776,
+    "endMs": 78660,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Карта отвечает на вопрос «какой класс\nздесь?».",
+    "startMs": 78840,
+    "endMs": 82500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Поле отвечает на вопрос «куда двигаться\nотсюда?».",
+    "startMs": 82760,
+    "endMs": 86580,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Два правила используют те же маяки, но\nотвечают на разные вопросы.",
+    "startMs": 86680,
+    "endMs": 91620,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Начнём с прямоугольника из четырёх\nодинаковых маяков.",
+    "startMs": 92680,
+    "endMs": 96240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Взгляните на вертикальную черту.",
+    "startMs": 96489,
+    "endMs": 98560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На ней левый и правый маяки в каждой паре\nтянут вбок одинаково.",
+    "startMs": 98740,
+    "endMs": 103760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "По самой линии течь можно, пересечь её\nнельзя.",
+    "startMs": 103860,
+    "endMs": 107920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В этой симметричной конфигурации точка\nможет долго приближаться к общему",
+    "startMs": 108100,
+    "endMs": 112540,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "центру, сохраняя свою исходную зону.",
+    "startMs": 112540,
+    "endMs": 115520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Теперь шесть маяков на окружности.",
+    "startMs": 115700,
+    "endMs": 118480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Притягивающий центр снова общий, но одна\nиз линий больше не служит",
+    "startMs": 118830,
+    "endMs": 123572,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "зеркалом.",
+    "startMs": 123572,
+    "endMs": 124450,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "У течения появляется поперечное\nнаправление.",
+    "startMs": 124550,
+    "endMs": 127570,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В расчёте точка пересекает эту грань\nпримерно на трёх четвертях единицы",
+    "startMs": 127750,
+    "endMs": 132652,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "модельного времени.",
+    "startMs": 132652,
+    "endMs": 134050,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Общее место назначения ничего не обещает\nо цветах вдоль пути.",
+    "startMs": 134310,
+    "endMs": 138920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Сделаем приближение к одной границе.",
+    "startMs": 139960,
+    "endMs": 142240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "У каждого маяка отметим, куда падает его\nпроекция на линию.",
+    "startMs": 142340,
+    "endMs": 146720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Маяки с одинаковой проекцией попадают в\nодну группу.",
+    "startMs": 146820,
+    "endMs": 150560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Представьте верёвку с двумя тягами.",
+    "startMs": 150820,
+    "endMs": 152960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Если одинаковые маяки стоят на равном\nрасстоянии по обе стороны, их тяги",
+    "startMs": 153140,
+    "endMs": 158118,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "поперёк линии компенсируются.",
+    "startMs": 158118,
+    "endMs": 160320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Вдоль линии движение может остаться.",
+    "startMs": 160700,
+    "endMs": 163200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В общем случае проверяют взвешенный\nпоперечный баланс каждой группы.",
+    "startMs": 163380,
+    "endMs": 167920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Маяк без пары может внести лишнюю тягу.",
+    "startMs": 168120,
+    "endMs": 171460,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "И группы с разными проекциями нельзя\nсчитать одной.",
+    "startMs": 171480,
+    "endMs": 175300,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Когда баланс выполнен на каждой грани,\nнаправление поля всюду лежит",
+    "startMs": 175640,
+    "endMs": 180026,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "вдоль границ.",
+    "startMs": 180026,
+    "endMs": 181220,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Гладкие траектории не могут пересечь\nтакую линию, и строгие решения",
+    "startMs": 181480,
+    "endMs": 186500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "сохраняются.",
+    "startMs": 186520,
+    "endMs": 187620,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Возвращение одной точки мало о чём\nговорит.",
+    "startMs": 188680,
+    "endMs": 191920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Представьте вращающуюся карусель:\nпассажир пересечёт нарисованную линию,",
+    "startMs": 192100,
+    "endMs": 197340,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "но через полный оборот окажется на\nпрежнем месте.",
+    "startMs": 197340,
+    "endMs": 200960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Вот точное условие теоремы.",
+    "startMs": 201300,
+    "endMs": 203760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В гауссовой модели с плоскими границами\nвыберем одно и то же",
+    "startMs": 203940,
+    "endMs": 207936,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "положительное время.",
+    "startMs": 207936,
+    "endMs": 209440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Требуем, чтобы каждая точка с однозначным\nответом сохранила его.",
+    "startMs": 209740,
+    "endMs": 214000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Если это выполнено, доказательство\nзаставляет каждую грань быть",
+    "startMs": 214350,
+    "endMs": 218350,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "сбалансированной.",
+    "startMs": 218350,
+    "endMs": 219770,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Значит, все строгие решения сохраняются\nпри любом времени остановки.",
+    "startMs": 219870,
+    "endMs": 225290,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Если баланс нарушен, на любом\nположительном горизонте найдутся входы,",
+    "startMs": 225630,
+    "endMs": 230510,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "которые поменяют класс.",
+    "startMs": 230510,
+    "endMs": 232170,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Теорема гарантирует, что такие входы\nесть.",
+    "startMs": 232430,
+    "endMs": 235210,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Их доля зависит от набора данных.",
+    "startMs": 235230,
+    "endMs": 238090,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Есть ещё поворот сюжета.",
+    "startMs": 239160,
+    "endMs": 241040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Координаты измеряются по разным шкалам.",
+    "startMs": 241300,
+    "endMs": 244160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Представьте двух одинаковых маяков и\nнаклонную черту между их зонами.",
+    "startMs": 244260,
+    "endMs": 249200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Зафиксируем эту карту.",
+    "startMs": 249380,
+    "endMs": 251120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "При одном способе измерять подъём\nплотности стрелка на черте направлена",
+    "startMs": 251380,
+    "endMs": 255910,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "через неё.",
+    "startMs": 255910,
+    "endMs": 256880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В нашем примере точка действительно может\nпотерять свой исходный класс.",
+    "startMs": 257060,
+    "endMs": 261600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Если изменить масштаб самого шага,\nстрелка в той же точке станет",
+    "startMs": 261780,
+    "endMs": 266385,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "касательной.",
+    "startMs": 266385,
+    "endMs": 267360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Для этого примера такая динамика\nсохраняет границу.",
+    "startMs": 267540,
+    "endMs": 271120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Точки покоя и положение линии здесь одни\nи те же.",
+    "startMs": 271420,
+    "endMs": 274960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Различие создаёт способ двигаться.",
+    "startMs": 275140,
+    "endMs": 278000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Геометрия поля определяет, что случится с\nисходными метками.",
+    "startMs": 278180,
+    "endMs": 282560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Глобальный баланс — планка для всех\nвходов сразу.",
+    "startMs": 283640,
+    "endMs": 287360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На практике можно задать более скромный\nвопрос: безопасно ли пустить по",
+    "startMs": 287620,
+    "endMs": 291848,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "течению конкретную точку?",
+    "startMs": 291848,
+    "endMs": 293920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Нас интересует, может ли она дойти до\nграницы за выбранное время.",
+    "startMs": 294100,
+    "endMs": 298560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Весь путь лежит в ограниченной области.",
+    "startMs": 298660,
+    "endMs": 301520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Её проекция даёт кусок линии, который\nстоит проверять.",
+    "startMs": 301620,
+    "endMs": 305200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Сравним стартовое расстояние с\nмаксимально возможной тягой поперёк линии",
+    "startMs": 305300,
+    "endMs": 309889,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "на этом куске.",
+    "startMs": 309889,
+    "endMs": 310960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Если запаса хватает для всех соперников,\nисходный класс сохраняется весь",
+    "startMs": 311120,
+    "endMs": 316087,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "интервал.",
+    "startMs": 316087,
+    "endMs": 317020,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Если не хватает, проверка воздерживается.",
+    "startMs": 317120,
+    "endMs": 320140,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Это может означать смену класса, а может\nозначать, что наша оценка",
+    "startMs": 320360,
+    "endMs": 324654,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "слишком осторожна.",
+    "startMs": 324654,
+    "endMs": 326140,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Здесь и нужен численный эталон.",
+    "startMs": 326240,
+    "endMs": 328680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На трёх открытых наборах подогнали по\nодному маяку на класс.",
+    "startMs": 329720,
+    "endMs": 333520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На экране доля запросов, где условие\nподтвердило сохранение класса до",
+    "startMs": 333700,
+    "endMs": 338220,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "одного и того же горизонта.",
+    "startMs": 338220,
+    "endMs": 340240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "У ирисов обе оценки покрывают почти всё.",
+    "startMs": 340620,
+    "endMs": 343760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В распознавании букв локальная проверка\nподнимает покрытие примерно с",
+    "startMs": 343860,
+    "endMs": 348159,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "пятнадцати до шестидесяти пяти процентов.",
+    "startMs": 348159,
+    "endMs": 351540,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На признаках активности со смартфона —\nпримерно с тридцати до",
+    "startMs": 351540,
+    "endMs": 355375,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "восьмидесяти шести процентов.",
+    "startMs": 355375,
+    "endMs": 357680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Мы считаем, сколько решений удалось\nподтвердить.",
+    "startMs": 357680,
+    "endMs": 361180,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Точность относительно настоящих меток\nизмеряют отдельно.",
+    "startMs": 361480,
+    "endMs": 365260,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Результат описывает эти наборы и эту\nнастройку.",
+    "startMs": 365440,
+    "endMs": 369020,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В частности, окна датчиков получены всего\nот девяти участников.",
+    "startMs": 369280,
+    "endMs": 373660,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Проверки на реальных данных сверяли с\nчисленными траекториями.",
+    "startMs": 373960,
+    "endMs": 377900,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Можно увидеть исходный цвет на финише и\nвсё равно упустить выход",
+    "startMs": 379000,
+    "endMs": 382861,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "посередине.",
+    "startMs": 382861,
+    "endMs": 383920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Поэтому конечную метку и поведение на\nвсём интервале проверяют отдельно.",
+    "startMs": 384100,
+    "endMs": 388880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На двух точных двумерных примерах\nотдельный интервальный решатель",
+    "startMs": 389060,
+    "endMs": 392980,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "проверил пятьдесят одну пару «точка и\nвремя».",
+    "startMs": 392980,
+    "endMs": 396400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Во всех случаях он определил конечный\nцвет.",
+    "startMs": 396580,
+    "endMs": 399440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Десять цветов изменились.",
+    "startMs": 399620,
+    "endMs": 401680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "По всему пути он подтвердил двадцать\nдевять сохранений и десять выходов.",
+    "startMs": 401700,
+    "endMs": 406460,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Ещё двенадцать маршрутов остались\nнеразрешёнными по форме пути, хотя",
+    "startMs": 406640,
+    "endMs": 410787,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "финиш известен.",
+    "startMs": 410787,
+    "endMs": 412220,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Это как увидеть оба конца маршрута на\nкарте, но потерять часть записи",
+    "startMs": 412400,
+    "endMs": 416653,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "между ними.",
+    "startMs": 416653,
+    "endMs": 417660,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Интервальная проверка просто оставляет\nтакой участок открытым.",
+    "startMs": 417760,
+    "endMs": 421880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Разрешить себе не считать часть\nтраекторий звучит как ускорение.",
+    "startMs": 422920,
+    "endMs": 427120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Но и проверка стоит времени.",
+    "startMs": 427300,
+    "endMs": 429280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Сравним гибрид с прямым решением на\nодинаковых тестовых блоках.",
+    "startMs": 429380,
+    "endMs": 433680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На ирисах время почти то же.",
+    "startMs": 433780,
+    "endMs": 436080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На буквах гибрид занял примерно вдвое\nбольше.",
+    "startMs": 436260,
+    "endMs": 439600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "На активности со смартфона он занял\nпримерно треть времени.",
+    "startMs": 439700,
+    "endMs": 443680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Это замеры на одной машине.",
+    "startMs": 443860,
+    "endMs": 445840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Отдельно меняли число классов в\nсинтетическом тесте.",
+    "startMs": 445860,
+    "endMs": 449360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "При трёх классах гибрид был быстрее.",
+    "startMs": 449550,
+    "endMs": 452090,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "При сорока — медленнее прямого расчёта,\nхотя подтверждал много решений.",
+    "startMs": 452190,
+    "endMs": 457130,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Так что полезно измерять две вещи\nотдельно: сколько запросов мы уверенно",
+    "startMs": 457310,
+    "endMs": 461777,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "пропустили и сколько времени сэкономили.",
+    "startMs": 461777,
+    "endMs": 464650,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Одно число не заменяет другое.",
+    "startMs": 464750,
+    "endMs": 467290,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Вернёмся к точке в начале.",
+    "startMs": 468360,
+    "endMs": 470080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Все маяки остались где стояли.",
+    "startMs": 470340,
+    "endMs": 472880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Когда цвет поменялся, нам помогло\nпосмотреть туда, где встречаются два",
+    "startMs": 473060,
+    "endMs": 477780,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "возможных ответа.",
+    "startMs": 477780,
+    "endMs": 479200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Граница может направлять поток вдоль\nсебя, а может пропускать его",
+    "startMs": 479380,
+    "endMs": 483725,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "насквозь.",
+    "startMs": 483725,
+    "endMs": 484640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Для целой карты теорема говорит, когда\nперенастройка часов не спасёт от",
+    "startMs": 484900,
+    "endMs": 489787,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "смены решений.",
+    "startMs": 489787,
+    "endMs": 491040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Для отдельных входов положение и поле\nвсё-таки дают полезную проверку.",
+    "startMs": 491220,
+    "endMs": 496480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "А чтобы узнать, помогло ли изменение\nответов, нужны настоящие метки.",
+    "startMs": 496560,
+    "endMs": 501980,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Так что в следующий раз, когда на\nкрасивой карте появятся стрелки,",
+    "startMs": 502360,
+    "endMs": 506080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "задайте простой вопрос: что происходит,\nкогда стрелка встречает границу?",
+    "startMs": 506080,
+    "endMs": 511400,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

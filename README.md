@@ -120,6 +120,10 @@ uv run --frozen python -m relativistic.evidence bundle --export $inertiaExport -
 python tools/inertia_tables.py --results .research/relativistic-replay --output .research/relativistic-replay/inertia-tables.tex
 ```
 
+## Video
+
+The Russian explainer *Can a Flow Change an Algorithm's Answer?* visualizes the decision-invariance theorem, its counterexample, and the external validation. The release includes the upload master, captions, thumbnail, and replayable sound and animation sources. [Video and manuscript release](https://github.com/AdamCage/gravitational-decision-maps/releases/tag/v0.2.0) · [Video source and evidence](output/decision-invariance-video/README.md)
+
 ## Starting points in the literature
 
 - [SA-nODE: Stable Attractors for Neural Networks Classification via Ordinary Differential Equations](https://arxiv.org/abs/2311.10387) — classification through learned basins of planted stable attractors.
