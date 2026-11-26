@@ -1,0 +1,480 @@
+{
+  "nominal_true_sigma": 0.2,
+  "contamination_fraction": 0.05,
+  "mixture_scale_background": 0.25,
+  "mixture_scale_outlier": 4.337337893224368,
+  "rows": {
+    "optdigits": [
+      {
+        "law": "laplace",
+        "supplied_sigma": 0.2,
+        "noise_seed": 2627,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.04041418427020243,
+          "projected_wiener": 0.014861669350030634,
+          "clipped_mean": 0.01736266281979516,
+          "projected_mean": 0.01663320528585575,
+          "local_flow": 0.02355422795985901
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.35511188555277456,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "laplace",
+        "supplied_sigma": 0.2,
+        "noise_seed": 10457,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.03961554058346754,
+          "projected_wiener": 0.014677921540684383,
+          "clipped_mean": 0.017208155146916582,
+          "projected_mean": 0.01655951992991382,
+          "local_flow": 0.023187267161796362
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.3512356869800181,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "laplace",
+        "supplied_sigma": 0.2,
+        "noise_seed": 60209,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.03936092282148952,
+          "projected_wiener": 0.014627269498609702,
+          "clipped_mean": 0.017380598092170223,
+          "projected_mean": 0.016531924760203546,
+          "local_flow": 0.023023994037228098
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.354560502825321,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.2,
+        "noise_seed": 2627,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.04032792731715149,
+          "projected_wiener": 0.0147810581142929,
+          "clipped_mean": 0.017796844310969544,
+          "projected_mean": 0.016710044508840425,
+          "local_flow": 0.023891271250076708
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.35858831075133624,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.2,
+        "noise_seed": 10457,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.04047144652042126,
+          "projected_wiener": 0.014901701500870524,
+          "clipped_mean": 0.018348487395187848,
+          "projected_mean": 0.016961671523328527,
+          "local_flow": 0.024130869041932106
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.35936362828846397,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.2,
+        "noise_seed": 60209,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.03932329053617908,
+          "projected_wiener": 0.014509866361960517,
+          "clipped_mean": 0.017641692134504373,
+          "projected_mean": 0.016577149628588615,
+          "local_flow": 0.0232029716421633
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.35486335341873204,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.1,
+        "noise_seed": 2627,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.04032792731715149,
+          "projected_wiener": 0.01817813417962797,
+          "clipped_mean": 0.023188578911564124,
+          "projected_mean": 0.022565274094201514,
+          "local_flow": 0.025243700605923344
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.8248911215664494,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.1,
+        "noise_seed": 10457,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.04047144652042126,
+          "projected_wiener": 0.01837147184826888,
+          "clipped_mean": 0.023641305157006826,
+          "projected_mean": 0.022772080569508756,
+          "local_flow": 0.02550738522407555
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.8266410942658344,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.1,
+        "noise_seed": 60209,
+        "rows": 1797,
+        "mean_mse": {
+          "input": 0.03932329053617908,
+          "projected_wiener": 0.0177975409993825,
+          "clipped_mean": 0.022675710244137847,
+          "projected_mean": 0.022027263831743152,
+          "local_flow": 0.024611521451557043
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.8181656229497957,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      }
+    ],
+    "pendigits": [
+      {
+        "law": "laplace",
+        "supplied_sigma": 0.2,
+        "noise_seed": 2627,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.040887702226343206,
+          "projected_wiener": 0.018479224891915016,
+          "clipped_mean": 0.015364962742484604,
+          "projected_mean": 0.012650664151204877,
+          "local_flow": 0.0256239537324569
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.20032927947415533,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "laplace",
+        "supplied_sigma": 0.2,
+        "noise_seed": 10457,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.039876514468529495,
+          "projected_wiener": 0.018233774655225323,
+          "clipped_mean": 0.014835577884099282,
+          "projected_mean": 0.012348418872597086,
+          "local_flow": 0.02496640108311059
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.2019759271900858,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "laplace",
+        "supplied_sigma": 0.2,
+        "noise_seed": 60209,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.038791660134773774,
+          "projected_wiener": 0.01768822218510688,
+          "clipped_mean": 0.014529214014251453,
+          "projected_mean": 0.012037103271893971,
+          "local_flow": 0.024263580137727395
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.20095171961378147,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.2,
+        "noise_seed": 2627,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.041032284714430454,
+          "projected_wiener": 0.018807127979356842,
+          "clipped_mean": 0.01626882885086429,
+          "projected_mean": 0.012800161344441759,
+          "local_flow": 0.024699114561219926
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.2130082948261897,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.2,
+        "noise_seed": 10457,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.03979110491577898,
+          "projected_wiener": 0.01814099494416121,
+          "clipped_mean": 0.01685879794823735,
+          "projected_mean": 0.01296605576175374,
+          "local_flow": 0.024570147350631993
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.21027040530756042,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.2,
+        "noise_seed": 60209,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.038845751907837005,
+          "projected_wiener": 0.018051770922499176,
+          "clipped_mean": 0.016069515180288773,
+          "projected_mean": 0.012907309995947117,
+          "local_flow": 0.023988104257842282
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.20996431037984464,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.1,
+        "noise_seed": 2627,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.041032284714430454,
+          "projected_wiener": 0.02377836697587413,
+          "clipped_mean": 0.01950313352472533,
+          "projected_mean": 0.01739841573505502,
+          "local_flow": 0.025285876990736738
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.4793724685054523,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.1,
+        "noise_seed": 10457,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.03979110491577898,
+          "projected_wiener": 0.02272754841234981,
+          "clipped_mean": 0.01947322368901798,
+          "projected_mean": 0.017145390108103533,
+          "local_flow": 0.025112777435777264
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.4727727651678237,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      },
+      {
+        "law": "contaminated",
+        "supplied_sigma": 0.1,
+        "noise_seed": 60209,
+        "rows": 3498,
+        "mean_mse": {
+          "input": 0.038845751907837005,
+          "projected_wiener": 0.022495475325615792,
+          "clipped_mean": 0.01884973972248226,
+          "projected_mean": 0.016915517047417065,
+          "local_flow": 0.024523699671040972
+        },
+        "class_switches": {
+          "input": 0,
+          "projected_wiener": 0,
+          "clipped_mean": 0,
+          "projected_mean": 0,
+          "local_flow": 0
+        },
+        "rk4_sampled_departures": 0,
+        "allowed_horizon_fraction": 0.47279216580481065,
+        "projection_fallbacks": {
+          "mean": 0,
+          "wiener": 0
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+\subsection{Exceptional bandwidths in the equal-mass case}
+\label{sec:exceptional-bandwidths}
+
+For any fixed equal-mass site set that fails the reflection condition
+of Corollary~\ref{cor:reflection}, only finitely many positive bandwidths
+can preserve all strict decisions. Indeed, for some projection group
+on some facet the balance in \eqref{eq:fiber} is a nonzero exponential
+sum. Group by squared normal offset and discard zero coefficients to
+write it as $\sum_{j=1}^m c_j e^{-s_j z}$, with $s_1<\cdots<s_m$ and
+$z=1/(2\beta)$. It has at most $m-1$ distinct zeros for $z>0$. For the
+induction, divide by $e^{-s_1 z}$ and differentiate. The derivative is
+an exponential sum with $m-1$ nonzero terms, and Rolle's theorem bounds
+the number of zeros of the divided sum by one plus the derivative's
+count. A one-term sum has no zeros. Every preserving bandwidth must
+be a zero of the chosen balance, regardless of the sampling horizon.
+
+\paragraph{A rhombus preserving decisions at a single bandwidth.}
+Take the four equal-mass sites $0,p,q,p+q$, where $p=(2,0)$ and
+$q=(1/2,\sqrt{15}/2)$. The neighbors are the four sides and the short
+diagonal $[p,q]$. A hull side gives a Voronoi facet because a point
+sufficiently far along its outward normal from the side midpoint is
+equidistant from its two endpoints and farther from the other sites.
+The midpoint $(p+q)/2$ is nearer $p,q$ than $0,p+q$ because
+$p^\top q>0$. The long diagonal is inactive: along the bisector of
+$0,p+q$, at least one of $p,q$ is closer, since the difference between
+the two pairs' summed squared distances is $-2p^\top q$.
+
+On the side bisector $x_1=1$, the pair $0,p$ cancels in its projection
+group. The pair $q,p+q$ has offsets $-1/2,3/2$. Its balance vanishes
+if and only if
+\[
+ e^{-1/\beta}=\tfrac13,
+ \qquad\text{that is, }\quad \beta=1/\log 3.
+\]
+Reflection across the line through $0,p+q$ exchanges $p,q$, and
+central inversion exchanges opposite sides. Thus all four side
+balances hold at the same bandwidth. The short-diagonal bisector is
+the line through $0,p+q$, so it is balanced by reflection at all
+bandwidths. Theorem~\ref{thm:flat} gives preservation at all horizons
+at $\beta=1/\log 3<D^2/4=5/2$. Reflection in $x_1=1$ does not permute
+the upper pair, so the orbit condition fails. The same side balance
+excludes preservation at any other bandwidth.

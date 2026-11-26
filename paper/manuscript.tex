@@ -1,5 +1,10 @@
-\documentclass[11pt]{article}
-\usepackage[letterpaper,margin=0.95in]{geometry}
+\ifdefined\ArticleOnly
+  \documentclass[10pt]{article}
+  \usepackage[letterpaper,textwidth=6in,textheight=8in,centering]{geometry}
+\else
+  \documentclass[11pt]{article}
+  \usepackage[letterpaper,margin=0.95in]{geometry}
+\fi
 \usepackage{amsmath,amssymb,amsthm,booktabs,graphicx}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage[hidelinks]{hyperref}
@@ -18,6 +23,7 @@
 \newcommand{\argmax}{\operatorname*{arg\,max}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
 \title{Decision invariance and boundary crossings in Gaussian prototype flows}
 \author{}
 \date{Revised November 26, 2026}
@@ -27,22 +33,61 @@
 \input{relativistic_results}
 
 \begin{abstract}
-Gaussian prototype scores can define both a static classifier and a flow that transports an input before classification. For an affine decision partition under a common-variance Gaussian mixture flow, we prove that preservation of all strict decisions at one positive horizon is equivalent to preservation at all horizons. A finite test checks weighted normal balance among prototypes with the same projection onto each facet plane. With one equal-mass prototype per class, preservation at a variance at least one quarter of the squared prototype diameter forces the sites to form a reflection-group orbit. Generic multiclass configurations in dimension at least two admit switches at every positive horizon. Under shared anisotropy, Euclidean ascent additionally requires facet normals aligned with eigenspaces of the precision. A one-sided finite-time bound complements a covariance-based test on three external one-prototype cohorts, with coverage sensitive to the horizon. For curved boundaries we obtain an exact tangency criterion under regularity and connectedness assumptions and query-level sufficient conditions more generally. In a locked core-only benchmark, the analytical endpoint tests covered \SynCover{} of synthetic queries and \PubCover{} of public queries, while selective integration reduced field evaluations and increased measured latency.
+We study preservation of fixed affine decisions under Gaussian prototype transport. Preservation at one positive horizon implies invariance at all horizons. A finite test applies to component-specific precisions. For equal-mass Voronoi cells, broad bandwidths impose reflection symmetry, while isolated smaller bandwidths can permit invariance without it. Directed facet flux gives the short-time switch mass with a quadratic remainder. In exact arithmetic, local certificates leave quadratic unresolved mass. With outward rounding, a facet-first hybrid resolves all 725 held-out queries at horizon $0.15$ and runs $2.58$ times as fast as a same-precision interval integrator on that workload, excluding setup. For 6,660 windows of paired sensor measurements, projected supervised calibration reduces mean squared feature error by $54.4\%$ while preserving all frozen activity decisions. The Gaussian flow itself increases error on those measurements.
 \end{abstract}
 
-\noindent\textbf{Keywords.} Prototype classifiers, Gaussian mean shift, decision boundary, flow invariance, reflection group
+\noindent\textbf{Keywords.} Prototype classifiers, Gaussian mean shift, decision invariance, validated numerics, feature restoration
 
 \section{Introduction}
-Gaussian prototype classifiers assign labels by comparing sums of class-specific kernels. The sum across classes also defines a mean-shift vector field. One can classify a query immediately or after moving it along this field. The two rules use the same prototypes and weights, yet ascent of the total density can reverse the ordering of class scores. A motivating core-only pilot found such disagreements concentrated in withheld wedges of a ring benchmark, prompting the question of when transport can be guaranteed to preserve the original decisions.
+A feature transformation can move an input toward a higher-density region
+and change the decision of a classifier that also consumes those features.
+This matters when feature restoration or preprocessing must respect a
+frozen classifier. A long integration can incur a classification change
+even when the transport uses the same prototypes as the classifier. We ask
+when every initially strict decision is invariant and when a single query
+can be certified to retain or change its decision.
 
-Our main result characterizes exact global invariance for a fixed affine decision partition. It reduces preservation at any positive time to a condition on the prototype measure and the partition's facet geometry. The criterion yields a reflection rigidity theorem for Voronoi classifiers and a quantitative bound on the queries that could leave a class before a specified horizon. We then study fitted Gaussian mixture scores, where the faces are generally curved. We derive local crossing and finite-time bounds, compare forecasts with matched numerical controls, and distinguish crossing frequency from changes in classification risk.
+We prove that a fixed affine partition is globally invariant under an
+analytic Gaussian gradient flow exactly when it is preserved at one
+positive sampling time. We derive finite balance tests for shared and
+component-specific precisions, including a reflection characterization
+for equal-mass Voronoi cells. We quantify the short-time probability of
+decision change and connect its leading term to both an upper and a
+lower local certificate. A verified computation on public features
+evaluates those guarantees. Feature restoration with a frozen affine
+classifier illustrates when bounding the original ODE is useful and when
+an independently fitted estimate can be projected into the decision cell.
+We test this distinction on both perturbed digit features and paired
+measurements from two accelerometer ranges.
 
 \paragraph{Related work.}
-Gaussian mean shift ascends toward modes of a kernel density, and modal clustering studies the associated basins \cite{comaniciu,carreira,chacon}. Broad kernel smoothing can simplify the stationary-point geometry \cite{ghassabeh}. We study preservation of a specified decision partition, whose cells need not be attraction basins. Power diagrams and the normal fans of reflection-group orbit polytopes provide the relevant static geometry \cite{aurenhammer,ardila}. Classical tangency criteria concern the vector field on an entire boundary \cite{nagumo}; our criterion concerns the time map at a single horizon and isolates the Gaussian balance that makes the boundary invariant.
+Gaussian mean shift ascends a kernel density, and modal clustering
+studies its attraction basins \cite{comaniciu,carreira,chacon,ghassabeh}.
+Those basins and the decision cells of a fixed classifier define
+different partitions. Classical viability results concern tangency of
+the field \cite{nagumo,brezis}. The local analytic calculation is related
+to uniqueness in the embedding of maps into flows \cite{zhang,ribon}.
+We recover tangency from a global statement about the time map and
+reduce tangency to finite conditions on the Gaussian components. The
+reflection implication from symmetry to preservation uses classical
+geometry of power diagrams, lattices and reflection chambers
+\cite{aurenhammer,moody,ardila}. Our dynamic converse recovers symmetry
+from decision invariance under the stated bandwidth conditions.
 
-SA-nODE and SODEF use dynamical systems for classification and robustness with different training objectives and terminal rules \cite{marino,kang}. Joint Energy Models connect prediction to an energy function and evaluate stochastic input refinement \cite{jem}. Finite-time ODEs with linear readouts have topological restrictions on nested classes, which augmentation and second-order dynamics can overcome in specific cases \cite{dupont,norcliffe}. We compare a fixed readout before and after transport. Exponential Euler, state-to-margin bounds, and Neural ODE reachability provide general numerical and verification approaches \cite{cox,hochbruck,tsuzuku,nnvode}. Our query-level bounds specialize these tools using Gaussian posterior covariance and prototype geometry. The quadratic expansion of excess Bayes risk under boundary perturbation has established antecedents \cite{hall,samworth,setoudeh}. We specialize it to the same normal velocity that governs first-order label changes.
+SA-nODE and SODEF use learned dynamical systems for classification and
+robustness \cite{marino,kang}. Joint Energy Models evaluate stochastic
+input refinement with a classifier's marginal energy \cite{jem}.
+We study deterministic transport with a frozen readout. Exponential
+integrators and general verification tools apply to ODE classifiers
+\cite{cox,hochbruck,nnvode,neher}. We use the Gaussian posterior
+covariance and the accessible geometry of each facet to derive
+certificates without time stepping.
+The directional first variation of moving sets is classical, including
+the covariogram formula for translations \cite{galerne}. We account for
+nonuniform normal velocity, the intersections of affine facets and the
+probability left undecided by finite-horizon certificates.
 
-\section{Field, ties and transition rates}
+\section{Gaussian prototype transport}
 Let $a_i\in\R^d$ be a prototype with class $c_i$ and mass $w_i>0$, and let $\beta>0$ be the common Gaussian variance. Set
 \[
  S_c(x)=\sum_{i:c_i=c}w_i\exp\!\left(-\frac{\norm{x-a_i}^2}{2\beta}\right),\qquad
@@ -66,6 +111,67 @@ $D^2/4$ for prototype diameter $D$, by the variance bound for a bounded
 scalar projection. Thus $F$ is globally Lipschitz and generates a complete
 analytic flow.
 
+
+\input{flat_boundary}
+\input{rhombus_counterexample}
+\input{heterogeneous_gaussians}
+\input{switching_mass}
+\input{verified_affine_reserve}
+\input{affine_public_evidence}
+\input{decision_safe_restoration}
+\input{pamap2_restoration}
+
+\section{Discussion}
+The global theorem rules out a special finite stopping time that
+restores every strict affine decision when a facet is permeable.
+The probability of a change still depends on the density of queries
+near the facets. The local bounds provide a direct count of
+preserved, switched and unresolved decisions. Their resolving power
+declines with horizon, especially when the reachable tangential
+projections spread over several prototypes.
+
+When only a terminal label is needed, the exact prototype span is a
+strong computational baseline. The outward-rounded guard instead
+answers a question about the entire prescribed transport or proves a
+terminal disagreement without computing the destination. For the
+restoration experiment, a local guard allows more transport within the
+same margin reserve than a global guard. On perturbed digit features,
+a projected posterior estimate attains lower reconstruction error
+when the path can be chosen. On measured PAMAP2 sensor pairs, we use
+the same decision constraint with a supervised calibrator. The
+Gaussian flow raises error there, making the choice of model material.
+The results cover one measured hardware source and two cohorts with
+synthetic noise.
+
+The finite tests depend on the fixed partition being affine. A
+connected analytic extension and the earlier multi-prototype and
+inertial experiments are provided in accompanying technical appendices. Those experiments
+include matched negative results on classification and latency. A
+change of decision alone says nothing about its correctness without a
+target label law.
+
+\paragraph{Data and code availability.}
+The \href{https://github.com/AdamCage/gravitational-decision-maps}{project
+repository} records the code, locked dependencies, source digests and
+archived outputs. Commands for the affine experiments run from a
+standard checkout. The historical core-only study was registered using
+a pinned EpistemeOS checkout. A separate standard-library replay
+aggregates its recorded observations. Timing records include raw
+samples and should be interpreted on their measurement host.
+
+\section*{Generative AI and manuscript preparation}
+OpenAI Codex assisted with literature searches, candidate theorems
+and proofs, independent agent checks, implementation, analysis and
+drafting. The proof arguments, scripts and outputs are available for
+inspection.
+% The submission declaration of author responsibility needs confirmation by the authors.
+
+\ifdefined\ArticleOnly\else
+\appendix
+\input{decision_extensions}
+\input{flat_boundary_evidence}
+
+\section{Local crossing rates for mixture-score readouts}
 For $m_{ba}=g_b-g_a$ and $v_c=\mu_c-x$,
 \begin{equation}
  \frac{\dd}{\dd t}m_{ba}(\Phi_t x)\bigg|_{t=0}=(v_b-v_a)^\top F(x).
@@ -83,7 +189,7 @@ Let $p_c$ denote the weighted joint density for class $c$, with $\rho=\sum_c p_c
 \]
 Under these conditions the signed derivative of classification error is $\sum_{a<b}\int_{\Sigma_{ab}}(p_a-p_b)(F\cdot n_{ab})\,\dd S$. A simultaneous tie on a codimension-one face needs its own interface calculation. These formulas follow from the normal widths of the sets swept by the boundary and require the external feature or class density on that boundary. The fitted scores determine the orientation term in \eqref{eq:direction}.
 
-\input{flat_boundary}
+
 
 \section{Finite-time bounds}
 \label{sec:bounds}
@@ -129,9 +235,8 @@ Assume the static ordering is the Bayes ordering of the $p_c$, the relevant top 
  \frac{t^2}{2}\sum_{a<b}\int_{\Sigma_{ab}}\gamma_{ab}(F\cdot n_{ab})^2\,\dd S +o(t^2).
  \label{eq:regret}
 \end{equation}
-Transverse top junctions occupy an $O(t^2)$ volume with an $O(t)$ density gap, which gives $O(t^3)$ risk locally. Thus labels can change at a first-order rate while the excess Bayes error grows at a second-order rate. If $p_c$ is proportional to $S_c$ by the same positive factor for all classes, then $\gamma_{ab}=p_* \norm{\nabla m_{ba}}/\beta$ at the face of joint density $p_*$. Equation (2.7) in \cite{setoudeh} gives the same specialization by pulling back joint densities along the flow. The Jacobian term cancels for a density difference at a tie. The fitted evaluation makes no Bayes assumption about the partially observed cores.
+Transverse top junctions occupy an $O(t^2)$ volume with an $O(t)$ density gap, which gives $O(t^3)$ risk locally. Thus labels can change at a first-order rate while the excess Bayes error grows at a second-order rate. If $p_c$ is proportional to $S_c$ by the same positive factor for all classes, then $\gamma_{ab}=p_* \norm{\nabla m_{ba}}/\beta$ at the face of joint density $p_*$. The surface curvature in Eq.~(2.7) of \cite{setoudeh} specializes to \eqref{eq:regret} when the perturbation parameter is flow time and the density contrasts are evaluated along $\Phi_t$. The derivative of the contrast at a tie is $\nabla(p_b-p_a)^\top F$. If the pullback is expressed using joint densities, the additional Jacobian derivative multiplies the zero contrast and cancels at the tie. The fitted evaluation makes no Bayes assumption about the partially observed cores.
 
-\input{flat_boundary_evidence}
 
 \section{Locked core-only experimental protocol}
 Four synthetic families offer affine shells, wavy shells, open chains with nuisance coordinates, and separated lobes as a control. Each seed-family draw supplies three gaps of equal training size, keeping the same external test features and labels. The gap moves the observed bands and thereby changes the fitted scaler and prototypes. The primary synthetic design uses 144 family--gap--seed units and 17,280 distinct external rows. The transfer evaluation uses 24 family--seed units from UCI PenDigits and Seeds \cite{pendigits,seeds}. PenDigits retains the original source split by writer and samples 1,430 external rows across disjoint folds. Individual writer identities within the source folds are unavailable. Seeds uses 89 distinct external rows in 459 evaluations, sampled from a fixed holdout as the cores change. External rows are selected by the benchmark curator using true classes and training-side anchor radii and sampled for class balance. Only training features and labels enter model fitting. Group-level inference for independent new writers, harvests or producers is outside these cohorts.
@@ -146,33 +251,11 @@ The known-law calibration uses four one-dimensional Gaussian mixtures with symme
 \label{sec:results}
 \input{results_body.tex}
 
-\section{Discussion}
-The fixed-horizon result rules out using a special positive stopping time to guarantee recovery of the original affine decisions when a facet is permeable. For equal-mass Voronoi scores this obstruction is generic in dimension at least two. The proof does not supply a distribution-independent lower bound on the fraction of queries that switch. The observed difference between the two bandwidths on the external cohorts illustrates why global invariance and an empirical switch rate are distinct.
 
-The sign of the normal velocity alone also does not determine prediction error. If the static scores give Bayes decisions, crossing into a strictly inferior class incurs excess risk. For a fitted score outside the observed cores, a crossing can improve or degrade accuracy, depending on the contrast of the true class densities in the swept region. The one-prototype cohorts are descriptive checks with fixed sources. The HAR windows can overlap within each subject, and the external evaluations provide no estimate of variation across independently sampled data sources.
-
-\paragraph{Scope and limitations.}
-The finite balance test requires affine decision cells. For curved
-interfaces the exact invariance argument requires connected regular
-analytic equality sets and the boundary coverage specified in
-Section~\ref{sec:curved}. The covariance bounds apply more generally
-to the shared spherical model, and their coverage can decline rapidly
-with horizon. The comparisons provide numerical checks of
-exact-arithmetic inequalities. Floating-point verification and a
-wall-clock advantage from strict selective integration remain open.
-The common covariance, fixed scores, finite horizon, and deterministic
-first-order field distinguish this analysis from mixtures with different
-component covariances, stochastic input refinement, and classification by the ultimate
-equilibrium. Appendix~\ref{sec:inertia} tests a matched inertial
-extension and reports the failure to meet its accuracy criterion.
-
-\paragraph{Reproducibility.}
-For the core-only benchmark, the source tree, dependency closure, data snapshots, final seeds, and decision criteria were registered before final scoring through EpistemeOS. A fresh replay reproduced the recorded observations other than timing fields across all 168 task--seed units. Separate standard-library reanalyses recalculate metrics from the recorded observations. Artifacts include code, data provenance, per-query predictions for the locked benchmark, and the separate results for the affine experiments. The replay commands include data digest checks and require no EpistemeOS setup for the affine experiments.
-
-\appendix
 \input{relativistic_body}
+\fi
 
-\begin{thebibliography}{20}
+\begin{thebibliography}{35}
 \raggedright
 \bibitem{comaniciu} D. Comaniciu and P. Meer. Mean shift: A robust approach toward feature space analysis. \emph{IEEE TPAMI}, 24(5), 2002. \href{https://doi.org/10.1109/34.1000236}{doi:10.1109/34.1000236}.
 \bibitem{carreira} M. A. Carreira-Perpi\~n\'an. Gaussian mean-shift is an EM algorithm. \emph{IEEE TPAMI}, 29(5), 2007. \href{https://doi.org/10.1109/TPAMI.2007.1057}{doi:10.1109/TPAMI.2007.1057}.
@@ -180,30 +263,55 @@ For the core-only benchmark, the source tree, dependency closure, data snapshots
 \bibitem{chaconduong} J. E. Chac\'on and T. Duong. Data-driven density derivative estimation, with applications to nonparametric clustering and bump hunting. \emph{Electronic Journal of Statistics}, 7:499--532, 2013. \href{https://doi.org/10.1214/13-EJS781}{doi:10.1214/13-EJS781}.
 \bibitem{chacon} J. E. Chac\'on. A population background for nonparametric density-based clustering. \emph{Statistical Science}, 30(4), 2015. \href{https://doi.org/10.1214/15-STS526}{doi:10.1214/15-STS526}.
 \bibitem{aurenhammer} F. Aurenhammer. Power diagrams: Properties, algorithms and applications. \emph{SIAM Journal on Computing}, 16(1):78--96, 1987. \href{https://doi.org/10.1137/0216006}{doi:10.1137/0216006}.
+\bibitem{moody} R. V. Moody and J. Patera. Voronoi domains and dual cells in the generalized kaleidoscope with applications to root and weight lattices. \emph{Canadian Journal of Mathematics}, 47(3):573--605, 1995. \href{https://doi.org/10.4153/CJM-1995-031-2}{doi:10.4153/CJM-1995-031-2}.
 \bibitem{ardila} F. Ardila, F. Castillo, C. Eur, and A. Postnikov. Coxeter submodular functions and deformations of Coxeter permutahedra. \emph{Advances in Mathematics}, 365:107039, 2020. \href{https://doi.org/10.1016/j.aim.2020.107039}{doi:10.1016/j.aim.2020.107039}.
 \bibitem{nagumo} M. Nagumo. \"Uber die Lage der Integralkurven gew\"ohnlicher Differentialgleichungen. \emph{Proceedings of the Physico-Mathematical Society of Japan}, 24:551--559, 1942. \href{https://doi.org/10.11429/ppmsj1919.24.0_551}{doi:10.11429/ppmsj1919.24.0\_551}.
+\bibitem{brezis} H. Brézis. On a characterization of flow-invariant sets. \emph{Communications on Pure and Applied Mathematics}, 23(2):261--263, 1970. \href{https://doi.org/10.1002/cpa.3160230211}{doi:10.1002/cpa.3160230211}.
 \bibitem{carrillo} S. A. Carrillo. A quick proof of the regularity of the flow of analytic vector fields. \emph{Comptes Rendus Math\'ematique}, 359(9):1155--1159, 2021. \href{https://doi.org/10.5802/crmath.271}{doi:10.5802/crmath.271}.
 \bibitem{zhang} X. Zhang. The embedding flows of $C^\infty$ hyperbolic diffeomorphisms. \emph{Journal of Differential Equations}, 250:2283--2298, 2011. \href{https://doi.org/10.1016/j.jde.2010.12.022}{doi:10.1016/j.jde.2010.12.022}.
 \bibitem{ribon} J. Rib\'on. Embedding smooth and formal diffeomorphisms through the Jordan--Chevalley decomposition. \emph{Journal of Differential Equations}, 253(12):3211--3231, 2012. \href{https://doi.org/10.1016/j.jde.2012.09.009}{doi:10.1016/j.jde.2012.09.009}.
+\bibitem{galerne} B. Galerne. Computation of the perimeter of measurable sets via their covariogram. Applications to random sets. \emph{Image Analysis and Stereology}, 30(1):39--51, 2011. \href{https://doi.org/10.5566/ias.v30.p39-51}{doi:10.5566/ias.v30.p39-51}.
 \bibitem{marino} R. Marino et al. Stable attractors for neural networks classification via ordinary differential equations (SA-nODE). \href{https://arxiv.org/abs/2311.10387}{arXiv:2311.10387}, 2024.
 \bibitem{kang} Q. Kang et al. Stable neural ODE with Lyapunov-stable equilibrium points for defending against adversarial attacks. \emph{NeurIPS}, 2021.
 \bibitem{jem} W. Grathwohl et al. Your classifier is secretly an energy based model and you should treat it like one. \emph{ICLR}, 2020. \href{https://arxiv.org/abs/1912.03263}{arXiv:1912.03263}.
+\ifdefined\ArticleOnly\else
 \bibitem{dupont} E. Dupont, A. Doucet, and Y. W. Teh. Augmented neural ODEs. \emph{NeurIPS}, 2019. \href{https://arxiv.org/abs/1904.01681}{arXiv:1904.01681}.
+\fi
+\ifdefined\ArticleOnly\else
 \bibitem{norcliffe} A. Norcliffe et al. On second order behaviour in augmented neural ODEs. \emph{NeurIPS}, 2020. \href{https://arxiv.org/abs/2006.07220}{arXiv:2006.07220}.
+\fi
 \bibitem{cox} S. M. Cox and P. C. Matthews. Exponential time differencing for stiff systems. \emph{J. Comput. Phys.}, 176(2), 2002. \href{https://doi.org/10.1006/jcph.2002.6995}{doi:10.1006/jcph.2002.6995}.
 \bibitem{hochbruck} M. Hochbruck and A. Ostermann. Exponential integrators. \emph{Acta Numerica}, 19, 2010. \href{https://doi.org/10.1017/S0962492910000048}{doi:10.1017/S0962492910000048}.
+\ifdefined\ArticleOnly\else
 \bibitem{tsuzuku} Y. Tsuzuku, I. Sato, and M. Sugiyama. Lipschitz-margin training: Scalable certification of perturbation invariance for deep neural networks. \emph{NeurIPS}, 2018. \href{https://arxiv.org/abs/1802.04034}{arXiv:1802.04034}.
+\fi
 \bibitem{nnvode} D. Manzanas Lopez, P. Musau, N. Hamilton, and T. T. Johnson. Reachability analysis of a general class of neural ordinary differential equations. \href{https://arxiv.org/abs/2207.06531}{arXiv:2207.06531}, 2022.
 \bibitem{neher} M. Neher, K. R. Jackson, and N. S. Nedialkov. On Taylor model based integration of ODEs. \emph{SIAM Journal on Numerical Analysis}, 45(1):236--262, 2007. \href{https://doi.org/10.1137/050638448}{doi:10.1137/050638448}.
+\ifdefined\ArticleOnly\else
 \bibitem{hall} P. Hall and K.-H. Kang. Bandwidth choice for nonparametric classification. \emph{Annals of Statistics}, 33(1), 2005. \href{https://arxiv.org/abs/math/0504511}{arXiv:math/0504511}.
+\fi
+\ifdefined\ArticleOnly\else
 \bibitem{samworth} R. J. Samworth. Optimal weighted nearest neighbour classifiers. \emph{Annals of Statistics}, 40(5), 2012. \href{https://arxiv.org/abs/1101.5783}{arXiv:1101.5783}.
+\fi
+\ifdefined\ArticleOnly\else
 \bibitem{setoudeh} F. Setoudehtazangi and G. J. McLachlan. Classification-risk-optimal label acquisition. \href{https://arxiv.org/abs/2609.06873}{arXiv:2609.06873}, 2026.
+\fi
 \bibitem{iris} R. A. Fisher. Iris. UCI Machine Learning Repository, 1936. \href{https://doi.org/10.24432/C56C76}{doi:10.24432/C56C76}.
 \bibitem{letter} D. J. Slate. Letter Recognition. UCI Machine Learning Repository, 1991. \href{https://doi.org/10.24432/C5ZP40}{doi:10.24432/C5ZP40}.
 \bibitem{har} J. L. Reyes-Ortiz, D. Anguita, A. Ghio, L. Oneto, and X. Parra. Human Activity Recognition Using Smartphones. UCI Machine Learning Repository, 2013. \href{https://doi.org/10.24432/C54S4K}{doi:10.24432/C54S4K}.
+\bibitem{pamap2} A. Reiss. PAMAP2 Physical Activity Monitoring. UCI Machine Learning Repository, 2012. \href{https://doi.org/10.24432/C5NW2H}{doi:10.24432/C5NW2H}.
+\bibitem{efron} B. Efron. Tweedie's formula and selection bias. \emph{Journal of the American Statistical Association}, 106(496):1602--1614, 2011. \href{https://doi.org/10.1198/jasa.2011.tm11181}{doi:10.1198/jasa.2011.tm11181}.
+\bibitem{dykstra} R. L. Dykstra. An algorithm for restricted least squares regression. \emph{Journal of the American Statistical Association}, 78(384):837--842, 1983. \href{https://doi.org/10.1080/01621459.1983.10477029}{doi:10.1080/01621459.1983.10477029}.
+\bibitem{optdigits} E. Alpaydin and C. Kaynak. Optical Recognition of Handwritten Digits. UCI Machine Learning Repository, 1998. \href{https://doi.org/10.24432/C50P49}{doi:10.24432/C50P49}.
 \bibitem{pendigits} E. Alpaydin and F. Alimoglu. Pen-Based Recognition of Handwritten Digits. UCI Machine Learning Repository, 1998. \href{https://doi.org/10.24432/C5MG6K}{doi:10.24432/C5MG6K}.
+\ifdefined\ArticleOnly\else
 \bibitem{seeds} M. Charytanowicz, J. Niewczas, P. Kulczycki, P. A. Kowalski, and S. \L ukasik. Seeds. UCI Machine Learning Repository, 2010. \href{https://doi.org/10.24432/C5H30K}{doi:10.24432/C5H30K}.
+\fi
+\ifdefined\ArticleOnly\else
 \bibitem{franca} G. Fran\c{c}a, J. Sulam, D. P. Robinson, and R. Vidal. Conformal symplectic and relativistic optimization. \emph{NeurIPS}, 33:16916--16926, 2020. \href{https://arxiv.org/abs/1903.04100}{arXiv:1903.04100}.
+\fi
+\ifdefined\ArticleOnly\else
 \bibitem{behnood} A. Behnood. Galactic Margin Machines: A physics-inspired framework for nonlinear classification. \emph{Applied Soft Computing}, 202:115857, 2026. \href{https://doi.org/10.1016/j.asoc.2026.115857}{doi:10.1016/j.asoc.2026.115857}.
+\fi
 \end{thebibliography}
 \end{document}

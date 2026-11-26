@@ -45,7 +45,9 @@ This calibration uses an unlabeled feature law and one fixed geometry.
 \includegraphics[width=\linewidth]{figures/decision_invariance.pdf}
 \caption{Examples of preservation and its failure. The cospherical
 configuration in panel (a) has a shared stationary point and a permeable
-Voronoi facet. Panel (b) checks the limiting switch-mass coefficient
+Voronoi facet. The trajectory starts at $(3,1.25)/\sqrt 5$ with
+$\beta=1.2$ and crosses at $t\approx0.7483$ over $[0,2.25]$.
+Panel (b) checks the limiting switch-mass coefficient
 under a fixed readout and a perturbation of the driving mixture at
 three fixed positive horizons.}
 \label{fig:decision-invariance}
@@ -84,9 +86,9 @@ dependency limitations familiar from validated ODE integration
 All 51 query--horizon endpoints received a strict interval label,
 with 10 changes and 41 original labels. Interval tubes certified
 whole-horizon preservation on 29 rows and departure on 10.
-They left the whole-path result unresolved on 12 rows even though
-the endpoint label was certified. This illustrates why an
-endpoint label alone cannot establish stability of a trajectory.
+They left the whole-path result unresolved on 12 rows with certified
+endpoint labels. These unresolved rows record the limits of the tube
+enclosures.
 The original whole-plane implementation, which includes nonfacet
 rival bisectors, confirmed preservation for two rows. A separate
 check using only the actual Voronoi facets confirmed all 27
@@ -95,8 +97,8 @@ cospherical fixture, the established floating-point local and
 covariance tests accepted one and two rows, respectively.
 The interval integrator certified ten departures on that fixture.
 These are deliberately difficult exact-input cases. They establish
-valid enclosures for the reported fixtures, while the public
-cohorts use floating-point evaluations and numerical references.
+valid enclosures for the reported fixtures. Section~\ref{sec:verified-public}
+reports separate outward-rounded certificates on the public cohorts.
 
 \subsection{External one-prototype cohorts}
 

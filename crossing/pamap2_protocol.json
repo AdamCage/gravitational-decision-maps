@@ -1,0 +1,29 @@
+{
+  "study": "Preserving a frozen activity decision while translating measurements between co-located PAMAP2 accelerometers",
+  "design_status": "Locally fixed before evaluating restoration methods on held-out subjects",
+  "source": "https://doi.org/10.24432/C5NW2H",
+  "cohort": {
+    "recordings": "Official Protocol sessions for subjects 101 through 108; subject 109 and optional sessions are outside this cohort",
+    "window": "200 consecutive synchronized samples, disjoint within runs of one activity, no gap above 0.025 seconds, both channels finite",
+    "observed": "Nominal ±6g accelerometer at each of the hand, chest and ankle",
+    "reference": "Nominal ±16g accelerometer at the same body locations; a measured reference channel",
+    "features": "Per axis and body site: mean, standard deviation, root mean square, maximum absolute acceleration and mean absolute adjacent increment",
+    "folds": "Leave one subject out. Fit the scaler on pooled reference features from the other seven subjects. Test features, paired references and labels are inaccessible to fitting."
+  },
+  "models": {
+    "head": "Multinomial logistic regression, C=1, fitted on reference features and activity labels from the training subjects",
+    "policy": "Keep each low-range input's initial label and more than 0.0001 of every initial rival margin on the deployed straight segment or the exact original flow",
+    "prior": "Two k-means prototypes per training activity, weighted by training cluster counts, pooled isotropic residual variance and recorded train-pair discrepancy variance",
+    "original_flow": "Set horizon to log(1 + discrepancy variance / within-cluster variance). Predeclare dyadic fractions 1, 1/2, 1/4 and 1/8. Use the largest outward-certified fraction or zero. Apply 16 RK4 steps and verify the chord to the returned endpoint separately.",
+    "baselines": "Observed input; training mean reference-minus-observed calibration; paired ridge residual regression alpha=1; paired ExtraTrees residual regression with 64 trees, min_samples_leaf=8 and max_features=0.75. For every predicted candidate report direct estimate, straight-line clipping and Euclidean projection into the same affine cell.",
+    "projection": "Halfspace Dykstra candidate with binary64 outward check. Keep the original input on abstention, and report abstentions."
+  },
+  "analysis": {
+    "primary": "Difference in standardized squared feature error relative to the observed input, averaged within each subject and then across subjects. Report results for all predefined methods and comparisons.",
+    "secondary": "Absolute error of the high-range peak across all axes in m/s²; policy changes, reserve abstention/fallback, exact-path coverage and retained horizon",
+    "tail": "Subset determined by observed peak alone at or above 0.95 × 6 × 9.80665 m/s². Report reference channel near own nominal range separately.",
+    "uncertainty": "Report subject outcomes, then descriptive 2.5/97.5 percentiles of subject-block bootstrap of paired frozen predictions (10,000 draws, seed 24617). Overlap among training folds and fixed cohort limit population inference.",
+    "interpretation": "Translation to a co-located reference channel. Translating a feature vector can preserve a wrong input label. Decision retention has value only where a frozen downstream policy is required. A fitted prior may be inferior to supervised calibration."
+  },
+  "random_seed": 5421
+}

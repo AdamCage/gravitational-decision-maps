@@ -4,7 +4,7 @@
 
 This project investigates whether a dynamical classifier can generalize from densely sampled class regions to previously unobserved regions of the same classes. An input is treated as an initial state; its predicted class is determined by the attractor reached by the resulting trajectory.
 
-The follow-up asks when a fixed classifier preserves its decisions under finite Gaussian prototype transport. For affine decision regions, preservation of every strict decision at one positive horizon is equivalent to preservation at every horizon and to finite normal balance conditions at the facets. The theorem gives a reflection characterization for equal-mass Voronoi sites and an eigenvector condition under shared anisotropy. A local preservation certificate was evaluated on Iris, Letter Recognition and UCI HAR. The earlier locked study used multi-prototype scores, four synthetic families, PenDigits and Seeds. [Manuscript PDF](output/pdf/manuscript.pdf) · [LaTeX source](paper/manuscript.tex) · [Independent review](crossing/Q1-INDEPENDENT-REVIEW.md)
+The follow-up studies preservation of a fixed affine classifier under Gaussian prototype transport. Preservation at one positive horizon forces preservation at every horizon and can be tested by finite facet balances, including for component-specific Gaussian precisions. The short-time switch mass has a facet-flux formula with a quadratic remainder. A same-precision comparison measures when facet certificates accelerate validated integration. Strict margin checks also preserve a frozen activity prediction during transfer between paired PAMAP2 sensor channels. Supervised calibration lowers feature error on this source, while the Gaussian flow raises it. [Focused article](output/pdf/article.pdf) · [Technical manuscript](output/pdf/manuscript.pdf) · [LaTeX source](paper/manuscript.tex) · [Current independent audit](crossing/Q1-EXTERNAL-REVIEW.md) · [Prior review](crossing/Q1-REVISION-REVIEW.md)
 
 The technical manuscript includes a matched comparison of static prediction, classical inertia, hard velocity clipping, and relativistic inertia. All four methods use the same scores and evaluation roster. The two capped methods share a ceiling, and the results also report how far their trajectories travel. [Inertia protocol](relativistic/study.json) · [Frozen inertia evidence](relativistic_results/frozen.json)
 
@@ -81,7 +81,29 @@ Use `python -m crossing.evidence freeze --help` and `run --help` for a fresh run
 
 ### Affine decision study
 
-The affine studies use the locked Python runtime. The sensitivity check integrates a perturbed two-dimensional mixture with a fixed classifier. The interval check uses outward-rounded decimal arithmetic on exact two-dimensional fixtures. The three-source evaluation fits one centroid per class on training features only and checks the certificates at sampled trajectory points. The driver verifies the source datasets by SHA-256 and caches the public downloads under `.research/flat-boundary-data/`. Keep latency reruns in scratch paths because clock measurements vary across hosts and runs.
+The affine studies use the locked Python runtime. The public certificate replay treats the train-standardized inputs, fitted centroids and bandwidths as exact binary64 encodings. It evaluates a whole-path stability certificate and an endpoint-switch certificate without a solver. Sampled DOP853 paths are independent numerical comparisons. The three-source drivers verify source SHA-256 hashes and cache downloads under `.research/flat-boundary-data/`. Keep latency reruns in scratch paths because clock measurements vary across hosts and runs.
+
+```powershell
+uv sync --frozen
+uv run --frozen python -m tools.affine_certificate_transfer --output .research/affine-certificate-replay.json
+uv run --frozen python -m tools.affine_interval_comparison --output .research/affine-interval-replay.json
+uv run --frozen python -m tools.affine_score_comparison --output .research/affine-score-comparison-replay.json
+uv run --frozen python -m tools.switching_mass_validation --output .research/switching-mass-replay.json
+uv run --frozen python -m tools.affine_span_replay --repeats 15 --output .research/affine-span-replay.json
+uv run --frozen python -m tools.decision_safe_restoration --output .research/restoration-replay.json
+uv run --frozen python -m tools.restoration_robustness --output .research/restoration-robustness-replay.json
+```
+
+[Verified public decisions](crossing_results/affine_certificate_transfer.json) · [Same-precision validation and timings](crossing_results/affine_score_comparison.json) · [Decimal comparison](crossing_results/affine_interval_comparison.json) · [Switch-mass calibration](crossing_results/switching_mass_validation.json) · [Endpoint span replay](crossing_results/affine_span_replay.json) · [Decision-preserving restoration](crossing_results/decision_safe_restoration.json) · [Sensitivity to noise](crossing_results/restoration_robustness.json)
+
+The PAMAP2 experiment refits an affine activity head and paired calibrators in eight leave-one-subject-out folds. The data loader caches the 688 MB source archive under `.research/pamap2/` and checks its SHA-256. Pass `--archive PATH` to use an existing verified archive. No EpistemeOS setup is required for this experiment or the same-precision comparison. The public dataset is CC BY 4.0. [Source and citation](https://doi.org/10.24432/C5NW2H) · [Locally fixed protocol](crossing/pamap2_protocol.json) · [Results and code digests](crossing_results/pamap2_restoration.json)
+
+```powershell
+uv run --frozen python -m tools.pamap2_restoration --output .research/pamap2-replay.json
+uv run --no-project --script tools/plot_pamap2.py
+```
+
+The earlier sensitivity check integrates a perturbed two-dimensional mixture with a fixed classifier. The interval reference uses outward-rounded decimal arithmetic on exact two-dimensional fixtures. The original external evaluation and scaling study document the coverage and latency of the floating-point guard.
 
 ```powershell
 uv sync --frozen
@@ -95,7 +117,7 @@ uv run --no-project --script tools/plot_flat_boundary.py
 
 [Sensitivity observations](crossing_results/flat_boundary_sensitivity.json) · [Interval comparison](crossing_results/flat_boundary_interval.json) · [External evaluation and data provenance](crossing_results/flat_boundary_transfer.json) · [External timing](crossing_results/flat_boundary_timings.json) · [Synthetic scaling](crossing_results/flat_boundary_scaling.json)
 
-The [short manuscript](output/pdf/letter.pdf), built with `tectonic --outdir ../output/pdf letter.tex` from `paper/`, focuses on the invariance theorem and its direct tests. The [technical manuscript](output/pdf/manuscript.pdf) gives the extended proofs and the locked core-only and inertia studies. The letter uses standard Elsevier `elsarticle`. The journal-specific style and submission metadata should be confirmed by the authors before upload. OpenAI Codex assisted in proposing and auditing proofs, implementing and replaying experiments, preparing figures from recorded data and revising the manuscripts. The agent review is documented alongside the code. [Journal formatting notes](https://legacyfileshare.elsevier.com/promis_misc/patrec-authorship-and-formatting.pdf) · [Elsevier AI policy](https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals)
+The [focused article](output/pdf/article.pdf) contains the current theory and application. The [technical manuscript](output/pdf/manuscript.pdf) adds the controlled, core-only and inertia studies. The [short companion](output/pdf/letter.pdf) summarizes the original isotropic result and its direct tests. Build each PDF with `tectonic --outdir ../output/pdf` followed by `article.tex`, `manuscript.tex` or `letter.tex` from `paper/`. OpenAI Codex assisted with candidate proofs, independent agent checks, implementation, analysis and drafting. Author names and the declaration of responsibility require author confirmation before submission. [SIMODS author instructions](https://epubs.siam.org/journal/simods/instructions-for-authors) · [SIAM AI policy](https://epubs.siam.org/artificial-intelligence)
 
 ### Inertial comparison
 

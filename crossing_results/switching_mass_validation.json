@@ -1,0 +1,286 @@
+{
+  "binary_closed_form": [
+    {
+      "horizon": 0.08,
+      "exact_endpoint_mass": 0.02497687645655397,
+      "exact_lower_and_upper_mass": 0.02497687645655397,
+      "first_order_prediction": 0.024
+    },
+    {
+      "horizon": 0.04,
+      "exact_endpoint_mass": 0.012242144719609833,
+      "exact_lower_and_upper_mass": 0.012242144719609833,
+      "first_order_prediction": 0.012
+    },
+    {
+      "horizon": 0.02,
+      "exact_endpoint_mass": 0.0060602701032513445,
+      "exact_lower_and_upper_mass": 0.0060602701032513445,
+      "first_order_prediction": 0.006
+    },
+    {
+      "horizon": 0.01,
+      "exact_endpoint_mass": 0.0030150338832383604,
+      "exact_lower_and_upper_mass": 0.0030150338832383604,
+      "first_order_prediction": 0.003
+    },
+    {
+      "horizon": 0.005,
+      "exact_endpoint_mass": 0.0015037542427576308,
+      "exact_lower_and_upper_mass": 0.0015037542427576308,
+      "first_order_prediction": 0.0015
+    }
+  ],
+  "matched_gaussian_three_class": {
+    "sites": [
+      [
+        0.65,
+        0.25
+      ],
+      [
+        -0.35,
+        0.55
+      ],
+      [
+        0.25,
+        -0.65
+      ]
+    ],
+    "weights": [
+      1.0,
+      0.8,
+      1.2
+    ],
+    "variance": 0.3,
+    "density": "9/16 (1-x^2)_+ (1-y^2)_+",
+    "reference": "Normal fiber bisection with RK4, using 12 to 24 steps and 128 to 256 quadrature nodes per tangent subinterval",
+    "certificates": "Floating-point estimates of the two query-set masses. Pairwise overlap within each start cell is subtracted by quadrature in the two plane distances. Both upper tests also use the speed-bound cutoff.",
+    "rows": [
+      {
+        "horizon": 0.08,
+        "endpoint_reference": 0.0076037599578557356,
+        "first_order_prediction": 0.007617336256756564,
+        "maximum_directed_error_over_time_squared": 0.01182187375344573,
+        "lower_certificate_mass": 0.00728619446217209,
+        "upper_certificate_mass": 0.008463294756680277,
+        "uncertainty_mass_over_time_squared": 0.18392192101690424,
+        "directed_endpoint_reference": [
+          [
+            0.0,
+            0.0,
+            0.0005784094455754539
+          ],
+          [
+            0.003595533354109022,
+            0.0,
+            0.003051920485645284
+          ],
+          [
+            0.00037789667252597454,
+            0.0,
+            0.0
+          ]
+        ],
+        "directed_first_order_prediction": [
+          [
+            0.0,
+            0.0,
+            0.0005775506734847845
+          ],
+          [
+            0.0035282701812866723,
+            0.0,
+            0.0031275804776673367
+          ],
+          [
+            0.0003839349243177705,
+            0.0,
+            0.0
+          ]
+        ],
+        "maximum_directed_reference_refinement_difference": 2.0741646268281413e-07,
+        "maximum_certificate_mass_refinement_difference": 2.120521389255975e-06
+      },
+      {
+        "horizon": 0.04,
+        "endpoint_reference": 0.0038051971310826866,
+        "first_order_prediction": 0.0038086695933798854,
+        "maximum_directed_error_over_time_squared": 0.011831322525537624,
+        "lower_certificate_mass": 0.0037248839826652344,
+        "upper_certificate_mass": 0.004013643950997309,
+        "uncertainty_mass_over_time_squared": 0.18047498020754638,
+        "directed_endpoint_reference": [
+          [
+            0.0,
+            0.0,
+            0.0002889869520226213
+          ],
+          [
+            0.0017808753375578538,
+            0.0,
+            0.001544860122792807
+          ],
+          [
+            0.00019047471870940424,
+            0.0,
+            0.0
+          ]
+        ],
+        "directed_first_order_prediction": [
+          [
+            0.0,
+            0.0,
+            0.0002887760692431928
+          ],
+          [
+            0.0017641350906433368,
+            0.0,
+            0.0015637902388336673
+          ],
+          [
+            0.00019196819465968845,
+            0.0,
+            0.0
+          ]
+        ],
+        "maximum_directed_reference_refinement_difference": 4.3416245968600636e-08,
+        "maximum_certificate_mass_refinement_difference": 1.0540255539126173e-06
+      },
+      {
+        "horizon": 0.02,
+        "endpoint_reference": 0.0019034614512537461,
+        "first_order_prediction": 0.0019043355793604646,
+        "maximum_directed_error_over_time_squared": 0.01183535969990617,
+        "lower_certificate_mass": 0.0018832756373440532,
+        "upper_certificate_mass": 0.001954604308257804,
+        "uncertainty_mass_over_time_squared": 0.17832167728437653,
+        "directed_endpoint_reference": [
+          [
+            0.0,
+            0.0,
+            0.00014444163223811194
+          ],
+          [
+            0.0008862447549995338,
+            0.0,
+            0.0007771609755368706
+          ],
+          [
+            9.561408847922955e-05,
+            0.0,
+            0.0
+          ]
+        ],
+        "directed_first_order_prediction": [
+          [
+            0.0,
+            0.0,
+            0.00014438842595685634
+          ],
+          [
+            0.000882067545321669,
+            0.0,
+            0.0007818951194168331
+          ],
+          [
+            9.598448866510643e-05,
+            0.0,
+            0.0
+          ]
+        ],
+        "maximum_directed_reference_refinement_difference": 1.1502841730883819e-08,
+        "maximum_certificate_mass_refinement_difference": 8.698922957699542e-08
+      },
+      {
+        "horizon": 0.01,
+        "endpoint_reference": 0.0009519492145136127,
+        "first_order_prediction": 0.0009521687653047462,
+        "maximum_directed_error_over_time_squared": 0.01183720391151929,
+        "lower_certificate_mass": 0.000946802742283214,
+        "upper_certificate_mass": 0.000964580754306084,
+        "uncertainty_mass_over_time_squared": 0.17778012022869982,
+        "directed_endpoint_reference": [
+          [
+            0.0,
+            0.0,
+            7.220788217196438e-05
+          ],
+          [
+            0.0004420771709918376,
+            0.0,
+            0.00038976383931726435
+          ],
+          [
+            4.790032203254642e-05,
+            0.0,
+            0.0
+          ]
+        ],
+        "directed_first_order_prediction": [
+          [
+            0.0,
+            0.0,
+            7.219470079068447e-05
+          ],
+          [
+            0.000441033772660835,
+            0.0,
+            0.0003909475597084163
+          ],
+          [
+            4.799273214481032e-05,
+            0.0,
+            0.0
+          ]
+        ],
+        "maximum_directed_reference_refinement_difference": 6.692602124943638e-09,
+        "maximum_certificate_mass_refinement_difference": 1.2824690514342141e-07
+      },
+      {
+        "horizon": 0.005,
+        "endpoint_reference": 0.0004760266039044591,
+        "first_order_prediction": 0.0004760812738119992,
+        "maximum_directed_error_over_time_squared": 0.01183808220135761,
+        "lower_certificate_mass": 0.00047474148940453647,
+        "upper_certificate_mass": 0.0004791688549807301,
+        "uncertainty_mass_over_time_squared": 0.17709462304774623,
+        "directed_endpoint_reference": [
+          [
+            0.0,
+            0.0,
+            3.609924615700535e-05
+          ],
+          [
+            0.00022077762723957415,
+            0.0,
+            0.0001951778277991742
+          ],
+          [
+            2.39719027087054e-05,
+            0.0,
+            0.0
+          ]
+        ],
+        "directed_first_order_prediction": [
+          [
+            0.0,
+            0.0,
+            3.609579597515514e-05
+          ],
+          [
+            0.00022051688633041764,
+            0.0,
+            0.00019547377985420814
+          ],
+          [
+            2.3994811652218286e-05,
+            0.0,
+            0.0
+          ]
+        ],
+        "maximum_directed_reference_refinement_difference": 7.842321049825705e-10,
+        "maximum_certificate_mass_refinement_difference": 3.0938925854476305e-08
+      }
+    ]
+  }
+}

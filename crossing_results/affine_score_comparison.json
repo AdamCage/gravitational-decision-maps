@@ -1,0 +1,2718 @@
+{
+  "study": "Matched same-precision comparison of verified Voronoi decisions",
+  "design": "Prespecified descriptive comparison on existing transfer splits",
+  "max_rows_per_fold": 96,
+  "selection": "Retain floor(j*N/min(N,cap)) for j=0,...,min(N,cap)-1, in existing fold order",
+  "horizons": [
+    0.15,
+    0.5,
+    1.25
+  ],
+  "bandwidth_ratio": 0.35,
+  "max_batch_rows": 64,
+  "score_interval_max_steps_per_pass": [
+    1,
+    4,
+    16,
+    64
+  ],
+  "timing_configuration": "One thread, one untimed pass, cyclic order over three repetitions; setup separate",
+  "sources": {
+    "iris": {
+      "citation": "Fisher (1936), Iris, UCI",
+      "doi": "https://doi.org/10.24432/C56C76",
+      "sha256": "f9e3809b56cc0f2f2f69554b7a0ea04e94d0e2c21343c86593eaf5581551dab6",
+      "file": "scikit-learn 1.8.0 packaged iris.csv"
+    },
+    "letter": {
+      "citation": "Slate (1991), Letter Recognition, UCI",
+      "doi": "https://doi.org/10.24432/C5ZP40",
+      "file": "letter-recognition.data",
+      "url": "https://archive.ics.uci.edu/ml/machine-learning-databases/letter-recognition/letter-recognition.data",
+      "sha256": "2b89f3602cf768d3c8355267d2f13f2417809e101fc2b5ceee10db19a60de6e2"
+    },
+    "har": {
+      "citation": "Reyes-Ortiz et al. (2013), Human Activity Recognition Using Smartphones, UCI",
+      "doi": "https://doi.org/10.24432/C54S4K",
+      "file": "human+activity+recognition+using+smartphones.zip",
+      "url": "https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip",
+      "sha256": "c00b803081a5c797cd5e4b83700a9810b38d53d9d84e01917e090e1fdbc81031"
+    }
+  },
+  "code_sha256": {
+    "crossing/affine_certificate.py": "f689ea9473431c5a5495aa950292caa8bb3b0832f39df2ed26f1424bba2b7eba",
+    "crossing/affine_score_interval.py": "9cdfd4576eb492ad9c362ee93bfc000ba798ff1c6f97e244eecf4c72c99e9403",
+    "tools/affine_score_comparison.py": "43b6f8f62043836013786b3446871ea998153e3b2845613fda3cc41acec907a6"
+  },
+  "results": {
+    "iris": [
+      {
+        "fold": 1,
+        "sample_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "rows": 50,
+        "feature_dimension": 4,
+        "sites": 3,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 1,
+            "numeric_terminal_loss": 1,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 50,
+                "stable": 48,
+                "terminal_loss": 0,
+                "unresolved": 2,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 50,
+                "stable": 49,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 158
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 50,
+                "stable": 49,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 90
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1929200,
+                "samples": [
+                  1929200,
+                  2851200,
+                  1819600
+                ]
+              },
+              "interval": {
+                "median": 124316600,
+                "samples": [
+                  91975700,
+                  124316600,
+                  129745200
+                ]
+              },
+              "facet_then_interval": {
+                "median": 127447600,
+                "samples": [
+                  149567900,
+                  119649300,
+                  127447600
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 2,
+            "numeric_terminal_loss": 2,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 50,
+                "stable": 48,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 50,
+                "stable": 48,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 258
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 50,
+                "stable": 48,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 0
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1791300,
+                "samples": [
+                  1765200,
+                  1791300,
+                  1876000
+                ]
+              },
+              "interval": {
+                "median": 27406200,
+                "samples": [
+                  27397700,
+                  27406200,
+                  30459600
+                ]
+              },
+              "facet_then_interval": {
+                "median": 1812500,
+                "samples": [
+                  1812500,
+                  1991500,
+                  1745500
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 3,
+            "numeric_terminal_loss": 3,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 50,
+                "stable": 36,
+                "terminal_loss": 2,
+                "unresolved": 12,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 50,
+                "stable": 47,
+                "terminal_loss": 3,
+                "unresolved": 0,
+                "row_steps": 890
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 50,
+                "stable": 47,
+                "terminal_loss": 3,
+                "unresolved": 0,
+                "row_steps": 268
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1845500,
+                "samples": [
+                  1779700,
+                  2987600,
+                  1845500
+                ]
+              },
+              "interval": {
+                "median": 107737600,
+                "samples": [
+                  107737600,
+                  109884100,
+                  105418800
+                ]
+              },
+              "facet_then_interval": {
+                "median": 141903500,
+                "samples": [
+                  109679800,
+                  141903500,
+                  192549700
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 243400,
+          "interval": 58400
+        }
+      },
+      {
+        "fold": 2,
+        "sample_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "rows": 50,
+        "feature_dimension": 4,
+        "sites": 3,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 1,
+            "numeric_terminal_loss": 1,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 50,
+                "stable": 49,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 50,
+                "stable": 49,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 122
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 50,
+                "stable": 49,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 0
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1920400,
+                "samples": [
+                  4485300,
+                  1851400,
+                  1920400
+                ]
+              },
+              "interval": {
+                "median": 54732000,
+                "samples": [
+                  55622500,
+                  54732000,
+                  25168500
+                ]
+              },
+              "facet_then_interval": {
+                "median": 1930600,
+                "samples": [
+                  4595200,
+                  1930600,
+                  1809100
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 2,
+            "numeric_terminal_loss": 2,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 50,
+                "stable": 48,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 50,
+                "stable": 48,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 290
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 50,
+                "stable": 48,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 0
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1765000,
+                "samples": [
+                  3451500,
+                  1765000,
+                  1754500
+                ]
+              },
+              "interval": {
+                "median": 108476900,
+                "samples": [
+                  108476900,
+                  120786500,
+                  108108800
+                ]
+              },
+              "facet_then_interval": {
+                "median": 1794300,
+                "samples": [
+                  1794300,
+                  1882300,
+                  1755500
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 2,
+            "numeric_terminal_loss": 2,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 50,
+                "stable": 43,
+                "terminal_loss": 2,
+                "unresolved": 5,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 50,
+                "stable": 47,
+                "terminal_loss": 2,
+                "unresolved": 1,
+                "row_steps": 970
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 50,
+                "stable": 47,
+                "terminal_loss": 2,
+                "unresolved": 1,
+                "row_steps": 153
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1765000,
+                "samples": [
+                  1897700,
+                  1760100,
+                  1765000
+                ]
+              },
+              "interval": {
+                "median": 112075600,
+                "samples": [
+                  113352500,
+                  106902500,
+                  112075600
+                ]
+              },
+              "facet_then_interval": {
+                "median": 95410400,
+                "samples": [
+                  94941700,
+                  95410400,
+                  95563900
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 236000,
+          "interval": 57400
+        }
+      },
+      {
+        "fold": 3,
+        "sample_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "rows": 49,
+        "feature_dimension": 4,
+        "sites": 3,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 0,
+            "numeric_terminal_loss": 0,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 49,
+                "stable": 49,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 49,
+                "stable": 49,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 89
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 49,
+                "stable": 49,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 0
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1758600,
+                "samples": [
+                  1736800,
+                  1768200,
+                  1758600
+                ]
+              },
+              "interval": {
+                "median": 23279800,
+                "samples": [
+                  23279800,
+                  23104400,
+                  24762100
+                ]
+              },
+              "facet_then_interval": {
+                "median": 1807800,
+                "samples": [
+                  1801800,
+                  1807800,
+                  1973900
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 0,
+            "numeric_terminal_loss": 0,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 49,
+                "stable": 48,
+                "terminal_loss": 0,
+                "unresolved": 1,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 49,
+                "stable": 49,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 337
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 49,
+                "stable": 49,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 21
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1829500,
+                "samples": [
+                  1750600,
+                  1854600,
+                  1829500
+                ]
+              },
+              "interval": {
+                "median": 141813800,
+                "samples": [
+                  114717700,
+                  141813800,
+                  151016400
+                ]
+              },
+              "facet_then_interval": {
+                "median": 25094800,
+                "samples": [
+                  39385500,
+                  24111700,
+                  25094800
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 1,
+            "numeric_terminal_loss": 1,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 49,
+                "stable": 35,
+                "terminal_loss": 0,
+                "unresolved": 14,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 49,
+                "stable": 47,
+                "terminal_loss": 1,
+                "unresolved": 1,
+                "row_steps": 965
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 49,
+                "stable": 48,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 390
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 1756700,
+                "samples": [
+                  1756700,
+                  2022800,
+                  1748700
+                ]
+              },
+              "interval": {
+                "median": 119845600,
+                "samples": [
+                  119845600,
+                  120590000,
+                  115297500
+                ]
+              },
+              "facet_then_interval": {
+                "median": 96837200,
+                "samples": [
+                  96837200,
+                  103246900,
+                  95746600
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 247000,
+          "interval": 58600
+        }
+      }
+    ],
+    "letter": [
+      {
+        "fold": 1,
+        "sample_indices": [
+          0,
+          12,
+          25,
+          37,
+          50,
+          62,
+          75,
+          88,
+          100,
+          113,
+          125,
+          138,
+          150,
+          163,
+          176,
+          188,
+          201,
+          213,
+          226,
+          238,
+          251,
+          264,
+          276,
+          289,
+          301,
+          314,
+          326,
+          339,
+          352,
+          364,
+          377,
+          389,
+          402,
+          414,
+          427,
+          440,
+          452,
+          465,
+          477,
+          490,
+          502,
+          515,
+          528,
+          540,
+          553,
+          565,
+          578,
+          590,
+          603,
+          616,
+          628,
+          641,
+          653,
+          666,
+          678,
+          691,
+          704,
+          716,
+          729,
+          741,
+          754,
+          766,
+          779,
+          792,
+          804,
+          817,
+          829,
+          842,
+          854,
+          867,
+          880,
+          892,
+          905,
+          917,
+          930,
+          942,
+          955,
+          968,
+          980,
+          993,
+          1005,
+          1018,
+          1030,
+          1043,
+          1056,
+          1068,
+          1081,
+          1093,
+          1106,
+          1118,
+          1131,
+          1144,
+          1156,
+          1169,
+          1181,
+          1194
+        ],
+        "rows": 96,
+        "feature_dimension": 16,
+        "sites": 26,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 6,
+            "numeric_terminal_loss": 6,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 6,
+                "unresolved": 0,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 88,
+                "terminal_loss": 6,
+                "unresolved": 2,
+                "row_steps": 684
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 6,
+                "unresolved": 0,
+                "row_steps": 0
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 110510900,
+                "samples": [
+                  110510900,
+                  135744700,
+                  104060400
+                ]
+              },
+              "interval": {
+                "median": 404955000,
+                "samples": [
+                  413826000,
+                  404955000,
+                  309351000
+                ]
+              },
+              "facet_then_interval": {
+                "median": 122999300,
+                "samples": [
+                  133242300,
+                  122999300,
+                  117227800
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 20,
+            "numeric_terminal_loss": 20,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 67,
+                "terminal_loss": 8,
+                "unresolved": 21,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 72,
+                "terminal_loss": 20,
+                "unresolved": 4,
+                "row_steps": 2008
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 75,
+                "terminal_loss": 20,
+                "unresolved": 1,
+                "row_steps": 649
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 93123900,
+                "samples": [
+                  93123900,
+                  94674500,
+                  92583000
+                ]
+              },
+              "interval": {
+                "median": 621678500,
+                "samples": [
+                  643065700,
+                  621678500,
+                  621620200
+                ]
+              },
+              "facet_then_interval": {
+                "median": 501331900,
+                "samples": [
+                  543779500,
+                  501331900,
+                  499186600
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 56,
+            "numeric_terminal_loss": 56,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 6,
+                "terminal_loss": 11,
+                "unresolved": 79,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 36,
+                "terminal_loss": 55,
+                "unresolved": 5,
+                "row_steps": 4960
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 36,
+                "terminal_loss": 55,
+                "unresolved": 5,
+                "row_steps": 4475
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 88308700,
+                "samples": [
+                  86413500,
+                  90617400,
+                  88308700
+                ]
+              },
+              "interval": {
+                "median": 1103104000,
+                "samples": [
+                  1112620600,
+                  1103104000,
+                  1098979500
+                ]
+              },
+              "facet_then_interval": {
+                "median": 1103886000,
+                "samples": [
+                  1109262300,
+                  1103471500,
+                  1103886000
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 41568400,
+          "interval": 353500
+        }
+      },
+      {
+        "fold": 2,
+        "sample_indices": [
+          0,
+          12,
+          25,
+          37,
+          50,
+          62,
+          75,
+          88,
+          100,
+          113,
+          125,
+          138,
+          150,
+          163,
+          176,
+          188,
+          201,
+          213,
+          226,
+          238,
+          251,
+          264,
+          276,
+          289,
+          301,
+          314,
+          326,
+          339,
+          352,
+          364,
+          377,
+          389,
+          402,
+          414,
+          427,
+          440,
+          452,
+          465,
+          477,
+          490,
+          502,
+          515,
+          528,
+          540,
+          553,
+          565,
+          578,
+          590,
+          603,
+          616,
+          628,
+          641,
+          653,
+          666,
+          678,
+          691,
+          704,
+          716,
+          729,
+          741,
+          754,
+          766,
+          779,
+          792,
+          804,
+          817,
+          829,
+          842,
+          854,
+          867,
+          880,
+          892,
+          905,
+          917,
+          930,
+          942,
+          955,
+          968,
+          980,
+          993,
+          1005,
+          1018,
+          1030,
+          1043,
+          1056,
+          1068,
+          1081,
+          1093,
+          1106,
+          1118,
+          1131,
+          1144,
+          1156,
+          1169,
+          1181,
+          1194
+        ],
+        "rows": 96,
+        "feature_dimension": 16,
+        "sites": 26,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 5,
+            "numeric_terminal_loss": 5,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 91,
+                "terminal_loss": 4,
+                "unresolved": 1,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 91,
+                "terminal_loss": 5,
+                "unresolved": 0,
+                "row_steps": 560
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 91,
+                "terminal_loss": 5,
+                "unresolved": 0,
+                "row_steps": 5
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 85605800,
+                "samples": [
+                  85605800,
+                  86379600,
+                  83411900
+                ]
+              },
+              "interval": {
+                "median": 170520200,
+                "samples": [
+                  172948500,
+                  166242500,
+                  170520200
+                ]
+              },
+              "facet_then_interval": {
+                "median": 98721200,
+                "samples": [
+                  100549100,
+                  98721200,
+                  92532000
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 15,
+            "numeric_terminal_loss": 15,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 63,
+                "terminal_loss": 5,
+                "unresolved": 28,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 80,
+                "terminal_loss": 15,
+                "unresolved": 1,
+                "row_steps": 2456
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 80,
+                "terminal_loss": 15,
+                "unresolved": 1,
+                "row_steps": 1084
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 81342200,
+                "samples": [
+                  84014800,
+                  75666800,
+                  81342200
+                ]
+              },
+              "interval": {
+                "median": 711406500,
+                "samples": [
+                  705509500,
+                  711406500,
+                  730187000
+                ]
+              },
+              "facet_then_interval": {
+                "median": 569972400,
+                "samples": [
+                  583389500,
+                  567931000,
+                  569972400
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 53,
+            "numeric_terminal_loss": 53,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 3,
+                "terminal_loss": 9,
+                "unresolved": 84,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 36,
+                "terminal_loss": 53,
+                "unresolved": 7,
+                "row_steps": 5344
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 36,
+                "terminal_loss": 53,
+                "unresolved": 7,
+                "row_steps": 4964
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 84401500,
+                "samples": [
+                  87865000,
+                  82766700,
+                  84401500
+                ]
+              },
+              "interval": {
+                "median": 1171946900,
+                "samples": [
+                  1187700300,
+                  1161950200,
+                  1171946900
+                ]
+              },
+              "facet_then_interval": {
+                "median": 1175433100,
+                "samples": [
+                  1160201100,
+                  1221232200,
+                  1175433100
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 41334200,
+          "interval": 358300
+        }
+      },
+      {
+        "fold": 3,
+        "sample_indices": [
+          0,
+          12,
+          25,
+          37,
+          50,
+          62,
+          75,
+          87,
+          100,
+          113,
+          125,
+          138,
+          150,
+          163,
+          175,
+          188,
+          201,
+          213,
+          226,
+          238,
+          251,
+          263,
+          276,
+          288,
+          301,
+          314,
+          326,
+          339,
+          351,
+          364,
+          376,
+          389,
+          402,
+          414,
+          427,
+          439,
+          452,
+          464,
+          477,
+          489,
+          502,
+          515,
+          527,
+          540,
+          552,
+          565,
+          577,
+          590,
+          603,
+          615,
+          628,
+          640,
+          653,
+          665,
+          678,
+          690,
+          703,
+          716,
+          728,
+          741,
+          753,
+          766,
+          778,
+          791,
+          804,
+          816,
+          829,
+          841,
+          854,
+          866,
+          879,
+          891,
+          904,
+          917,
+          929,
+          942,
+          954,
+          967,
+          979,
+          992,
+          1005,
+          1017,
+          1030,
+          1042,
+          1055,
+          1067,
+          1080,
+          1092,
+          1105,
+          1118,
+          1130,
+          1143,
+          1155,
+          1168,
+          1180,
+          1193
+        ],
+        "rows": 96,
+        "feature_dimension": 16,
+        "sites": 26,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 7,
+            "numeric_terminal_loss": 7,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 88,
+                "terminal_loss": 4,
+                "unresolved": 4,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 89,
+                "terminal_loss": 7,
+                "unresolved": 0,
+                "row_steps": 712
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 89,
+                "terminal_loss": 7,
+                "unresolved": 0,
+                "row_steps": 36
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 77722800,
+                "samples": [
+                  79207900,
+                  77722800,
+                  75958700
+                ]
+              },
+              "interval": {
+                "median": 413174800,
+                "samples": [
+                  447456400,
+                  413071700,
+                  413174800
+                ]
+              },
+              "facet_then_interval": {
+                "median": 140792600,
+                "samples": [
+                  158034000,
+                  140792600,
+                  132153100
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 19,
+            "numeric_terminal_loss": 19,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 52,
+                "terminal_loss": 10,
+                "unresolved": 34,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 76,
+                "terminal_loss": 19,
+                "unresolved": 1,
+                "row_steps": 2408
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 76,
+                "terminal_loss": 19,
+                "unresolved": 1,
+                "row_steps": 1210
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 75997500,
+                "samples": [
+                  75479300,
+                  76984900,
+                  75997500
+                ]
+              },
+              "interval": {
+                "median": 746925100,
+                "samples": [
+                  746925100,
+                  748237400,
+                  704580100
+                ]
+              },
+              "facet_then_interval": {
+                "median": 595229800,
+                "samples": [
+                  595229800,
+                  621570000,
+                  584695700
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 62,
+            "numeric_terminal_loss": 62,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 6,
+                "terminal_loss": 15,
+                "unresolved": 75,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 27,
+                "terminal_loss": 58,
+                "unresolved": 11,
+                "row_steps": 4832
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 27,
+                "terminal_loss": 58,
+                "unresolved": 11,
+                "row_steps": 4199
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 76115200,
+                "samples": [
+                  76307000,
+                  72039100,
+                  76115200
+                ]
+              },
+              "interval": {
+                "median": 1103866100,
+                "samples": [
+                  1177257900,
+                  1071141600,
+                  1103866100
+                ]
+              },
+              "facet_then_interval": {
+                "median": 1055755200,
+                "samples": [
+                  1055755200,
+                  1046523900,
+                  1084130900
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 42719500,
+          "interval": 395000
+        }
+      }
+    ],
+    "har": [
+      {
+        "fold": 1,
+        "sample_indices": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15,
+          18,
+          21,
+          24,
+          27,
+          30,
+          33,
+          36,
+          39,
+          42,
+          45,
+          48,
+          51,
+          54,
+          57,
+          60,
+          63,
+          66,
+          69,
+          72,
+          75,
+          78,
+          81,
+          84,
+          87,
+          90,
+          93,
+          96,
+          99,
+          102,
+          105,
+          108,
+          111,
+          114,
+          117,
+          120,
+          123,
+          126,
+          129,
+          132,
+          135,
+          138,
+          141,
+          144,
+          147,
+          150,
+          153,
+          156,
+          159,
+          162,
+          165,
+          168,
+          171,
+          174,
+          177,
+          180,
+          183,
+          186,
+          189,
+          192,
+          195,
+          198,
+          201,
+          204,
+          207,
+          210,
+          213,
+          216,
+          219,
+          222,
+          225,
+          228,
+          231,
+          234,
+          237,
+          240,
+          243,
+          246,
+          249,
+          252,
+          255,
+          258,
+          261,
+          264,
+          267,
+          270,
+          273,
+          276,
+          279,
+          282,
+          285
+        ],
+        "rows": 96,
+        "feature_dimension": 561,
+        "sites": 6,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 1,
+            "numeric_terminal_loss": 1,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 94,
+                "terminal_loss": 0,
+                "unresolved": 2,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 95,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 332
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 95,
+                "terminal_loss": 1,
+                "unresolved": 0,
+                "row_steps": 10
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 15717900,
+                "samples": [
+                  20531400,
+                  15717900,
+                  15570300
+                ]
+              },
+              "interval": {
+                "median": 52566000,
+                "samples": [
+                  73012200,
+                  49521800,
+                  52566000
+                ]
+              },
+              "facet_then_interval": {
+                "median": 24047400,
+                "samples": [
+                  23791300,
+                  24047400,
+                  26567200
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 6,
+            "numeric_terminal_loss": 6,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 84,
+                "terminal_loss": 2,
+                "unresolved": 10,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 6,
+                "unresolved": 0,
+                "row_steps": 1396
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 6,
+                "unresolved": 0,
+                "row_steps": 66
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 15585300,
+                "samples": [
+                  15651700,
+                  15507100,
+                  15585300
+                ]
+              },
+              "interval": {
+                "median": 246126200,
+                "samples": [
+                  245672900,
+                  246126200,
+                  261420000
+                ]
+              },
+              "facet_then_interval": {
+                "median": 53154000,
+                "samples": [
+                  53154000,
+                  54341600,
+                  52671800
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 28,
+            "numeric_terminal_loss": 28,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 14,
+                "terminal_loss": 5,
+                "unresolved": 77,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 65,
+                "terminal_loss": 28,
+                "unresolved": 3,
+                "row_steps": 3056
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 65,
+                "terminal_loss": 28,
+                "unresolved": 3,
+                "row_steps": 2689
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 15071100,
+                "samples": [
+                  15071100,
+                  15107400,
+                  14724300
+                ]
+              },
+              "interval": {
+                "median": 290926400,
+                "samples": [
+                  290815100,
+                  309378300,
+                  290926400
+                ]
+              },
+              "facet_then_interval": {
+                "median": 306309600,
+                "samples": [
+                  310441400,
+                  306309600,
+                  294044500
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 6119100,
+          "interval": 5134500
+        }
+      },
+      {
+        "fold": 2,
+        "sample_indices": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15,
+          18,
+          21,
+          24,
+          27,
+          30,
+          33,
+          36,
+          39,
+          42,
+          45,
+          48,
+          51,
+          54,
+          57,
+          60,
+          63,
+          66,
+          69,
+          72,
+          75,
+          78,
+          81,
+          84,
+          87,
+          90,
+          93,
+          96,
+          99,
+          102,
+          105,
+          108,
+          111,
+          114,
+          117,
+          120,
+          123,
+          126,
+          129,
+          132,
+          135,
+          138,
+          141,
+          144,
+          147,
+          150,
+          153,
+          156,
+          159,
+          162,
+          165,
+          168,
+          171,
+          174,
+          177,
+          180,
+          183,
+          186,
+          189,
+          192,
+          195,
+          198,
+          201,
+          204,
+          207,
+          210,
+          213,
+          216,
+          219,
+          222,
+          225,
+          228,
+          231,
+          234,
+          237,
+          240,
+          243,
+          246,
+          249,
+          252,
+          255,
+          258,
+          261,
+          264,
+          267,
+          270,
+          273,
+          276,
+          279,
+          282,
+          285
+        ],
+        "rows": 96,
+        "feature_dimension": 561,
+        "sites": 6,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 2,
+            "numeric_terminal_loss": 2,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 94,
+                "terminal_loss": 1,
+                "unresolved": 1,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 94,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 452
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 94,
+                "terminal_loss": 2,
+                "unresolved": 0,
+                "row_steps": 5
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 16040300,
+                "samples": [
+                  16040300,
+                  15749800,
+                  17501900
+                ]
+              },
+              "interval": {
+                "median": 148059900,
+                "samples": [
+                  144828900,
+                  148059900,
+                  148320900
+                ]
+              },
+              "facet_then_interval": {
+                "median": 24477100,
+                "samples": [
+                  24477100,
+                  24109200,
+                  25509600
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 5,
+            "numeric_terminal_loss": 5,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 87,
+                "terminal_loss": 2,
+                "unresolved": 7,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 5,
+                "unresolved": 1,
+                "row_steps": 1560
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 5,
+                "unresolved": 1,
+                "row_steps": 211
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 15604100,
+                "samples": [
+                  15604100,
+                  15735900,
+                  15297900
+                ]
+              },
+              "interval": {
+                "median": 257682600,
+                "samples": [
+                  254010200,
+                  294589800,
+                  257682600
+                ]
+              },
+              "facet_then_interval": {
+                "median": 222404800,
+                "samples": [
+                  222404800,
+                  228854900,
+                  221490900
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 20,
+            "numeric_terminal_loss": 20,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 13,
+                "terminal_loss": 2,
+                "unresolved": 81,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 72,
+                "terminal_loss": 20,
+                "unresolved": 4,
+                "row_steps": 3216
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 72,
+                "terminal_loss": 20,
+                "unresolved": 4,
+                "row_steps": 2965
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 15803200,
+                "samples": [
+                  14867700,
+                  15803200,
+                  16262400
+                ]
+              },
+              "interval": {
+                "median": 300693900,
+                "samples": [
+                  300693900,
+                  298706500,
+                  301559500
+                ]
+              },
+              "facet_then_interval": {
+                "median": 310543500,
+                "samples": [
+                  310543500,
+                  301948300,
+                  384152600
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 2724800,
+          "interval": 2383200
+        }
+      },
+      {
+        "fold": 3,
+        "sample_indices": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15,
+          18,
+          21,
+          24,
+          27,
+          30,
+          33,
+          36,
+          39,
+          42,
+          45,
+          48,
+          51,
+          54,
+          57,
+          60,
+          63,
+          66,
+          69,
+          72,
+          75,
+          78,
+          81,
+          84,
+          87,
+          90,
+          93,
+          96,
+          99,
+          102,
+          105,
+          108,
+          111,
+          114,
+          117,
+          120,
+          123,
+          126,
+          129,
+          132,
+          135,
+          138,
+          141,
+          144,
+          147,
+          150,
+          153,
+          156,
+          159,
+          162,
+          165,
+          168,
+          171,
+          174,
+          177,
+          180,
+          183,
+          186,
+          189,
+          192,
+          195,
+          198,
+          201,
+          204,
+          207,
+          210,
+          213,
+          216,
+          219,
+          222,
+          225,
+          228,
+          231,
+          234,
+          237,
+          240,
+          243,
+          246,
+          249,
+          252,
+          255,
+          258,
+          261,
+          264,
+          267,
+          270,
+          273,
+          276,
+          279,
+          282,
+          285
+        ],
+        "rows": 96,
+        "feature_dimension": 561,
+        "sites": 6,
+        "comparisons": [
+          {
+            "horizon": 0.15,
+            "numeric_sampled_departure": 0,
+            "numeric_terminal_loss": 0,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 96,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 96,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 292
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 96,
+                "terminal_loss": 0,
+                "unresolved": 0,
+                "row_steps": 0
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 15785900,
+                "samples": [
+                  15785900,
+                  15595900,
+                  16879900
+                ]
+              },
+              "interval": {
+                "median": 51757700,
+                "samples": [
+                  51757700,
+                  57152600,
+                  48571500
+                ]
+              },
+              "facet_then_interval": {
+                "median": 17789100,
+                "samples": [
+                  21205000,
+                  17486900,
+                  17789100
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 0.5,
+            "numeric_sampled_departure": 6,
+            "numeric_terminal_loss": 6,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 80,
+                "terminal_loss": 2,
+                "unresolved": 14,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 6,
+                "unresolved": 0,
+                "row_steps": 1276
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 90,
+                "terminal_loss": 6,
+                "unresolved": 0,
+                "row_steps": 182
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 16130900,
+                "samples": [
+                  16130900,
+                  18072700,
+                  15664900
+                ]
+              },
+              "interval": {
+                "median": 244055000,
+                "samples": [
+                  244055000,
+                  243890400,
+                  244345900
+                ]
+              },
+              "facet_then_interval": {
+                "median": 149558700,
+                "samples": [
+                  149558700,
+                  148887000,
+                  151454800
+                ]
+              }
+            }
+          },
+          {
+            "horizon": 1.25,
+            "numeric_sampled_departure": 29,
+            "numeric_terminal_loss": 29,
+            "outcomes": {
+              "facet": {
+                "n_strict_initial": 96,
+                "stable": 18,
+                "terminal_loss": 9,
+                "unresolved": 69,
+                "row_steps": 0
+              },
+              "interval": {
+                "n_strict_initial": 96,
+                "stable": 64,
+                "terminal_loss": 29,
+                "unresolved": 3,
+                "row_steps": 2832
+              },
+              "facet_then_interval": {
+                "n_strict_initial": 96,
+                "stable": 64,
+                "terminal_loss": 29,
+                "unresolved": 3,
+                "row_steps": 2201
+              }
+            },
+            "timing_ns": {
+              "facet": {
+                "median": 15444400,
+                "samples": [
+                  15444400,
+                  15496800,
+                  15305200
+                ]
+              },
+              "interval": {
+                "median": 284611700,
+                "samples": [
+                  285682300,
+                  284611700,
+                  283808800
+                ]
+              },
+              "facet_then_interval": {
+                "median": 285856700,
+                "samples": [
+                  286208700,
+                  285427600,
+                  285856700
+                ]
+              }
+            }
+          }
+        ],
+        "preparation_ns": {
+          "facet": 2746800,
+          "interval": 2410200
+        }
+      }
+    ]
+  },
+  "fixtures": {
+    "centered_cospherical": {
+      "rows": 8,
+      "feature_dimension": 2,
+      "sites": 6,
+      "comparisons": [
+        {
+          "horizon": 0.15,
+          "numeric_sampled_departure": 2,
+          "numeric_terminal_loss": 2,
+          "outcomes": {
+            "facet": {
+              "n_strict_initial": 8,
+              "stable": 5,
+              "terminal_loss": 2,
+              "unresolved": 1,
+              "row_steps": 0
+            },
+            "interval": {
+              "n_strict_initial": 8,
+              "stable": 6,
+              "terminal_loss": 2,
+              "unresolved": 0,
+              "row_steps": 20
+            },
+            "facet_then_interval": {
+              "n_strict_initial": 8,
+              "stable": 6,
+              "terminal_loss": 2,
+              "unresolved": 0,
+              "row_steps": 5
+            }
+          },
+          "timing_ns": {
+            "facet": {
+              "median": 1340100,
+              "samples": [
+                1364900,
+                1315700,
+                1340100
+              ]
+            },
+            "interval": {
+              "median": 6977000,
+              "samples": [
+                7366500,
+                6977000,
+                6733700
+              ]
+            },
+            "facet_then_interval": {
+              "median": 7570100,
+              "samples": [
+                8144100,
+                7570100,
+                7435100
+              ]
+            }
+          }
+        },
+        {
+          "horizon": 0.5,
+          "numeric_sampled_departure": 2,
+          "numeric_terminal_loss": 2,
+          "outcomes": {
+            "facet": {
+              "n_strict_initial": 8,
+              "stable": 1,
+              "terminal_loss": 0,
+              "unresolved": 7,
+              "row_steps": 0
+            },
+            "interval": {
+              "n_strict_initial": 8,
+              "stable": 6,
+              "terminal_loss": 2,
+              "unresolved": 0,
+              "row_steps": 88
+            },
+            "facet_then_interval": {
+              "n_strict_initial": 8,
+              "stable": 6,
+              "terminal_loss": 2,
+              "unresolved": 0,
+              "row_steps": 83
+            }
+          },
+          "timing_ns": {
+            "facet": {
+              "median": 1448700,
+              "samples": [
+                1328200,
+                1448700,
+                1550900
+              ]
+            },
+            "interval": {
+              "median": 31587000,
+              "samples": [
+                33487400,
+                31320700,
+                31587000
+              ]
+            },
+            "facet_then_interval": {
+              "median": 36306800,
+              "samples": [
+                37518500,
+                36306800,
+                34790000
+              ]
+            }
+          }
+        },
+        {
+          "horizon": 1.25,
+          "numeric_sampled_departure": 4,
+          "numeric_terminal_loss": 4,
+          "outcomes": {
+            "facet": {
+              "n_strict_initial": 8,
+              "stable": 0,
+              "terminal_loss": 0,
+              "unresolved": 8,
+              "row_steps": 0
+            },
+            "interval": {
+              "n_strict_initial": 8,
+              "stable": 4,
+              "terminal_loss": 4,
+              "unresolved": 0,
+              "row_steps": 264
+            },
+            "facet_then_interval": {
+              "n_strict_initial": 8,
+              "stable": 4,
+              "terminal_loss": 4,
+              "unresolved": 0,
+              "row_steps": 264
+            }
+          },
+          "timing_ns": {
+            "facet": {
+              "median": 1375300,
+              "samples": [
+                1463500,
+                1336000,
+                1375300
+              ]
+            },
+            "interval": {
+              "median": 106831500,
+              "samples": [
+                104629400,
+                110743200,
+                106831500
+              ]
+            },
+            "facet_then_interval": {
+              "median": 118347600,
+              "samples": [
+                118347600,
+                119008600,
+                112973300
+              ]
+            }
+          }
+        }
+      ],
+      "preparation_ns": {
+        "facet": 428900,
+        "interval": 62000
+      }
+    },
+    "reflective_rectangle": {
+      "rows": 9,
+      "feature_dimension": 2,
+      "sites": 4,
+      "comparisons": [
+        {
+          "horizon": 0.15,
+          "numeric_sampled_departure": 0,
+          "numeric_terminal_loss": 0,
+          "outcomes": {
+            "facet": {
+              "n_strict_initial": 9,
+              "stable": 4,
+              "terminal_loss": 0,
+              "unresolved": 5,
+              "row_steps": 0
+            },
+            "interval": {
+              "n_strict_initial": 9,
+              "stable": 7,
+              "terminal_loss": 0,
+              "unresolved": 2,
+              "row_steps": 245
+            },
+            "facet_then_interval": {
+              "n_strict_initial": 9,
+              "stable": 7,
+              "terminal_loss": 0,
+              "unresolved": 2,
+              "row_steps": 233
+            }
+          },
+          "timing_ns": {
+            "facet": {
+              "median": 1198200,
+              "samples": [
+                1311300,
+                1198200,
+                1158300
+              ]
+            },
+            "interval": {
+              "median": 113235200,
+              "samples": [
+                100660200,
+                113235200,
+                122554200
+              ]
+            },
+            "facet_then_interval": {
+              "median": 106420900,
+              "samples": [
+                100844600,
+                109207100,
+                106420900
+              ]
+            }
+          }
+        },
+        {
+          "horizon": 0.5,
+          "numeric_sampled_departure": 0,
+          "numeric_terminal_loss": 0,
+          "outcomes": {
+            "facet": {
+              "n_strict_initial": 9,
+              "stable": 2,
+              "terminal_loss": 0,
+              "unresolved": 7,
+              "row_steps": 0
+            },
+            "interval": {
+              "n_strict_initial": 9,
+              "stable": 7,
+              "terminal_loss": 0,
+              "unresolved": 2,
+              "row_steps": 477
+            },
+            "facet_then_interval": {
+              "n_strict_initial": 9,
+              "stable": 7,
+              "terminal_loss": 0,
+              "unresolved": 2,
+              "row_steps": 467
+            }
+          },
+          "timing_ns": {
+            "facet": {
+              "median": 1161700,
+              "samples": [
+                3293500,
+                1161700,
+                1147300
+              ]
+            },
+            "interval": {
+              "median": 105990100,
+              "samples": [
+                125822300,
+                104526300,
+                105990100
+              ]
+            },
+            "facet_then_interval": {
+              "median": 120097500,
+              "samples": [
+                138718600,
+                112956500,
+                120097500
+              ]
+            }
+          }
+        },
+        {
+          "horizon": 1.25,
+          "numeric_sampled_departure": 0,
+          "numeric_terminal_loss": 0,
+          "outcomes": {
+            "facet": {
+              "n_strict_initial": 9,
+              "stable": 0,
+              "terminal_loss": 0,
+              "unresolved": 9,
+              "row_steps": 0
+            },
+            "interval": {
+              "n_strict_initial": 9,
+              "stable": 5,
+              "terminal_loss": 0,
+              "unresolved": 4,
+              "row_steps": 637
+            },
+            "facet_then_interval": {
+              "n_strict_initial": 9,
+              "stable": 5,
+              "terminal_loss": 0,
+              "unresolved": 4,
+              "row_steps": 637
+            }
+          },
+          "timing_ns": {
+            "facet": {
+              "median": 1183000,
+              "samples": [
+                1148000,
+                1275100,
+                1183000
+              ]
+            },
+            "interval": {
+              "median": 119838000,
+              "samples": [
+                105945500,
+                139343500,
+                119838000
+              ]
+            },
+            "facet_then_interval": {
+              "median": 118966500,
+              "samples": [
+                115735200,
+                118966500,
+                135026200
+              ]
+            }
+          }
+        }
+      ],
+      "preparation_ns": {
+        "facet": 233800,
+        "interval": 50900
+      }
+    }
+  },
+  "timing_environment": {
+    "host": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python": "3.13.1",
+    "numpy": "2.3.2"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "study": "Same binary64 encodings for the local binary64 certificate and 38-digit Decimal interval solver",
+  "interval_step": "0.015625",
+  "timing_includes_fit_or_model_setup": false,
+  "comparison": "Number certified for continuous-time stability or strict terminal disagreement",
+  "cases": [
+    {
+      "case": "centered_cospherical",
+      "rows": 8,
+      "horizons": [
+        {
+          "horizon": 0.125,
+          "slab_stable": 1,
+          "local_stable": 6,
+          "local_switch": 2,
+          "interval_stable": 4,
+          "interval_switch": 2,
+          "both_resolved": 6
+        },
+        {
+          "horizon": 0.5,
+          "slab_stable": 0,
+          "local_stable": 1,
+          "local_switch": 0,
+          "interval_stable": 4,
+          "interval_switch": 2,
+          "both_resolved": 1
+        }
+      ],
+      "path_evaluation_ns": {
+        "local": 3047100,
+        "interval": 1166305700
+      }
+    },
+    {
+      "case": "reflective_rectangle",
+      "rows": 9,
+      "horizons": [
+        {
+          "horizon": 0.125,
+          "slab_stable": 2,
+          "local_stable": 4,
+          "local_switch": 0,
+          "interval_stable": 7,
+          "interval_switch": 0,
+          "both_resolved": 4
+        },
+        {
+          "horizon": 0.5,
+          "slab_stable": 0,
+          "local_stable": 2,
+          "local_switch": 0,
+          "interval_stable": 7,
+          "interval_switch": 0,
+          "both_resolved": 2
+        }
+      ],
+      "path_evaluation_ns": {
+        "local": 2314400,
+        "interval": 541589600
+      }
+    },
+    {
+      "case": "iris_fold_1",
+      "rows": 50,
+      "horizons": [
+        {
+          "horizon": 0.125,
+          "slab_stable": 46,
+          "local_stable": 48,
+          "local_switch": 0,
+          "interval_stable": 49,
+          "interval_switch": 0,
+          "both_resolved": 48
+        },
+        {
+          "horizon": 0.5,
+          "slab_stable": 25,
+          "local_stable": 48,
+          "local_switch": 2,
+          "interval_stable": 48,
+          "interval_switch": 2,
+          "both_resolved": 50
+        }
+      ],
+      "path_evaluation_ns": {
+        "local": 4080600,
+        "interval": 2757459600
+      }
+    },
+    {
+      "case": "iris_fold_2",
+      "rows": 50,
+      "horizons": [
+        {
+          "horizon": 0.125,
+          "slab_stable": 46,
+          "local_stable": 49,
+          "local_switch": 1,
+          "interval_stable": 49,
+          "interval_switch": 1,
+          "both_resolved": 50
+        },
+        {
+          "horizon": 0.5,
+          "slab_stable": 26,
+          "local_stable": 48,
+          "local_switch": 2,
+          "interval_stable": 48,
+          "interval_switch": 2,
+          "both_resolved": 50
+        }
+      ],
+      "path_evaluation_ns": {
+        "local": 3926700,
+        "interval": 2740933100
+      }
+    },
+    {
+      "case": "iris_fold_3",
+      "rows": 49,
+      "horizons": [
+        {
+          "horizon": 0.125,
+          "slab_stable": 46,
+          "local_stable": 49,
+          "local_switch": 0,
+          "interval_stable": 49,
+          "interval_switch": 0,
+          "both_resolved": 49
+        },
+        {
+          "horizon": 0.5,
+          "slab_stable": 23,
+          "local_stable": 48,
+          "local_switch": 0,
+          "interval_stable": 49,
+          "interval_switch": 0,
+          "both_resolved": 48
+        }
+      ],
+      "path_evaluation_ns": {
+        "local": 3682500,
+        "interval": 2704389400
+      }
+    }
+  ]
+}

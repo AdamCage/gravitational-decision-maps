@@ -1,0 +1,83 @@
+\section{Additional invariance and sensitivity results}
+\subsection{Extension to regular connected curved interfaces}
+\label{sec:curved}
+Single-horizon rigidity uses analyticity and the gradient structure.
+The reduction to the finite balances \eqref{eq:fiber} requires planes.
+For a curved example, call a pair active if it shares a strict
+two-class face. Suppose each active pair's full equality set
+$H_{ab}=\{m_{ba}=0\}$ is a connected regular analytic hypersurface
+and each boundary of a strict class cell is covered by the equality
+sets of active pairs involving that class. Under these assumptions
+preservation of every strict cell at one positive horizon is
+equivalent to $F\cdot\nabla m_{ba}=0$ on each such equality set and to
+preservation for all horizons.
+
+Indeed, preservation maps a relatively open part of $H_{ab}$
+into $H_{ab}$. The restriction of $m_{ba}\circ\Phi_T$ to that
+connected analytic hypersurface is therefore zero. The same
+compact-superlevel argument supplies an equilibrium there. Flatten
+the hypersurface in a local analytic graph chart at the equilibrium
+with orthonormal derivative. The linearization in those coordinates
+is still symmetric, because the field vanishes at the equilibrium
+and its derivative transforms by orthogonal conjugacy. The normal
+Taylor calculation from Lemma~\ref{lem:sampled-tangency} now gives tangency
+near that point, and analyticity extends $F\cdot\nabla m_{ba}=0$
+along the whole hypersurface. Conversely, a first contact with the
+boundary of the initial cell would lie on one of the invariant
+hypersurfaces involving that class. A strict initial query does
+not lie on that hypersurface, so backward uniqueness excludes
+contact at finite time.
+
+For example, if the prototypes of $b$ have strictly larger
+projections onto some unit direction than all the prototypes of
+$a$, then $H_{ab}$ is a connected graph over the orthogonal plane.
+The directional derivative of $m_{ba}$ is the difference of the
+two projected posterior means and is bounded below by the positive
+projection gap. Hence there is one root on each parallel line,
+and the implicit function theorem gives an analytic graph.
+Interleaved classes in the core-only benchmark need not satisfy
+the connectedness or regularity assumptions.
+
+\subsection{Sensitivity to changes in the driving mixture}
+\label{sec:sensitivity}
+Fix the affine readout and let $F_\varepsilon$ be a smooth
+one-parameter family of driving fields with $F_0$ preserving the
+partition. Consider a compact patch $K$ in a strict two-class
+facet with normal $n$. For $z\in K$, write $z_s=\Phi_s^0 z$ and
+define the normal coefficients
+\[
+ \ell_z(s)=n^\top DF_0(z_s)n,\qquad
+ b_z(s)=n^\top \partial_\varepsilon F_\varepsilon(z_s)\big|_0.
+\]
+At fixed time $T$, the initial points transported into the facet
+have normal coordinate $r_\varepsilon(z)$ relative to $z$, where
+\begin{equation}
+ r_\varepsilon(z)=-\varepsilon I_T(z)+o(\varepsilon),
+ \qquad
+ I_T(z)=\int_0^T
+       e^{-\int_0^s \ell_z(v)\,\dd v}\,b_z(s)\,\dd s .
+ \label{eq:sensitivity}
+\end{equation}
+To derive this, the tangential derivatives of the base normal
+velocity vanish identically on the plane. The first normal
+variation of a perturbed trajectory initialized at $z$ therefore
+obeys $\dot\eta=\ell_z\eta+b_z$ with $\eta(0)=0$.
+The derivative of the terminal normal position with respect to
+its initial normal coordinate is $\exp(\int_0^T\ell_z)$.
+It is positive, so solving for the initial normal coordinate at
+which the terminal coordinate vanishes gives \eqref{eq:sensitivity}
+by the implicit function theorem. The formula holds uniformly on
+$K$ by compactness. The unperturbed trajectory stays in the
+relative interior of the facet because the base flow preserves
+the closures of both adjacent cells and their intersection in
+both time directions.
+
+For a continuous feature density $\rho$, the probability of a
+label switch with initial condition in a sufficiently thin
+normal strip over $K$ is consequently
+$|\varepsilon|\int_K\rho(z)|I_T(z)|\,\dd S+o(|\varepsilon|)$.
+This is obtained by integrating across the interval between the
+original and pulled-back interfaces. It describes a fixed finite
+horizon under a fixed readout, whereas the earlier boundary flux
+expands in time. Summing such formulas globally requires control
+near junctions and at infinity.

@@ -1,0 +1,93 @@
+\section{Decision-preserving feature restoration}
+\label{sec:decision-safe-restoration}
+
+A frozen digit classifier may share its input with a second consumer that needs less noisy features. We consider restoring a corrupted feature vector while retaining the classifier's existing decision throughout the transformation. A restoration can improve feature fidelity while preserving an initially incorrect decision. This scenario leads to a concrete comparison between continuous prototype transport and a direct posterior estimator.
+
+Let \(Y=X+\epsilon\), where \(X\) is the clean feature vector and \(\epsilon\) is independent \(N(0,\sigma^2 I)\) noise. The frozen classifier has affine scores \(g_c\). For an observation \(y\) with strict winner \(c\), and a fixed \(0<\gamma<1\), define the closed convex set
+\[
+ \mathcal C_\gamma(y)=\{z:g_c(z)-g_j(z)\ge
+          \gamma[g_c(y)-g_j(y)]\ \text{for every }j\ne c\}.
+\]
+The set contains \(y\), and every point in it has the same strict decision. Given \(y\), write \(\mu=\mathbb E[X\mid Y=y]\) and \(R_y(z)=\mathbb E[\|X-z\|^2\mid Y=y]\). Assume \(X\) has finite second moment.
+
+\begin{lemma}[Posterior-mean projection]
+\label{lem:restoration-projection}
+Let \(p\) and \(\widehat p\) be the Euclidean projections of \(\mu\) and any estimate \(\widehat\mu\) onto \(\mathcal C_\gamma(y)\). Then \(p\) uniquely minimizes \(R_y\) on \(\mathcal C_\gamma(y)\), and
+\[
+ \|\widehat p-p\|^2 \le R_y(\widehat p)-R_y(p)
+                       \le \|\widehat\mu-\mu\|^2 .
+\]
+The straight segment from \(y\) to either projection preserves the strict decision throughout.
+\end{lemma}
+
+\begin{proof}
+The conditional bias--variance identity gives \(R_y(z)=R_y(\mu)+\|z-\mu\|^2\). The projection inequality at \(p\) gives the lower bound. The projection inequality at \(\widehat p\) gives
+\(\|\widehat p-\widehat\mu\|^2-\|p-\widehat\mu\|^2\le-\|\widehat p-p\|^2\).
+Adding \(2\langle\widehat p-p,\widehat\mu-\mu\rangle\) and completing the square gives the upper bound. The segment stays in the cell by convexity.
+\end{proof}
+
+For a fitted clean prior with prototype centers \(a_i\) and common variance \(\tau^2 I\), putting \(\beta=\tau^2+\sigma^2\) gives the fitted noisy mixture and its field \(F(y)=\mathbb E[a_i\mid y]-y\). Conditioning within each component and averaging gives
+\[
+ \widehat\mu(y)=y+\frac{\sigma^2}{\beta}F(y).
+\]
+This is the Gaussian posterior-mean identity
+\cite{efron}. The formula also equals a single exponential Euler step of the prototype flow at \(T=\log(1+\sigma^2/\tau^2)\). Projection retains this time scale for restoration even when a guarantee for the original flow requires a shorter interval.
+
+\paragraph{Guarded continuous alternative.}
+For each margin, let \(m(z)=n^\top z+b\) be its signed distance with \(\|n\|=1\) and \(m(y)>0\). Then
+\(\dot m=\mathbb E[m(a_i)\mid z]-m(z)\).
+With \(L=\min_i m(a_i)\), comparison gives
+\(m(\Phi_t y)\ge e^{-t}m(y)+(1-e^{-t})L\).
+For \(L<\gamma m(y)\) we cap \(T\) at
+\(\log(1+(1-\gamma)m(y)/(\gamma m(y)-L))\); take the smallest cap across rivals.
+For the local alternative, project the query and centers orthogonally onto the rival plane. The projected trajectory up to time \(T\) lies in the hull of its initial projection and the projected centers, with weight at most \(1-e^{-T}\) on the centers. Let \([\ell_i,u_i]\) be the extrema bounds of the affine Gaussian logits on this enclosure. At the plane, a sufficient lower bound for the normal mixture mean is \(-q\) if
+\[
+ \sum_{i:\,m(a_i)+q\ge0}\!\!\!\!(m(a_i)+q)e^{\ell_i}
+ +\sum_{i:\,m(a_i)+q<0}\!\!\!\!(m(a_i)+q)e^{u_i}\ \ge 0 .
+\]
+The normal mixture mean is nondecreasing in normal displacement at fixed tangential position because its derivative is the conditional normal variance divided by \(\beta\). Therefore the same lower bound applies before any first exit. With \(q=(1-\gamma)m(y)/(e^T-1)-\gamma m(y)\), scalar comparison gives \(m(\Phi_t y)\ge\gamma m(y)\) throughout \([0,T]\). Both time guards thus use the same margin reserve as the projection methods. The local procedure searches for a longer certified time within the same original horizon. Its implementation uses floating-point comparisons with slack, and the numerical path checks below sample the RK4 iterates.
+
+\paragraph{Exploratory experiment.}
+We train a multinomial logistic regression head and fit eight mixture centers per class by \(k\)-means on the official training sets of
+OptDigits and PenDigits \cite{optdigits,pendigits}.
+Mixture weights are cluster counts divided by the training sample size, and \(\tau^2\) is the pooled squared residual per coordinate. The separate writer-held-out sets contain 1,797 and 3,498 feature vectors, respectively. After rescaling source features to \([0,1]\), we simulate Gaussian corruption with \(\sigma\in\{0.10,0.20,0.35\}\) and three paired noise seeds. All methods receive \(\sigma\); held-out clean vectors and labels are used only for measurement. We compare the input as-is, a Wiener estimator fitted to the training covariance, the mixture posterior mean, and RK4 integration of \(F\). The safe endpoint variants use projection or, for the posterior mean, stopping on the input--estimate segment before leaving \(\mathcal C_{10^{-4}}\). For the projected flow we integrate to the original horizon and project its endpoint, then connect the input to that projection by a straight segment. Projection uses Dykstra's algorithm
+\cite{dykstra}.
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Feature reconstruction MSE, multiplied by \(10^3\) and averaged over three paired noise seeds. Projection and clipping are to the initial decision cell with a positive margin reserve. The local flow is integrated only to its certified time.}
+\label{tab:decision-safe-restoration}
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Source & \(\sigma\) & Input & Proj.\ Wiener & Clip mean & Proj.\ mean & Proj.\ flow & Local flow \\
+\midrule
+OptDigits & 0.10 & 10.00 & 5.61 & 7.41 & 7.40 & 7.47 & 7.41 \\
+          & 0.20 & 40.01 & 14.80 & 17.28 & 16.55 & 17.12 & 23.31 \\
+          & 0.35 & 122.55 & 27.56 & 32.96 & 24.28 & 26.01 & 69.76 \\
+PenDigits & 0.10 & 9.99 & 6.75 & 5.88 & 5.82 & 6.00 & 6.76 \\
+          & 0.20 & 39.97 & 18.36 & 14.83 & 12.33 & 13.14 & 25.08 \\
+          & 0.35 & 122.42 & 35.52 & 38.31 & 26.07 & 29.15 & 72.58 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At \(\sigma=0.35\), projected mixture means reduced MSE by 26.3\% on OptDigits and 31.9\% on PenDigits compared with line clipping of the same means. Across the three noise draws, the reductions ranged from 26.0\% to 27.0\% and from 30.9\% to 33.1\%, respectively. Projected Wiener reconstruction performed best at the lower two noise levels on OptDigits. Over 47,655 perturbed inputs, the local time guard had zero endpoint changes and zero class departures at the 16 RK4 step endpoints. The unrestricted flow changed 10,981 endpoint decisions. A separate DOP853 check used 288 local-guard trajectories with 101 checkpoints each, including the eight rows closest to a rival boundary in each run. The smallest sampled slack above the margin reserve was \(6.9\times10^{-7}\), and the largest discrepancy from an RK4 endpoint was \(2.84\times10^{-6}\) in Euclidean norm. Averaged across noise seeds, the local guard allowed 85.6\%, 35.3\%, and 18.3\% of the intended horizon on OptDigits and 46.9\%, 20.0\%, and 14.0\% on PenDigits, improving on the global guard at every setting. The local guard also lowered MSE versus the global guard at every setting. Projected mixture means achieved lower mean MSE than the guarded flow in all six settings.
+
+\paragraph{Sensitivity to the corruption model.}
+On the same test sets and three paired seeds, we also used Laplace noise
+and a 5\% Gaussian contamination mixture, each with per-coordinate
+standard deviation $0.20$. The methods received $0.20$, and the
+same contaminated draws were repeated with the supplied level halved.
+The projected mixture estimate improved on the local guard and segment
+clipping in all 18 source--noise--seed comparisons. With the halved
+level, the projected estimate and the local guard reached mean MSEs
+of $0.02245$ and $0.02512$ on OptDigits and $0.01715$ and $0.02497$
+on PenDigits. Projected Wiener estimation remained best on OptDigits.
+The projected mixture estimate was best on PenDigits. No endpoint
+changes or sampled departures occurred for the safe methods. These
+draws probe artificial heavy tails and one mismatch within the same
+cohorts.
+
+When the transformation must follow the original prototype ODE, the local guard certifies more restoration time than the global bound. When the path may be chosen, projecting the posterior mean offers better feature fidelity in these comparisons and an exact variational benchmark under squared loss. At \(\sigma=0.35\), preserving the initial decisions fixes classification accuracy at 78.84\% on OptDigits and 47.20\% on PenDigits. Allowing the unprojected mean to change decisions yields 89.22\% and 66.72\%, respectively. Decision preservation is relevant when those existing decisions must be retained. The evidence covers two fixed cohorts with simulated corruption, a supplied noise level, and frozen affine heads. Repeating the noise draws measures sensitivity to corruption within these cohorts. Natural corruption and performance over new writer populations require separate evaluation. After syncing the locked environment, rerun the experiment from the repository root using \texttt{uv run python -m tools.decision\_safe\_restoration --output result.json}.

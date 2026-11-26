@@ -1,0 +1,101 @@
+\subsection{Component-specific Gaussian precisions}
+\label{sec:heterogeneous}
+
+The sampled-time criterion also applies when the driving components
+have different covariance matrices. The decision rule is still a
+fixed affine readout. The class scores of the driving mixture, if
+used as a readout, may define a different partition with curved
+boundaries.
+
+Let $a_i\in\mathbb R^d$, $w_i>0$, and let each $P_i$ be a symmetric
+positive definite precision matrix. Write
+\[
+ \ell_i(x)=-\tfrac12(x-a_i)^\top P_i(x-a_i),\qquad
+ U(x)=\log\sum_i w_i e^{\ell_i(x)},\qquad F=\nabla U.
+\]
+Component normalization constants can be included in the $w_i$.
+Let $H=o+E$ be a facet hyperplane, with unit normal $n$,
+$E=n^\perp$, and orthogonal projection $\Pi$ onto $E$. On $H$
+the log contributions and their normal derivatives take the form
+\[
+ \begin{aligned}
+ \ell_i(o+y)&=q_i(y)+c_i, &
+ q_i(y)&=-\tfrac12 y^\top Q_i y+u_i^\top y,\\
+ \partial_n\ell_i(o+y)&=b_i+v_i^\top y, & & y\in E,
+ \end{aligned}
+\]
+where
+\[
+ \begin{aligned}
+ Q_i&=\Pi P_i|_E, &
+ u_i&=\Pi P_i(a_i-o), &
+ c_i&=\ell_i(o),\\
+ b_i&=n^\top P_i(a_i-o), &
+ v_i&=-\Pi P_i n.
+ \end{aligned}
+\]
+Group the indices with identical pairs $(Q_i,u_i)$ on this plane.
+
+\begin{theorem}[Finite balance with component-specific precisions]
+\label{thm:heterogeneous}
+For a fixed affine readout as in Theorem~\ref{thm:flat}, preservation of
+every strict decision at some $T>0$ is equivalent to preservation at
+every $t\ge0$. Both are equivalent to the following scalar and vector
+balances in every group $G$ on every facet hyperplane:
+\begin{equation}
+ \sum_{i\in G} w_i e^{c_i} b_i=0,\qquad
+ \sum_{i\in G} w_i e^{c_i} v_i=0.
+ \label{eq:heterogeneous-balance}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The real-analytic potential $U$ tends to $-\infty$ as $\|x\|\to\infty$,
+since there are finitely many positive definite precisions. The field
+is a convex average of the vectors $P_i(a_i-x)$ and has at most linear
+growth, so its flow is complete. If $\Phi_T$ preserves all strict
+decisions, continuity maps the relative interior of each facet into
+its supporting plane. Analyticity extends this inclusion to all of
+$H$. Lemma~\ref{lem:sampled-tangency} then gives $F\cdot n=0$ on $H$.
+Conversely, tangency on each supporting plane makes that plane invariant
+by uniqueness. A trajectory from a strict cell cannot reach any of
+its supporting planes in finite time by backward uniqueness.
+
+It remains to characterize tangency. On $H$, multiplying
+$F\cdot n$ by the positive mixture density gives
+\[
+ \sum_G A_G(y)e^{q_G(y)},\qquad
+ A_G(y)=\sum_{i\in G}w_i e^{c_i}(b_i+v_i^\top y),
+\]
+where $q_G$ is the common tangential quadratic in group $G$.
+If $\dim E=0$ there is one group and the vector balance is vacuous.
+Otherwise choose a direction $\xi\in E$ such that
+$\xi^\top(Q_G-Q_{G'})\xi\ne0$ whenever $Q_G\ne Q_{G'}$, and
+$(u_G-u_{G'})^\top\xi\ne0$ whenever $Q_G=Q_{G'}$ and $G\ne G'$.
+Each excluded condition is the zero set of a nonzero polynomial,
+and their finite union cannot cover $E$.
+
+For any $y_0\in E$, the restrictions $q_G(y_0+t\xi)$ have
+distinct pairs of quadratic and linear coefficients in $t$.
+Order them lexicographically by these coefficients. If the sum
+vanishes identically, divide by the exponential of the largest
+polynomial in this ordering and let $t\to+\infty$. Each other
+exponential decays relative to the largest one faster than the growth
+of its affine multiplier. The affine function $A_G(y_0+t\xi)$ for the
+largest group must tend to zero, so it is identically zero on this
+line. Repeating after its removal gives the same conclusion for
+every group on the line. Since $y_0$ is arbitrary, all $A_G$ vanish
+on $E$. This gives \eqref{eq:heterogeneous-balance}, which also
+suffices for tangency.
+\end{proof}
+
+A singleton group contributes zero only when its center lies in $H$ and
+$n$ is an eigenvector of its precision. Components with identical
+tangential quadratics can cancel even when reflection does not
+permute them. For example, take $H=\{x_1=0\}$ in $\mathbb R^2$ and
+centers $(1,0)$ and $(-1,0)$ with precisions
+$\operatorname{diag}(1,2)$ and $\operatorname{diag}(3,2)$,
+respectively. Both have the same $Q_i$ and $u_i=0$, and both $v_i$
+vanish. The weights $1$ and $e/3$ give the scalar balance
+$e^{-1/2}-(e/3)\,3e^{-3/2}=0$. The partition into the two strict
+halfspaces is invariant.

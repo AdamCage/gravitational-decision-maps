@@ -1,0 +1,194 @@
+\subsection{How much probability switches?}
+\label{sec:switching-mass}
+
+Let $C_a$ denote the strict cell of affine score $a$. For two adjacent
+cells let $\Gamma_{ab}=\Gamma_{ba}$ be their common open facet and let
+$n_{ab}$ be its unit normal pointing from $C_a$ to $C_b$. Write
+$v_{ab}(z)=n_{ab}^{\top}F(z)$ and $[v]_+=\max(v,0)$. An absent facet
+has zero surface integral. The following rate depends on the deployment
+density $\rho$, which can differ from the density driving the flow.
+
+\begin{theorem}[Endpoint switch mass at short times]
+\label{thm:switch-mass}
+For a finite affine-score partition as in Section~\ref{sec:flat}, let
+$X$ have a compactly supported Lipschitz density $\rho$. For each $a\ne b$,
+\begin{equation}
+ \Pr\{X\in C_a,\ \Phi_T(X)\in C_b\}
+ =T\int_{\Gamma_{ab}}\rho(z)[v_{ab}(z)]_+\,\dd S(z)+O(T^2)
+ \quad(T\downarrow0).
+ \label{eq:directed-switch-mass}
+\end{equation}
+Consequently, with each unordered facet counted once,
+\begin{equation}
+ \Pr\{C(X)\ne C(\Phi_T(X))\}
+ =T\sum_{a<b}\int_{\Gamma_{ab}}\rho(z)|v_{ab}(z)|\,\dd S(z)+O(T^2).
+ \label{eq:total-switch-mass}
+\end{equation}
+The result also holds for the complete flow of any $C^1$ autonomous
+field. Surfaces in dimension one are counted with counting measure.
+\end{theorem}
+
+\begin{proof}
+Take a compact ball containing the support of $\rho$ in its interior.
+On a fixed larger ball the velocity and its derivative are bounded, so
+uniformly for sufficiently small $T$ the considered trajectories move
+by at most $MT$, and $\Phi_T(x)=x+TF(x)+O(T^2)$. Use the same speed bound
+$M$ at nearby facet points in this larger ball. Consider all distinct
+hyperplanes on which two affine scores are equal. A pair with a nonzero
+constant difference has no equality plane and its order is fixed
+globally. Inside the compact ball the points within $2MT$ of two
+distinct planes have volume $O(T^2)$. Parallel distinct planes have
+disjoint strips for small $T$. For nonparallel planes, the two signed
+distances give a rank-two affine map with constant Jacobian, so bounding
+both distances gives the asserted estimate on the ball. In dimension one
+all such strips are disjoint. This exceptional set contributes only
+$O(T^2)$ probability because $\rho$ is bounded.
+
+Away from this set, every trajectory that switches must start within
+$MT$ of a unique equality plane $H$. All comparisons associated with
+other planes are fixed on the $MT$ ball about the starting point. Let
+$x=z+sn_{ab}$ with $z$ its orthogonal projection onto $H$. The two sides
+locally have either the same winner or the two winners of the facet
+containing $z$. There cannot be three winning scores tied on a relatively
+open subset of $H$. Three distinct affine functions agreeing on $H$
+have ordered normal slopes, and the intermediate slope cannot win
+strictly anywhere, contrary to the full-dimensional cell assumption.
+The foot $z$ is away from intersections of distinct equality planes.
+Thus it belongs to the open facet $\Gamma_{ab}$ whenever the local
+winners are $a$ and $b$. The same argument applies to every predicted
+switch in the model strips below, which also lie within $MT$ of $H$.
+
+For $|s|\le MT$, the final signed distance from $H$ is
+$s+Tv_{ab}(z)+O(T^2)$, uniformly. The ideal starting strip for $a$ to $b$
+is $-T[v_{ab}(z)]_+<s<0$. Outside the exceptional set the true and
+ideal transition indicators can disagree only if
+$|s+Tv_{ab}(z)|\le K T^2$ for a uniform $K$. This adds $O(T^2)$
+probability by integrating an interval of length at most $2KT^2$ in
+each normal fiber over a bounded facet portion. The same skeleton
+estimate justifies integrating the ideal strip over the entire facet,
+with the compactly supported density set to zero elsewhere. The normal
+coordinate Jacobian is one, and replacing $\rho(z+sn_{ab})$ by $\rho(z)$
+costs $O(T^2)$ by the Lipschitz bound. This gives
+\eqref{eq:directed-switch-mass}. The flow is a diffeomorphism, so ties
+have probability zero at both endpoints. Summing both directions over
+the finite set of facets gives \eqref{eq:total-switch-mass}.
+\end{proof}
+
+When $\rho$ is positive on a permeable patch, the coefficient in
+\eqref{eq:total-switch-mass} is positive. This supplies matching
+distribution-specific lower and upper rates as $T$ tends to zero.
+Equation~\eqref{eq:facetvelocity} makes the coefficient a collection of
+$(d-1)$-dimensional integrals without trajectory integration. A density
+supported away from the facets can instead give a zero rate even if
+the readout has permeable facets.
+
+\begin{corollary}[Identifiability from population invariance]
+Suppose the deployment density is positive almost everywhere on a
+neighborhood of a nonempty relatively open patch of every facet.
+For the analytic Gaussian flow, zero endpoint switch probability
+at any single $T>0$ implies invariance of every strict decision cell.
+If the density also satisfies Theorem~\ref{thm:switch-mass} and is
+positive on a relatively open patch of each facet itself, a zero
+leading coefficient in \eqref{eq:total-switch-mass} implies the
+same invariance.
+\end{corollary}
+
+\begin{proof}
+If the time map carries any point of a covered patch strictly off
+its supporting plane, continuity gives an open set of inputs on
+the opposite side that end across that plane. Their initial cell
+is one of the two incident cells. Excluding terminal ties, which
+have measure zero by diffeomorphic transport, this gives positive
+switch probability. Thus the time map preserves each covered patch
+in its supporting plane. Analytic continuation and
+Lemma~\ref{lem:sampled-tangency} give tangency to the entire plane.
+If instead the leading flux coefficient is zero, continuity and
+positivity on a facet patch give zero normal velocity on that patch.
+Tangency again extends analytically to each plane and preserves the
+strict cells.
+\end{proof}
+
+\paragraph{A finite-horizon lower certificate.}
+Fix $x\in C_a$ and a bounding facet $H$ of $C_a$. Orient its normal
+$n$ toward the exterior of $C_a$ and let $s_0<0$ be the signed
+distance of $x$ to $H$. Let $K_T(x)$ be its reachable projected tube in
+\eqref{eq:projected-tube}, with the current normal orientation, and put
+\[
+ U_H=\frac{(\max_i n^\top a_i-\min_i n^\top a_i)^2}{4\beta}-1,
+ \qquad \psi(U,T)=\int_0^T e^{-Uu}\,\dd u.
+\]
+In particular, $\psi(0,T)=T$ and
+$\psi(U,T)=(1-e^{-UT})/U$ for $U\ne0$.
+If the plane velocity satisfies $n^\top F(o+y)\ge h>0$ on $K_T(x)$,
+then the inequality
+\begin{equation}
+       -s_0<h\,\psi(U_H,T)
+       \label{eq:forced-switch-tube}
+\end{equation}
+guarantees that $\Phi_T(x)$ is strictly outside $C_a$.
+Indeed, $\partial_n(n^\top F)\le U_H$ by the scalar posterior variance
+bound. While $s(t)\le0$, integrating this derivative from the plane
+in the negative normal direction gives $\dot s\ge h+U_Hs$. If the
+trajectory stayed nonpositive through $T$, the integrating factor
+would give $s(T)\ge e^{U_HT}(s_0+h\psi(U_H,T))>0$. At a contact with
+$H$ the derivative is strictly positive, which also excludes return
+from its positive side before $T$. The argument guarantees an endpoint
+decision change for strict endpoint labels. The destination can be a
+third cell, since the rest of the readout may also be traversed.
+
+One implementation chooses the threshold
+$h_0=-s_0/\psi(U_H,T)>0$ directly. Using the relative logits $L_i$ and
+their extrema over $K_T(x)$ from \eqref{eq:local-plane}, it is
+sufficient that
+\begin{equation}
+ \sum_{i:r_i\ge h_0}(r_i-h_0)e^{\underline L_i}
+ +\sum_{i:r_i<h_0}(r_i-h_0)e^{\overline L_i}>0 .
+ \label{eq:local-forced-switch}
+\end{equation}
+This lower-bounds the numerator for the plane velocity minus $h_0$.
+Strict positivity on the compact tube yields a uniform $h>h_0$,
+and thus \eqref{eq:forced-switch-tube}. A conservative implementation
+can use $T\exp(-\max(U_H,0)T/2)$ in place of $\psi(U_H,T)$ by Jensen's
+inequality.
+
+\paragraph{A local two-sided bracket.}
+Define $\ell_H(x,T)$ and $u_H(x,T)$ as the minimum and maximum of
+$\sum_i r_i e^{q_i}/\sum_i e^{q_i}$ over the independent logit intervals
+$q_i\in[\underline L_i,\overline L_i]$. These bound the plane velocity
+uniformly on $K_T(x)$. Comparing $\ell_H$ with a threshold uses the
+sign test \eqref{eq:local-forced-switch}. Comparing $u_H$ uses the
+opposite extremum for each term. Let $S_T^{-}$ be the union, over
+bounding facets of each query's strict cell, of the queries satisfying
+$-s_0<[\ell_H(x,T)]_+\psi(U_H,T)$. Define $S_T^{+}$ by the corresponding
+union using $-s_0\le [u_H(x,T)]_+(e^T-1)$. On the initial side of a facet,
+$\partial_n(n^\top F)\ge-1$ yields $\dot s\le u_H-s$ up to first contact.
+A contact by $T$ then requires $-s_0\le [u_H]_+(e^T-1)$. With
+\eqref{eq:forced-switch-tube}, this gives
+\begin{equation}
+ S_T^-\ \,\subseteq\ \,\{x:C(x)\ne C(\Phi_T(x))\}\ \subseteq\ \, S_T^+
+ \qquad\text{up to endpoint ties}.
+ \label{eq:local-switch-bracket}
+\end{equation}
+The upper bound here uses reachable projected tubes in each plane.
+Replacing $u_H(x,T)$ by the global group-mean maximum gives the earlier
+departure slabs, which can be wider.
+
+For any bounded compactly supported query density, the local bracket
+has unresolved probability $\Pr\{X\in S_T^+\setminus S_T^-\}=O(T^2)$.
+Indeed, for each fixed facet, $K_T(x)$ has diameter $O(T)$ uniformly
+over the support. The relative logits are affine, so their box has
+width $O(T)$ and contains the logits at the projected initial point
+$z$. The normal posterior mean has bounded derivatives in the logits,
+hence $\ell_H(x,T)$ and $u_H(x,T)$ both equal $v_H(z)+O(T)$ uniformly.
+Both time factors equal $T+O(T^2)$, including the conservative Jensen
+factor. The lower and upper threshold distances both equal
+$T[v_H(z)]_++O(T^2)$. A query in $S_T^+\setminus S_T^-$ is therefore in
+an interval of normal width $O(T^2)$ about that distance for at least
+one bounding plane. Integrating the bounded density over a compact
+tangential projection and summing over finitely many planes proves the
+claim. In particular, under Theorem~\ref{thm:switch-mass}, the two
+certificate masses have the same first-order coefficient as the
+actual switch mass. A path that leaves its initial strict cell and
+returns by $T$ also belongs to the unresolved set, so its probability
+has the same quadratic upper order. The bracket and its rate concern
+exact arithmetic.

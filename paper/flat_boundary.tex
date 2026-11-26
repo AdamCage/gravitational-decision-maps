@@ -1,9 +1,8 @@
 \section{When every decision is preserved}
 \label{sec:flat}
 
-The normal derivative in \eqref{eq:direction} concerns a single point.
-Here a finite condition on the prototypes characterizes preservation of
-all strict decisions at all finite times. The classifier in this section
+A finite condition on the driving prototypes characterizes preservation
+of all strict decisions at all finite times. The classifier in this section
 is an arbitrary finite affine-score readout with distinct affine functions
 and full-dimensional strict decision cells, ignoring functions with empty
 strict cells. The driving field is the Gaussian mixture field above.
@@ -22,6 +21,53 @@ $u$, define
  \label{eq:fiber}
 \end{equation}
 
+\begin{lemma}[Tangency from a sampled gradient flow]
+\label{lem:sampled-tangency}
+Let $F=\nabla U$ be real analytic on $\R^d$, with a complete forward
+flow and compact superlevel sets of $U$. If $\Phi_T(H)\subseteq H$ for
+an affine hyperplane $H$ and some $T>0$, then $F\cdot n=0$ on $H$.
+\end{lemma}
+
+\begin{proof}
+Start an orbit at any point of $H$. All samples at times $kT$ stay
+in $H$ and in a compact superlevel set of $U$. The potential increases along the
+orbit and is bounded above. Thus the potential increments between
+successive samples tend to zero. At a subsequential limit $p\in H$,
+continuity gives $U(\Phi_T p)=U(p)$. Since the difference equals
+$\int_0^T\lVert F(\Phi_s p)\rVert^2\,\dd s$, we have $F(p)=0$.
+If $d=1$, then $H=\{p\}$ and this proves the claim.
+
+Write $x=p+y+rn$ with $y$ tangent to $H$. At $p$ the tangent space to
+$H$ is invariant under the derivative $D\Phi_T(p)=e^{TDF(p)}$.
+Since $DF(p)$ is real symmetric, its eigenvalues are real. A polynomial
+interpolating $T^{-1}\log$ on the finite spectrum of $e^{TDF(p)}$
+recovers $DF(p)$, which therefore also leaves the tangent space invariant.
+By symmetry it leaves the normal space invariant.
+Let $A$ be its tangential block and $b$ its normal entry. If $F\cdot n$
+on $H$ is not identically zero, its Taylor expansion at $p$ has a
+first nonzero homogeneous part $Q_k(y)$ of degree $k\ge2$. For initial
+conditions $(y,0)$ the tangential component of the flow has linear
+part $e^{tA}y$. In the normal field, all terms except $br$ and the
+restriction to $r=0$ contain a factor $r$ times a term of positive
+degree. Hence, if the normal flow terms of degrees below $j$ vanish,
+these terms cannot contribute at degree $j$. For $j<k$ the remaining
+degree-$j$ term of the normal flow solves $\dot r_j=br_j$ with zero
+initial data. Induction gives zero at every such degree. At degree $k$
+the only additional contribution is $Q_k(e^{tA}y)$, so the term at $T$ is
+\[
+ \int_0^T e^{b(T-s)}Q_k(e^{sA}y)\,\dd s.
+\]
+In a real eigenbasis of $A$ with eigenvalues $\lambda_j$, each monomial
+$y^m$ in $Q_k$ is multiplied by
+$\int_0^T e^{b(T-s)+s\sum_jm_j\lambda_j}\,\dd s>0$.
+The integral cannot be the zero polynomial. This contradicts
+$\Phi_T(H)\subseteq H$, proving tangency by analyticity of $F$ on $H$.
+The argument allows zero eigenvalues. The integrated homogeneous
+operator is the one used in the embedding of maps in autonomous
+flows \cite[Eq.~(2.13)]{zhang}. The real spectrum rules out the weak
+resonances in the corresponding formal embedding result \cite{ribon}.
+\end{proof}
+
 \begin{theorem}[Criterion for affine decision cells]
 \label{thm:flat}
 The following conditions are equivalent.
@@ -39,41 +85,9 @@ facet into the closures of both incident cells, hence into $H$.
 The finite-time flow of an analytic field depends analytically on its
 initial point \cite{carrillo}, so the normal coordinate of $\Phi_T$
 vanishes on the entire plane in coordinates based at $o\in H$.
-We first show that this implies $F\cdot n=0$ on $H$.
-
-Start an orbit at any point of $H$. All samples at times $kT$ stay
-in $H$ and in a compact superlevel set of the Gaussian log-density
-potential $U=\beta\log\sum_c S_c$. The potential increases along the
-orbit and is bounded above. Thus the potential increments between
-successive samples tend to zero. At a subsequential limit $p\in H$,
-continuity gives $U(\Phi_T p)=U(p)$. Since the difference equals
-$\int_0^T\lVert F(\Phi_s p)\rVert^2\,\dd s$, we have $F(p)=0$.
-
-Write $x=p+y+rn$ with $y$ tangent to $H$. At $p$ the tangent space to
-$H$ is invariant under the derivative $D\Phi_T(p)=e^{TDF(p)}$.
-Since $DF(p)$ is real symmetric, it has the same eigenspaces as its
-exponential and is block diagonal in the tangent and normal spaces.
-Let $A$ be its tangential block and $b$ its normal entry. If $F\cdot n$
-on $H$ is not identically zero, its Taylor expansion at $p$ has a
-first nonzero homogeneous part $Q_k(y)$ of degree $k\ge2$. For initial
-conditions $(y,0)$ the tangential component of the flow has linear
-part $e^{tA}y$. Its normal component has all Taylor terms of degree
-less than $k$ equal to zero, since their ODEs have zero initial data
-and only the linear normal term can contribute at the first nonzero
-degree below $k$. The degree-$k$ term at time $T$ is therefore
-\[
- \int_0^T e^{b(T-s)}Q_k(e^{sA}y)\,\dd s.
-\]
-In a real eigenbasis of $A$ with eigenvalues $\lambda_j$, each monomial
-$y^m$ in $Q_k$ is multiplied by
-$\int_0^T e^{b(T-s)+s\sum_jm_j\lambda_j}\,\dd s>0$.
-The integral cannot be the zero polynomial. This contradicts
-$\Phi_T(H)\subseteq H$, proving tangency by analyticity of $F$ on $H$.
-The argument allows zero eigenvalues. The integrated homogeneous
-operator is the one used in the embedding of maps in autonomous
-flows \cite[Eq.~(2.13)]{zhang}. The real spectrum rules out the weak
-resonances in the corresponding formal embedding result \cite{ribon}.
-
+The Gaussian log-density potential has compact superlevel sets because
+it tends to $-\infty$ as $\|x\|\to\infty$. Lemma~\ref{lem:sampled-tangency}
+now gives $F\cdot n=0$ on $H$.
 For $z=o+y\in H$, the Gaussian normal velocity is
 \begin{equation}
  n^\top F(z)=
@@ -96,7 +110,7 @@ condition, which implies the first.
 \end{proof}
 
 Classical tangency criteria characterize invariant sets in terms of the
-vector field \cite{nagumo}. Theorem~\ref{thm:flat} starts with decision
+vector field \cite{nagumo,brezis}. Theorem~\ref{thm:flat} starts with decision
 preservation at a single sampling time, then replaces the resulting
 continuum of tangency conditions by finite equalities in the Gaussian
 driving measure. The forward and backward invariance also preserves
@@ -314,86 +328,3 @@ Under whitening $x\mapsto P^{1/2}x$ the preconditioned field is
 the spherical model with transformed sites. This distinguishes
 the choice of ascent metric from the use of a full bandwidth matrix
 in mean shift \cite{chaconduong}.
-
-\subsection{Extension to regular connected curved interfaces}
-\label{sec:curved}
-Single-horizon rigidity uses analyticity and the gradient structure.
-The reduction to the finite balances \eqref{eq:fiber} requires planes.
-For a curved example, call a pair active if it shares a strict
-two-class face. Suppose each active pair's full equality set
-$H_{ab}=\{m_{ba}=0\}$ is a connected regular analytic hypersurface
-and each boundary of a strict class cell is covered by the equality
-sets of active pairs involving that class. Under these assumptions
-preservation of every strict cell at one positive horizon is
-equivalent to $F\cdot\nabla m_{ba}=0$ on each such equality set and to
-preservation for all horizons.
-
-Indeed, preservation maps a relatively open part of $H_{ab}$
-into $H_{ab}$. The restriction of $m_{ba}\circ\Phi_T$ to that
-connected analytic hypersurface is therefore zero. The same
-compact-superlevel argument supplies an equilibrium there. Flatten
-the hypersurface in a local analytic graph chart at the equilibrium
-with orthonormal derivative. The linearization in those coordinates
-is still symmetric, because the field vanishes at the equilibrium
-and its derivative transforms by orthogonal conjugacy. The normal
-Taylor calculation from Theorem~\ref{thm:flat} now gives tangency
-near that point, and analyticity extends $F\cdot\nabla m_{ba}=0$
-along the whole hypersurface. Conversely, a first contact with the
-boundary of the initial cell would lie on one of the invariant
-hypersurfaces involving that class. A strict initial query does
-not lie on that hypersurface, so backward uniqueness excludes
-contact at finite time.
-
-For example, if the prototypes of $b$ have strictly larger
-projections onto some unit direction than all the prototypes of
-$a$, then $H_{ab}$ is a connected graph over the orthogonal plane.
-The directional derivative of $m_{ba}$ is the difference of the
-two projected posterior means and is bounded below by the positive
-projection gap. Hence there is one root on each parallel line,
-and the implicit function theorem gives an analytic graph.
-Interleaved classes in the core-only benchmark need not satisfy
-the connectedness or regularity assumptions.
-
-\subsection{Sensitivity to changes in the driving mixture}
-\label{sec:sensitivity}
-Fix the affine readout and let $F_\varepsilon$ be a smooth
-one-parameter family of driving fields with $F_0$ preserving the
-partition. Consider a compact patch $K$ in a strict two-class
-facet with normal $n$. For $z\in K$, write $z_s=\Phi_s^0 z$ and
-define the normal coefficients
-\[
- \ell_z(s)=n^\top DF_0(z_s)n,\qquad
- b_z(s)=n^\top \partial_\varepsilon F_\varepsilon(z_s)\big|_0.
-\]
-At fixed time $T$, the initial points transported into the facet
-have normal coordinate $r_\varepsilon(z)$ relative to $z$, where
-\begin{equation}
- r_\varepsilon(z)=-\varepsilon I_T(z)+o(\varepsilon),
- \qquad
- I_T(z)=\int_0^T
-       e^{-\int_0^s \ell_z(v)\,\dd v}\,b_z(s)\,\dd s .
- \label{eq:sensitivity}
-\end{equation}
-To derive this, the tangential derivatives of the base normal
-velocity vanish identically on the plane. The first normal
-variation of a perturbed trajectory initialized at $z$ therefore
-obeys $\dot\eta=\ell_z\eta+b_z$ with $\eta(0)=0$.
-The derivative of the terminal normal position with respect to
-its initial normal coordinate is $\exp(\int_0^T\ell_z)$.
-It is positive, so solving for the initial normal coordinate at
-which the terminal coordinate vanishes gives \eqref{eq:sensitivity}
-by the implicit function theorem. The formula holds uniformly on
-$K$ by compactness. The unperturbed trajectory stays in the
-relative interior of the facet because the base flow preserves
-the closures of both adjacent cells and their intersection in
-both time directions.
-
-For a continuous feature density $\rho$, the probability of a
-label switch with initial condition in a sufficiently thin
-normal strip over $K$ is consequently
-$|\varepsilon|\int_K\rho(z)|I_T(z)|\,\dd S+o(|\varepsilon|)$.
-This is obtained by integrating across the interval between the
-original and pulled-back interfaces. It describes a fixed finite
-horizon under a fixed readout, whereas the earlier boundary flux
-expands in time. Summing such formulas globally requires control
-near junctions and at infinity.

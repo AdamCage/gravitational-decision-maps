@@ -1,0 +1,44 @@
+\subsection{Verifying a margin reserve for an arbitrary affine readout}
+\label{sec:reserve-verification}
+
+The Voronoi certificates use equal mixture masses and exploit the
+fact that the two incident sites cancel exactly on their bisector.
+The following variant accommodates an independently trained affine
+head and arbitrary positive mixture masses. For an initial strict
+winner, write a rival margin as $m(z)=d^\top z+b$ and ask that it
+exceed $\gamma m(x)$ throughout $[0,T]$ for $0<\gamma<1$.
+If $d=0$, the margin is constant. Otherwise let $\pi(z)$ be the
+orthogonal projection onto $m=0$. The projected path lies in
+\[
+  \{(1-u)\pi(x)+uy: y\in\operatorname{conv}\{\pi(a_i)\}_i,
+        \ 0\le u\le 1-e^{-T}\},
+\]
+by variation of constants. The common quadratic term in the Gaussian
+logits cancels, so evaluating each affine logit at $\pi(x)$ and
+$\pi(a_i)$ encloses that logit's range on the projected path.
+
+Let $L$ be a lower bound on the posterior mean of $m(a_i)$ on this
+projected set. Moving from the projection in the direction of $d$
+cannot decrease this posterior mean, by the covariance identity
+\eqref{eq:covariance}. Hence while $m(z)\ge0$,
+$\dot m\ge L-m$. Direct comparison gives
+\[
+  m(\Phi_t x)\ge e^{-t}m(x)+(1-e^{-t})L.
+\]
+The lower bound is affine in $1-e^{-t}$. To certify the reserve, it
+suffices to show that $L>m(x)(\gamma-e^{-T})/(1-e^{-T})$. The bound then
+exceeds the reserve at both ends and throughout, which rules out a
+first violation. We test this strict comparison by bounding the
+sign of the weighted exponential numerator, with the same outward
+kernels as the Voronoi test. Using $\min_i m(a_i)$ for $L$ gives a
+global baseline. The local test uses the projected logit intervals.
+We enclose affine products from the encoded readout weights and biases
+rather than treating rounded unit normals as exact.
+
+For a straight segment from $x$ to $z$, the endpoint test
+$m(z)>\gamma m(x)$ suffices for every point of the segment. We check
+it directly with interval dot products. Thus the deployed output can
+be verified even when the optimizer or numerical integrator that
+proposes it uses ordinary arithmetic. The guarantee concerns the
+encoded model and features. It implies neither accuracy of the initial
+decision nor global optimality of the numerical projection.

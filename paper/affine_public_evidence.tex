@@ -1,0 +1,164 @@
+\section{Verified decisions and endpoint computation}
+\label{sec:verified-public}
+
+\subsection{Switch-mass calibration}
+We used a three-site Gaussian mixture with unequal weights and its
+affine power-diagram readout. A compact feature density, proportional
+to $(1-x_1^2)(1-x_2^2)$ on $[-1,1]^2$, fixes the domain of the flux
+integrals. Numerical inversion of the terminal boundaries using RK4
+and one-dimensional bisection provides a separate comparison with
+Theorem~\ref{thm:switch-mass}. At $T=0.08$ the estimated switched mass
+was $0.007604$, the first-order prediction was $0.007617$, and the two
+local witnesses gave estimated masses $[0.007286,0.008463]$.
+At $T=0.005$ these were $0.000476027$, $0.000476081$, and
+$[0.000474741,0.000479169]$, respectively. The estimated unresolved
+mass divided by $T^2$ ranged from $0.177$ to $0.184$ over the five
+horizons. These numerical integrals check the scaling on one known
+geometry. The deterministic fixture, quadrature refinement and
+individual directed outcomes are archived with the driver.
+
+\subsection{Outward-rounded certificates on public features}
+We apply the local comparisons to the existing held-out Iris, Letter
+Recognition and Human Activity Recognition (HAR) roster
+\cite{iris,letter,har}. Training-only standardization and one equal-mass
+centroid per class define the flow and the frozen Voronoi classifier.
+Iris uses three stratified test folds after exact feature deduplication.
+Letter uses the first 16,000 rows for fitting and the remaining rows
+for evaluation after removing exact training matches. HAR uses the
+official subject split and caps sampled windows per subject and activity.
+HAR windows can overlap. We report counts on these fixed sources.
+
+Each encoded binary64 input, centroid, bandwidth and horizon denotes its
+exact real value. The certificate evaluates all rival inequalities in
+their original margin units. It encloses each arithmetic operation by
+stepping the computed endpoints outward. The exponential uses range
+reduction to $[-1/8,0]$, a degree-12 alternating Taylor polynomial with
+a bounded remainder, and nine outward-rounded squarings. Relative logit
+arguments below $-64$ use zero as the lower bound and the bound at $-64$
+as the upper bound. This construction uses IEEE binary64 with gradual
+underflow and avoids assumptions about the accuracy of the library
+exponential or BLAS dot products. Strict signs alone give a verdict.
+The implementation uses the Jensen lower factor for a switch witness
+and every rival inequality for a stability witness. The global slab
+baseline uses the most adverse offset on each rival plane, combining
+the tied pair into a zero-offset contribution. Both implementations
+use outward rounding on the same encoded model and query values.
+
+\begin{table}[htbp]
+\centering
+\caption{Outward-rounded bounds on endpoint disagreement at
+$\sqrt{\beta}/D=0.35$. A stable query preserves its initial decision
+throughout the interval. A switch witness proves the initial winner
+loses by the terminal time. The DOP853 column gives a numerical check.}
+\label{tab:outward-transfer}
+\begin{tabular}{lrrrrrr}
+\toprule
+Source & $T$ & Rows & Slab stable & Local stable & Local switch & DOP853 switch \\
+\midrule
+Iris & 0.15 & 149 & 137 & 146 & 1 & 2 \\
+Letter & 0.15 & 3620 & 2286 & 3377 & 160 & 200 \\
+HAR & 0.15 & 864 & 745 & 848 & 11 & 14 \\
+Iris & 0.50 & 149 & 74 & 144 & 4 & 4 \\
+Letter & 0.50 & 3620 & 316 & 2355 & 348 & 715 \\
+HAR & 0.50 & 864 & 279 & 745 & 19 & 55 \\
+Iris & 1.25 & 149 & 53 & 114 & 4 & 6 \\
+Letter & 1.25 & 3620 & 0 & 157 & 467 & 2116 \\
+HAR & 1.25 & 864 & 0 & 136 & 44 & 251 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Across both bandwidths and all three horizons we made 27,798
+query--setting evaluations. No positive or negative certificate
+contradicted the DOP853 checkpoints. At the short horizon in
+Table~\ref{tab:outward-transfer}, the verified endpoint switch
+intervals were $1$--$3$ of 149, $160$--$243$ of 3,620, and $11$--$16$
+of 864. These intervals follow directly from counting the two
+certificates, without trusting the reference integrator. Longer
+horizons widen them substantially. The table measures decision
+disagreement for a specified flow and reports no classification gain.
+
+\subsection{Matched comparison with verified integration}
+\label{sec:score-reachability}
+The facet test can precede an integrator when only strict decisions are
+needed. We compare this composition with a validated integrator using
+the same outward binary64 primitives, exponential and batch cap.
+For Voronoi scores $s_j(x)=a_j^\top x-\|a_j\|^2/2$, define
+$m_j=s_j-s_0$ and $B_{ji}=m_j(a_i)$. The exact reduced system is
+$\dot m=B\,\mathrm{softmax}(m/\beta)-m$, with $m_0=0$.
+Each step first encloses the path in a score-coordinate box from
+variation of constants and the convex hull of the columns of $B$.
+A posterior evaluation narrows the box. Writing $M=B\,\mathrm{softmax}$
+with the same temperature, the terminal enclosure is
+$e^{-h}m+(1-e^{-h})M(m)+(h-1+e^{-h})D M(Y)F(Y)$ on the resulting
+tube $Y$. The Jacobian action follows from the posterior covariance.
+We repeat on unresolved queries with $1,4,16,64$ equal steps.
+
+All 149 Iris queries and at most 96 evenly spaced queries in each
+Letter and HAR fold give 725 inputs. We use the previous train/test
+fits with bandwidth ratio $0.35$. Each method can certify whole-path
+stability or strict loss of the initial winner at the endpoint. The
+hybrid sends only undecided queries to the interval solver.
+Table~\ref{tab:verified-cost} gives the number resolved and the
+sum of the warmed medians over the nine folds. Samples ran in
+rotated order on one thread with at most 64 queries per batch.
+
+\begin{table}[htbp]
+\centering
+\caption{Same-precision comparison on 725 queries. The elapsed times
+include query arithmetic and exclude setup.}
+\label{tab:verified-cost}
+\begin{tabular}{lrrr}
+\toprule
+$T$ & Facet & Interval & Facet then interval \\
+\midrule
+$0.15$ & 715 (327 ms) & 723 (1443 ms) & 725 (560 ms) \\
+$0.50$ & 610 (303 ms) & 718 (3106 ms) & 721 (2120 ms) \\
+$1.25$ & 229 (301 ms) & 690 (4595 ms) & 691 (4572 ms) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The hybrid was $2.58$ times as fast as the interval solver at $T=0.15$
+for the warm passes, and $2.05$ times as fast including setup once. At
+$T=1.25$ the warm times were close, and including setup made the hybrid
+approximately three percent slower. No jointly certified decisions
+conflicted. DOP853 checkpoints independently checked all verdicts.
+A separate matched-input comparison against the Decimal solver on
+Iris and two two-dimensional fixtures also found no conflicts.
+The timing result is for these implementations and this fixed
+workload. The present facet setup constructs a four-site-index array.
+Its memory cost can dominate at larger site counts, so the comparison
+supports a speed gain for the covered settings with high resolution.
+
+\subsection{Exact restriction to the prototype span}
+If an application needs only an endpoint label, it can integrate in a
+smaller space before relying on any certificate for speed. Let $a_1$
+be a reference site, $V=\operatorname{span}\{a_i-a_1\}_i$, and write
+$x-a_1=z+u$ with $z\in V$ and $u\perp V$. Since
+\[
+ \|x-a_i\|^2=\|z-(a_i-a_1)\|^2+\|u\|^2,
+\]
+the common perpendicular factor cancels in all posterior weights and
+class comparisons. The exact ODE splits into the same Gaussian flow
+for $z$ with sites $a_i-a_1\in V$ and $\dot u=-u$. A mixture-score
+readout depends only on $z$. An arbitrary affine readout can also
+evaluate margins from $z(t)$ and the known term $e^{-t}u(0)$.
+This is a change of coordinates with no approximation of the flow.
+For endpoint predictions under the mixture-score readout, dense
+operations at each step depend on at most $K-1$ coordinates for $K$
+sites. Initial projection still depends on the original feature dimension.
+
+We compared full-coordinate RK4 to RK4 in a thin QR basis containing
+$V$ on the same public roster, using $T=0.5$, bandwidth ratio $0.35$,
+and maximum step $0.025$. The two numerical paths gave the same
+endpoint label for all 4,633 queries. The maximum absolute difference
+between terminal score contrasts was $8.6\cdot10^{-13}$. In the archived
+run the reduction from 561 to 5 coordinates on HAR yielded between
+44 and 60 times shorter median whole-batch latency across the three
+test blocks. Measurements use one thread, include input projection, and
+exclude the one-time QR setup. The reduction changed timing little on
+Iris, and retained all 16 dimensions on Letter. These timings compare
+two implementations of the same fixed-step prediction. They are
+host-specific and support using span restriction as a baseline for
+accelerating endpoint prediction, especially when features outnumber sites.
