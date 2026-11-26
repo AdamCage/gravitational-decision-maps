@@ -1,0 +1,93 @@
+{
+  "method": "numerical DOP853 diagnostics on deterministic certified and unresolved samples",
+  "test_candidate_stride": 31,
+  "beta": 5.947136059540458,
+  "horizon": 0.3,
+  "nonzero_checkpoints": 20,
+  "ordered_pick_limits": [
+    16,
+    24,
+    16
+  ],
+  "groups": {
+    "slab": {
+      "test_rows": [
+        93,
+        124,
+        155,
+        279,
+        341,
+        372,
+        465,
+        589,
+        651,
+        713,
+        775,
+        837,
+        868,
+        961,
+        1054,
+        1147
+      ],
+      "n": 16,
+      "field_evaluation_rounds": 62,
+      "reserve_violations_at_checkpoints": 0,
+      "minimum_nontrivial_margin_slack": 2.365343341890694
+    },
+    "hull_only": {
+      "test_rows": [
+        1581,
+        1736,
+        2015,
+        2511,
+        2697,
+        3193,
+        3410,
+        3813,
+        4030,
+        4805,
+        4898,
+        4960,
+        4991,
+        5146,
+        5270,
+        5611,
+        7719,
+        8277,
+        8804,
+        8866,
+        8897,
+        9083,
+        9827
+      ],
+      "n": 23,
+      "field_evaluation_rounds": 62,
+      "reserve_violations_at_checkpoints": 0,
+      "minimum_nontrivial_margin_slack": 1.9343711101213648
+    },
+    "unresolved": {
+      "test_rows": [
+        0,
+        31,
+        62,
+        186,
+        217,
+        248,
+        310,
+        403,
+        434,
+        496,
+        527,
+        558,
+        620,
+        682,
+        744,
+        806
+      ],
+      "n": 16,
+      "field_evaluation_rounds": 62,
+      "reserve_violations_at_checkpoints": 0,
+      "minimum_nontrivial_margin_slack": 0.10385043319375381
+    }
+  }
+}

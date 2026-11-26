@@ -1,0 +1,230 @@
+{
+  "status": "complete",
+  "study": "CIFAR-100 matched frozen representation comparison",
+  "scope": "Supervised encoder trained on the same fitting images and tuned on the same validation split",
+  "embedding_dimension": 384,
+  "fit_rows": 45000,
+  "validation_rows": 5000,
+  "split_seed": 20261127,
+  "selection_metric": "validation top1",
+  "embedding_run": "neural-96",
+  "sha256": {
+    "e_train.npy": "457c509e1af9c7893b4a1b878eb1d14ea06d44a2aaf9f3b979697e7b51d33b3d",
+    "head.npz": "0db8688e6567824e11ccd942c9bb03d2ab921d7af3efe64648f49e2e1a9f1d22",
+    "encoder.pt": "66d644430c349760369a993787b50decd819e0587e7d0564ef2dda0b7eafdff5",
+    "e_test.npy": "8c0c74d3c5e5099d33bb2c1196774aed5ed7cb279aec8ba5d21e5356d31acb9f"
+  },
+  "script_sha256": "bee417abb31c2ca24a6a454689f5792befd5d90a0aee1f17749630512372f127",
+  "resources": {
+    "task": "GPU",
+    "threads": 4,
+    "gpu_memory_fraction": 0.12,
+    "iterations": 160,
+    "trial_cap": 9,
+    "timeout_s": 340
+  },
+  "search": {
+    "sampler": "Optuna TPESampler",
+    "seed": 20261127,
+    "random_startup_trials": 3,
+    "depth": [
+      4,
+      7
+    ],
+    "learning_rate_log": [
+      0.07,
+      0.38
+    ],
+    "l2_leaf_reg_log": [
+      0.5,
+      24.0
+    ],
+    "bagging_temperature": [
+      0,
+      2.5
+    ]
+  },
+  "trials": [
+    {
+      "number": 0,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 4,
+        "learning_rate": 0.19655299733191653,
+        "l2_leaf_reg": 6.905940358342642,
+        "bagging_temperature": 1.3960256046063741
+      },
+      "validation_top1": 0.4026,
+      "seconds": 5.097263
+    },
+    {
+      "number": 1,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 5,
+        "learning_rate": 0.17746791039365536,
+        "l2_leaf_reg": 15.463179879313106,
+        "bagging_temperature": 2.3751072044697157
+      },
+      "validation_top1": 0.467,
+      "seconds": 8.47973
+    },
+    {
+      "number": 2,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 5,
+        "learning_rate": 0.07780477528994682,
+        "l2_leaf_reg": 3.6123149649571746,
+        "bagging_temperature": 2.435900919479014
+      },
+      "validation_top1": 0.4104,
+      "seconds": 9.007105
+    },
+    {
+      "number": 3,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 7,
+        "learning_rate": 0.190470695595594,
+        "l2_leaf_reg": 19.38712004621364,
+        "bagging_temperature": 2.423891366356443
+      },
+      "validation_top1": 0.5262,
+      "seconds": 13.089833
+    },
+    {
+      "number": 4,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 7,
+        "learning_rate": 0.3323044330942414,
+        "l2_leaf_reg": 3.154394060163345,
+        "bagging_temperature": 0.8825994784850566
+      },
+      "validation_top1": 0.5686,
+      "seconds": 8.207346
+    },
+    {
+      "number": 5,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 7,
+        "learning_rate": 0.32676868443266865,
+        "l2_leaf_reg": 1.074229830034456,
+        "bagging_temperature": 1.5073534708643592
+      },
+      "validation_top1": 0.57,
+      "seconds": 7.917454
+    },
+    {
+      "number": 6,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 7,
+        "learning_rate": 0.3050755606799304,
+        "l2_leaf_reg": 0.5703629627108144,
+        "bagging_temperature": 2.002598253369865
+      },
+      "validation_top1": 0.5706,
+      "seconds": 7.881458
+    },
+    {
+      "number": 7,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 5,
+        "learning_rate": 0.3028948903845183,
+        "l2_leaf_reg": 0.7158720088543582,
+        "bagging_temperature": 1.182642143548342
+      },
+      "validation_top1": 0.5004,
+      "seconds": 3.711968
+    },
+    {
+      "number": 8,
+      "state": "COMPLETE",
+      "params": {
+        "depth": 7,
+        "learning_rate": 0.14141440567901753,
+        "l2_leaf_reg": 0.9314938016498229,
+        "bagging_temperature": 2.3398690781841474
+      },
+      "validation_top1": 0.5026,
+      "seconds": 8.189444
+    }
+  ],
+  "completed_trials": 9,
+  "tuning_seconds": 71.60735320020467,
+  "best": {
+    "trial": 6,
+    "params": {
+      "depth": 7,
+      "learning_rate": 0.3050755606799304,
+      "l2_leaf_reg": 0.5703629627108144,
+      "bagging_temperature": 2.002598253369865
+    },
+    "validation_top1": 0.5706
+  },
+  "elapsed_seconds": 84.87394329998642,
+  "metrics": {
+    "original_affine": {
+      "validation": {
+        "top1": 0.7176,
+        "top5": 0.8992,
+        "n": 5000
+      },
+      "test": {
+        "top1": 0.712,
+        "top5": 0.8984,
+        "n": 10000
+      },
+      "head_fit_seconds": 0,
+      "test_predictions_sha256": "1a96996afa299470f84737031fbfc166b5de9e0a39c6bee13950f24a749d00f8"
+    },
+    "refit_linear": {
+      "validation": {
+        "top1": 0.7152,
+        "top5": 0.9178,
+        "n": 5000
+      },
+      "test": {
+        "top1": 0.7136,
+        "top5": 0.9112,
+        "n": 10000
+      },
+      "head_fit_seconds": 1.6574516999535263,
+      "test_predictions_sha256": "e05440037745089db888b23b9955897b09debb103e59a3948760bc437cfb7a1d"
+    },
+    "fixed_catboost": {
+      "validation": {
+        "top1": 0.391,
+        "top5": 0.6664,
+        "n": 5000
+      },
+      "test": {
+        "top1": 0.3921,
+        "top5": 0.6542,
+        "n": 10000
+      },
+      "head_fit_seconds": 3.1624461002647877,
+      "test_predictions_sha256": "46f2f35f68bf74f53d87e96e93de5f638d35aff4db98021644eff40323d86246"
+    },
+    "optuna_catboost": {
+      "validation": {
+        "top1": 0.5706,
+        "top5": 0.8244,
+        "n": 5000
+      },
+      "test": {
+        "top1": 0.5702,
+        "top5": 0.8208,
+        "n": 10000
+      },
+      "head_fit_seconds": 7.867258799728006,
+      "test_predictions_sha256": "785b65af7d10d0580d5c1e217eaba5d26be15c55ea216a91e446c7449c81c3c7"
+    }
+  },
+  "predictions_json": "cifar100_embedding_boost_predictions.json",
+  "predictions_sha256": "347f8c9ff79d5f604a3501072a400a792bfbfae15ab47109429bacf8a5c5d25a"
+}

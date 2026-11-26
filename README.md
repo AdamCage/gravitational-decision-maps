@@ -10,6 +10,8 @@ The technical manuscript includes a matched comparison of static prediction, cla
 
 The repository contains the completed falsification pilot, its frozen protocol, both benchmark suites and the recorded results. The report gives the aggregate outcome and the evidence for each hypothesis. [Research report](RESEARCH.md)
 
+The CIFAR‑100 experiment compares a CNN trained on native RGB images, Optuna-tuned CatBoost, linear heads, and Gaussian transport. On the official test, transporting the CNN features before a frozen 960-tree CatBoost head improves top‑1 from 66.09% to 70.00% and lowers top‑5 from 88.32% to 85.83%. The original CNN achieves 71.20% top‑1. [Experiment report and replay commands](crossing/CIFAR100-RESULTS.md) · [Benchmark figure](output/cifar100-benchmark.png)
+
 ## Research question
 
 > When does learned attractor dynamics improve classification outside observed training cores compared with static classifiers given the same data, representations, and tuning budget?

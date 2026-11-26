@@ -1,0 +1,72 @@
+{
+  "status": "complete",
+  "study": "More trees for the original validation-selected raw-feature CatBoost parameters",
+  "protocol": "Choose the highest validation top1 on the fixed checkpoint grid; earliest checkpoint wins ties",
+  "original_selection_sha256": "3824884a51b3c78f508fc35c70eba6d4f6eede6a3dd9fd4f40cb1f8c58307c20",
+  "script_sha256": "6a8ef13de0c850dfffa002b3ff4aa348c000ad2975952e09caf52870c156ebad",
+  "optuna_trial": 6,
+  "params": {
+    "depth": 7,
+    "learning_rate": 0.18692351065160237,
+    "l2_leaf_reg": 0.575971047838873,
+    "bagging_temperature": 2.403117904043838
+  },
+  "validation_checkpoints": [
+    220,
+    440,
+    660,
+    880,
+    1100
+  ],
+  "fit_rows": 45000,
+  "validation_rows": 5000,
+  "resources": {
+    "task": "GPU",
+    "threads": 4,
+    "gpu_memory_fraction": 0.12
+  },
+  "fit_seconds": 60.4559201002121,
+  "validation": {
+    "220": {
+      "top1": 0.1722,
+      "top5": 0.4184,
+      "n": 5000
+    },
+    "440": {
+      "top1": 0.216,
+      "top5": 0.4674,
+      "n": 5000
+    },
+    "660": {
+      "top1": 0.2422,
+      "top5": 0.4978,
+      "n": 5000
+    },
+    "880": {
+      "top1": 0.2584,
+      "top5": 0.5198,
+      "n": 5000
+    },
+    "1100": {
+      "top1": 0.271,
+      "top5": 0.5364,
+      "n": 5000
+    }
+  },
+  "selected_trees": 1100,
+  "test": {
+    "220": {
+      "top1": 0.1717,
+      "top5": 0.4219,
+      "n": 10000
+    },
+    "1100": {
+      "top1": 0.2751,
+      "top5": 0.5414,
+      "n": 10000
+    }
+  },
+  "predictions_sha256": "2806994117d16b626419cabac5934338694d44ff5b1440d25dd83c558e0e8e10",
+  "predictions_json": "cifar100_boost_horizon_predictions.json",
+  "elapsed_seconds": 87.11910729994997
+}

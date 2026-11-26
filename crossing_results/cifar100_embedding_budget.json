@@ -1,0 +1,75 @@
+{
+  "status": "complete",
+  "study": "Exploratory longer tree-budget control with the matched encoder and validation-selected hyperparameters",
+  "checkpoint_selection": "validation top1, earliest checkpoint on ties",
+  "checkpoints": [
+    160,
+    320,
+    480,
+    640,
+    800,
+    960
+  ],
+  "source_metrics_sha256": "418f57490adb0fae288b4e111156d69673da241a6953b467c104558eae3b460c",
+  "script_sha256": "dcae14b0bcd578676ea612f5c56c94cf71f09c59057252b55c6f4237aada29e8",
+  "embedding_run": "neural-96",
+  "params": {
+    "depth": 7,
+    "learning_rate": 0.3050755606799304,
+    "l2_leaf_reg": 0.5703629627108144,
+    "bagging_temperature": 2.002598253369865
+  },
+  "resources": {
+    "threads": 4,
+    "gpu_memory_fraction": 0.12
+  },
+  "fit_seconds": 41.45328829996288,
+  "selected_trees": 960,
+  "validation": {
+    "160": {
+      "top1": 0.5706,
+      "top5": 0.8244,
+      "n": 5000
+    },
+    "320": {
+      "top1": 0.6198,
+      "top5": 0.8566,
+      "n": 5000
+    },
+    "480": {
+      "top1": 0.6424,
+      "top5": 0.8732,
+      "n": 5000
+    },
+    "640": {
+      "top1": 0.6522,
+      "top5": 0.8808,
+      "n": 5000
+    },
+    "800": {
+      "top1": 0.6598,
+      "top5": 0.8866,
+      "n": 5000
+    },
+    "960": {
+      "top1": 0.663,
+      "top5": 0.8878,
+      "n": 5000
+    }
+  },
+  "test": {
+    "160": {
+      "top1": 0.5702,
+      "top5": 0.8208,
+      "n": 10000
+    },
+    "960": {
+      "top1": 0.6609,
+      "top5": 0.8832,
+      "n": 10000
+    }
+  },
+  "predictions_json": "cifar100_embedding_budget_predictions.json",
+  "predictions_sha256": "1acfae0fe40539a8a590d3aa7dcc5f3f399755c45cacd76525e818e19b55b017",
+  "elapsed_seconds": 42.03336100000888
+}
